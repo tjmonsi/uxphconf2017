@@ -1,7 +1,6 @@
 <!-- Polymer dependencies -->
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/polymerfire/firebase-auth.html">
-<link rel="import" href="../../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../../bower_components/reach-core/reach-core-behavior/reach-core-util-behavior.html">
 <link rel="import" href="../../../bower_components/iron-image/iron-image.html">
@@ -199,6 +198,7 @@
       
       _q3Changed: function(e) {
         // console.log(this.user, firebase)
+        this.$.toaster.show('Submitting your answer');
         this.city = e;
         if (firebase && this.user) {
           firebase.database().ref('users/' + this.user.uid + '/q3').set(e).then(() => {

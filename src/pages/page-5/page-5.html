@@ -1,6 +1,5 @@
 <!-- Polymer dependencies -->
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../../bower_components/reach-core/reach-core-behavior/reach-core-util-behavior.html">
 <link rel="import" href="../../../bower_components/iron-image/iron-image.html">
@@ -14,17 +13,16 @@
 <link rel="import" href="../../uxph-conference-2017-icons/uxph-icons.html">
 
 <!-- Style dependency -->
-<link rel="import" href="page-2-style.html">
+<link rel="import" href="page-5-style.html">
 
-<dom-module id="page-2">
+<dom-module id="page-5">
   <template>
-    <style is="custom-style" include="page-2-style iron-flex iron-flex-alignment iron-flex-factors">
+    <style is="custom-style" include="page-5-style iron-flex iron-flex-alignment iron-flex-factors">
       :host {
         display: block;
       }
     </style>
     
-    <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
     <div class="container">
       <iron-image class="blur-background-area" src="/images/assets/manila-bay-tiny.jpg" preload fade sizing="cover"></iron-image>
       <iron-image class="background-area" src="/images/assets/manila-bay.jpg" preload fade sizing="cover"></iron-image>
@@ -37,37 +35,31 @@
           <div class="flex"></div>
           <div class="content">
             
-            <!-- COPY QUESTION 2 HERE -->
+            <!-- COPY QUESTION 5 HERE -->
             <p class="question">
-              What is the likelihood of you attending a UX Conference in the Philippines?
+              Please share this page to your friends.
             </p>
             
-            <!-- COPY ANSWER 2 HERE -->
-            <paper-radio-group id="q2" class="answer" selected="{{q2}}">
-              <paper-radio-button name="most-likely">Most Likely</paper-radio-button><br/>
-              <paper-radio-button name="somewhat-likely">Maybe / Somewhat likely</paper-radio-button><br/>
-              <paper-radio-button name="meh">Neither / Meh</paper-radio-button><br/>
-              <paper-radio-button name="somewhat-unlikely">Somewhat Unlikely</paper-radio-button><br/>
-              <paper-radio-button name="nope">Will not go</paper-radio-button>
-            </paper-radio-group>
+            <div class="anchor-top horizontal layout">
+              <div class="flex"></div>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=[[_thisUrl()]]" target="_blank">
+                <paper-icon-button src="https://firebasestorage.googleapis.com/v0/b/project-nice-polymer.appspot.com/o/icons%2Ffacebook_circle_color-128.png?alt=media&token=e3b0bb20-d29b-4da3-b6de-80a17f561797"></paper-icon-button>
+              </a>
+              <a href="https://twitter.com/share?text=[[_textToUrl(article.title)]]&url=[[_thisUrl()]]" target="_blank">
+                <paper-icon-button src="https://firebasestorage.googleapis.com/v0/b/project-nice-polymer.appspot.com/o/icons%2Ftwitter_circle_color-256.png?alt=media&token=0a32bc85-8464-4b97-811b-ec1c3aa750bf"></paper-icon-button>
+              </a>
+              <div class="flex"></div>
+            </div>
             
-            <template is="dom-if" if="{{_showNextPage}}">
-              <div class="anchor-top horizontal layout">
-                <div class="flex"></div>
-                <a href="/" class="anchor">
-                  <paper-button>Back</paper-button>
-                </a>  
-                <a href="/page-3" class="anchor">
-                  <paper-button>Next</paper-button>
-                </a>  
-                <div class="flex"></div>
-              </div>
-            </template>
+            <div class="anchor-top horizontal layout">
+              <div class="flex"></div>
+              <a href="/" class="anchor">
+                <paper-button>Home</paper-button>
+              </a>
+              <div class="flex"></div>
+            </div>
               
-            <template is="dom-if" if="{{!_showNextPage}}">
-              <div class="placeholder">
-              </div>  
-            </template>
+
             
           </div>
           <div class="flex"></div>
@@ -96,17 +88,13 @@
     /* global firebase */
     
     Polymer({
-      is: 'page-2',
+      is: 'page-5',
       
       properties: {
         user: {
           type: Object,
           notify: true
         },
-        q2: {
-          type: String,
-          observer: '_q2Changed'
-        }
       },
       
       behaviors: [
@@ -130,41 +118,11 @@
         this.$$('.container').style.height = height + 'px';
       },
       
-      ready: function() {
-        this.autoLogin();
-      },
-      
-      autoLogin: function() {
-        this.$.gauth.signInAnonymously().then((user) => {
-          this.user = user;
-        }).catch((error) => {
-          this.async(() => {
-            this.$.toaster.show({text: error.message, duration: 10000});
-          }, 6000);
-        });
-      },
-      
-      handleError: function(error) {
-        this.$.toaster.show({text: error.message, duration: 10000});
-      },
-      
-      _q2Changed: function(e) {
-        this.$.toaster.show('Submitting your answer');
-        if (firebase && this.user) {
-          firebase.database().ref('users/' + this.user.uid + '/q2').set(e).then(() => {
-            this._showNextPage = true;
-            this.async(() => {
-              this.$$('.anchor-top').style.opacity = 1;
-            }, 100);
-          }).catch((error) => {
-            this.$.toaster.show({text: error.message, duration: 10000});
-          });
-        } else if (!this.user) {
-          this.$.toaster.show({text: 'Can\'t save answer for now.', duration: 10000});
-        } else {
-          this.$.toaster.show({text: 'Can\'t save answer for now. Please refresh and try again', duration: 10000});
-        }
+      _thisUrl: function() {
+        return window.location.protocol + '//' + window.location.hostname;
       }
+      
+      
     });
   </script>
 </dom-module>

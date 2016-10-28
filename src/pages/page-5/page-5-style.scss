@@ -7,8 +7,6 @@
 .container {
   background: #FDB314;
   position: relative;
-  overflow-y: auto;
-  
   .blur-background-area {
     position: absolute;
     top: 0;
@@ -132,24 +130,17 @@
         }
       }
       
-      .answer-container {
-        padding: 30px;
-        padding-top: 10px;
-        border-radius: 25px;
-        background: rgba(255, 255, 255, 0.7);
-        text-align: left;
+      .answer {
+        max-width: 400px;
         
-        paper-input {
-          --paper-input-container-focus-color: #000;
-        }
-        
-        paper-textarea {
-          --paper-input-container-focus-color: #000;
+        @include phone {
+          font-size: 0.9em;
         }
       }
       
       .anchor-top {
         margin-top: 20px;
+
         
         .anchor {
           color: inherit;

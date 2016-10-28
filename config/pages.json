@@ -41,6 +41,12 @@
       "link-label": "Page 4",
       "route": "page-4",
       "source": "/src/pages/page-4/page-4.html"
+    },
+    {
+      "tag": "page-5",
+      "link-label": "Page 5",
+      "route": "page-5",
+      "source": "/src/pages/page-5/page-5.html"
     }
   ]
 }
