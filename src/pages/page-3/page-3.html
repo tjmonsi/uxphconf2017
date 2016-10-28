@@ -1,0 +1,229 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../../bower_components/reach-core/reach-core-behavior/reach-core-util-behavior.html">
+<link rel="import" href="../../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../../../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-tooltip/paper-tooltip.html">
+<link rel="import" href="../../../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../../../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../../../bower_components/neon-animation/animations/fade-out-animation.html">
+
+<link rel="import" href="../../uxph-conference-2017-icons/uxph-icons.html">
+
+<!-- Style dependency -->
+<link rel="import" href="page-3-style.html">
+
+<dom-module id="page-3">
+  <template>
+    <style is="custom-style" include="page-3-style iron-flex iron-flex-alignment iron-flex-factors">
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
+    <div class="container">
+      <neon-animated-pages
+        class="background-switcher"
+        selected="{{city}}"
+        attr-for-selected="name"
+        entry-animation="fade-in-animation"
+        exit-animation="fade-out-animation">
+        <div name="manila">
+          <iron-image class="blur-background-area" src="/images/assets/rizal-tiny.jpg" preload fade sizing="cover"></iron-image>
+          <iron-image class="background-area" src="/images/assets/rizal.jpg" preload fade sizing="cover"></iron-image>
+        </div>
+        <div name="cebu">
+          <iron-image class="blur-background-area" src="/images/assets/mactan-tiny.jpg" preload fade sizing="cover"></iron-image>
+          <iron-image class="background-area" src="/images/assets/mactan.jpg" preload fade sizing="cover"></iron-image>
+        </div>
+      </neon-animated-pages>
+
+        
+
+      
+      <div class="dark-area"></div>
+      <iron-image class="foreground-area" src="/images/assets/uxph.png" preload fade sizing="contain"></iron-image>
+      
+      <div class="content-container vertical layout">
+        <div class="flex"></div>
+        <div class="horizontal layout wrap">
+          <div class="flex"></div>
+          <div class="content">
+            
+            <!-- COPY QUESTION 3 HERE -->
+            <p class="question">
+              Where would you go for the UX conference?
+            </p>
+            
+            <!-- COPY ANSWER 3 HERE -->
+            <paper-radio-group id="q3" class="answer" selected="{{q3}}">
+              <template is="dom-if" if="{{!order}}">
+                <paper-radio-button name="cebu">Cebu</paper-radio-button>
+              </template>
+              <paper-radio-button name="manila">Manila</paper-radio-button>
+              <template is="dom-if" if="{{order}}">
+                <paper-radio-button name="cebu">Cebu</paper-radio-button>
+              </template>
+            </paper-radio-group>
+            
+            <template is="dom-if" if="{{_showNextPage}}">
+              <div class="anchor-top horizontal layout">
+                <div class="flex"></div>
+                <a href="/page-3" class="anchor">
+                  <paper-button>Back</paper-button>
+                </a>  
+                <a href="/page-4" class="anchor">
+                  <paper-button>Next</paper-button>
+                </a>  
+                <div class="flex"></div>
+              </div>
+            </template>
+              
+            <template is="dom-if" if="{{!_showNextPage}}">
+              <div class="placeholder">
+              </div>  
+            </template>
+            
+          </div>
+          <div class="flex"></div>
+        </div>
+        <div class="flex"></div>
+      </div>
+      
+      <template is="dom-if" if="{{isManila(city)}}">
+        <div class="attribution">
+          <a href="https://commons.wikimedia.org/w/index.php?curid=21434158" target="_blank">
+            By Mikepua - Own work, CC BY-SA 3.0
+          </a>
+        </div>
+      </template>
+      <template is="dom-if" if="{{isCebu(city)}}">
+        <div class="attribution">
+          <a href="https://www.flickr.com/photos/hulagway/6733918263" target="_blank">
+            By whologwhy - SUNSET CRUISE
+          </a>
+        </div>
+      </template>
+      <div class="bug-report">
+        <a href="https://github.com/tjmonsi/uxphconf2017/issues" target="_blank" id="bug-report-anchor">
+          <paper-icon-button icon="uxph:bug-report"></paper-icon-button>
+        </a>
+        <paper-tooltip for="bug-report-anchor" position="left">Submit Bug</paper-tooltip>
+      </div>
+    </div>
+
+    <paper-toast id="toaster"></paper-toast>
+  </template>
+
+  <script>
+    /* global Polymer */
+    /* global firebase */
+    
+    Polymer({
+      is: 'page-3',
+      
+      properties: {
+        user: {
+          type: Object,
+          notify: true
+        },
+        q3: {
+          type: String,
+          observer: '_q3Changed'
+        },
+        order: {
+          type: Boolean,
+          value: function() {
+            return Math.random() < 0.5;
+          },
+          observer: 'check'
+        },
+        city: {
+          type: String,
+          value: function() {
+            return Math.random() < 0.5 ? 'cebu' : 'manila'
+          }
+        }
+      },
+      
+      check: function(e) {
+        console.log(e)
+      },
+      
+      behaviors: [
+        Polymer.ReachCoreUtilBehavior  
+      ],
+      
+      _showNextPage: false,
+      
+      attached: function() {
+        this._showNextPage = false;
+        this._resize();
+        window.addEventListener('resize', this._resize.bind(this));
+      },
+      
+       detached: function() {
+        window.removeEventListener('resize', this._resize.bind(this));
+      },
+      
+      _resize: function() {
+        var height = this.windowSize().height;
+        this.$$('.container').style.height = height + 'px';
+      },
+      
+      ready: function() {
+        this.autoLogin();
+      },
+      
+      autoLogin: function() {
+        this.$.gauth.signInAnonymously().then((user) => {
+          this.user = user;
+        }).catch((error) => {
+          this.async(() => {
+            this.$.toaster.show({text: error.message, duration: 10000});
+          }, 6000);
+        });
+      },
+      
+      handleError: function(error) {
+        this.$.toaster.show({text: error.message, duration: 10000});
+      },
+      
+      _q3Changed: function(e) {
+        // console.log(this.user, firebase)
+        this.city = e;
+        if (firebase && this.user) {
+          firebase.database().ref('users/' + this.user.uid + '/q3').set(e).then(() => {
+            this._showNextPage = true;
+            
+            this.async(() => {
+              this.$$('.anchor-top').style.opacity = 1;
+            }, 100);
+          }).catch((error) => {
+            this.$.toaster.show({text: error.message, duration: 10000});
+          });
+        } else if (!this.user) {
+          this.$.toaster.show({text: 'Can\'t save answer for now.', duration: 10000});
+        } else {
+          this.$.toaster.show({text: 'Can\'t save answer for now. Please refresh and try again', duration: 10000});
+        }
+      },
+      
+      isManila: function(city) {
+        return city === 'manila'
+      },
+      
+      isCebu: function(city) {
+        return city === 'cebu' 
+      }
+    });
+  </script>
+</dom-module>

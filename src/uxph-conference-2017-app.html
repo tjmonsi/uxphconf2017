@@ -1,0 +1,127 @@
+<!-- Polymer Global dependencies -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/reach-core/reach-core-route/reach-core-route-animated.html">
+<link rel="import" href="../bower_components/reach-core/reach-core-layout/reach-core-layout.html">
+<link rel="import" href="../bower_components/polymerfire/firebase.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+
+<!-- Custom Element dependencies -->
+
+<!--<link rel="import" href="./uxph-conference-2017-header/uxph-conference-2017-header.html">-->
+<!--<link rel="import" href="./uxph-conference-2017-drawer/uxph-conference-2017-drawer.html">-->
+
+<!--
+`<uxph-conference-2017-app>` is the main core element called in the index.html that
+renders the pages.
+
+Currently we have hard-coded the pages, they are lazily loaded inside the dom-module
+
+In typical use, just slap some `<uxph-conference-2017-app>` at the top of your body:
+
+    <body>
+      <uxph-conference-2017-app></uxph-conference-2017-app>
+
+Wham! It's all awesome now!
+-->
+<dom-module id="uxph-conference-2017-app">
+  <!-- Lazy loaded dependencies -->
+  <!-- LAZY LOADER STARTS HERE -->
+<link rel="lazy-import" href="/src/pages/web-home/web-home.html" group="web-home">
+<link rel="lazy-import" href="/src/pages/web-404/web-404.html" group="web-404">
+<link rel="lazy-import" href="/src/pages/web-403/web-403.html" group="web-403">
+<link rel="lazy-import" href="/src/pages/page-2/page-2.html" group="page-2">
+<link rel="lazy-import" href="/src/pages/page-3/page-3.html" group="page-3">
+<link rel="lazy-import" href="/src/pages/page-4/page-4.html" group="page-4">
+<!-- LAZY LOADER ENDS HERE -->
+
+  <template>
+    <style is="custom-style">
+    </style>
+    
+    <firebase-app 
+        auth-domain="ux-ph-conf-2017.firebaseapp.com"
+        database-url="https://ux-ph-conf-2017.firebaseio.com"
+        api-key="AIzaSyD9PL6zRsYSG7RkdMOHy3n7kRiUN_fGU84"
+        storage-bucket="ux-ph-conf-2017.appspot.com"></firebase-app>
+        
+    <!--messagingSenderId: "560394535705"-->
+
+    <reach-core-layout scroll-progress="{{scrollProgress}}">
+
+      <!--<uxph-conference-2017-header -->
+      <!--  main-header -->
+      <!--  scroll-progress="{{scrollProgress}}" -->
+      <!--  user="{{user}}"></uxph-conference-2017-header>-->
+      <!--<uxph-conference-2017-drawer -->
+      <!--  main-drawer -->
+      <!--  navigation-list="[[navigationList]]" -->
+      <!--  scroll-progress="{{scrollProgress}}" -->
+      <!--  user="{{user}}"></uxph-conference-2017-drawer>-->
+
+      <reach-core-route-animated
+          main-content
+          from-element-name="uxph-conference-2017-app"
+          subroute="{{subroute}}"
+          not-found-tag="[[notFoundTag]]"
+          not-authorized-tag="[[notAuthorizedTag]]"
+          navigation-list="{{navigationList}}"
+          default-page="[[defaultRoot]]"
+          query-params="{{queryParams}}">
+
+        <!-- ROUTER STARTS HERE -->
+<web-home name="home" label="Home" scroll-progress="{{scrollProgress}}" user="{{user}}" query-params="{{queryParams}}" ></web-home>
+<page-2 name="page-2" label="Page 2" scroll-progress="{{scrollProgress}}" user="{{user}}" query-params="{{queryParams}}" ></page-2>
+<page-3 name="page-3" label="Page 3" scroll-progress="{{scrollProgress}}" user="{{user}}" query-params="{{queryParams}}" ></page-3>
+<page-4 name="page-4" label="Page 4" scroll-progress="{{scrollProgress}}" user="{{user}}" query-params="{{queryParams}}" ></page-4>
+<!-- ROUTER ENDS HERE -->
+
+      </reach-core-route-animated>
+    </reach-core-layout>
+
+  </template>
+  <script>
+    /*global Polymer*/
+
+    Polymer({
+      is: 'uxph-conference-2017-app',
+
+      properties: {
+        notFoundTag: {
+          type: String,
+          /* NOT FOUND TAG STARTS */
+          value: 'web-404'
+          /* NOT FOUND TAG ENDS */
+        },
+        notAuthorizedTag: {
+          type: String,
+          /* NOT AUTHORIZED TAG STARTS */
+          value: 'web-403'
+          /* NOT AUTHORIZED TAG ENDS */
+        },
+        defaultRoot: {
+          type: String,
+          /* DEFAULT ROOT STARTS */
+          value: 'home'
+          /* DEFAULT ROOT ENDS */
+        },
+        navigationList: {
+          type: Array
+        },
+        scrollProgress: {
+          type: Number
+        },
+        user: {
+          type: Object
+        },
+        queryParams: {
+          type: Object
+        }
+      },
+
+      ready: function() {
+        this.fire('uxph-conference-2017-app-ready');
+
+      }
+    });
+  </script>
+</dom-module>

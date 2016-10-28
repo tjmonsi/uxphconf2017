@@ -1,0 +1,173 @@
+@import '../../variables';
+
+:host {
+  display: block;
+}
+
+.container {
+  background: #FDB314;
+  position: relative;
+  .blur-background-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: inherit;
+  }
+  
+  .background-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: inherit;
+    --iron-image-placeholder: #{'{
+      background-image: url(/images/assets/baywalk-tiny.jpg);
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: center top;
+      background-size: cover;
+      filter: blur(50px);
+      /* this is needed so Safari keeps sharp edges */
+      transform: scale(1);
+    }'};
+  }
+  
+  .dark-area {
+    position: absolute;
+    background: #000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+  }
+  
+  .foreground-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4%;
+    height: 25%;
+    width: 100%;
+    opacity: 1;
+  }
+  
+  .attribution {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-size: 0.6em;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  
+  .bug-report {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    
+    
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    paper-tooltip {
+      --paper-tooltip: #{'{
+        font-size: 1em;
+      }'};  
+    }
+    
+  }
+  
+  .content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    
+    .content {
+      min-width: 250px;
+      padding: 20px;
+      max-width: 600px;
+      text-align: center;
+      color: #fff;
+      
+      #forward-button-group {
+        display: none;
+      }
+      
+      .question {
+        font-size: 1.2em;
+        font-weight: bold;
+        
+        @include phone {
+          font-size: 1em;
+        }
+        
+        @include tablet {
+          font-size: 1.75em;
+          margin-bottom: 70px;
+        }
+        
+        @include smalldesktop {
+          font-size: 1.75em;
+          margin-bottom: 70px;
+        }
+        
+        @include largescreen {
+          font-size: 1.9em;
+          margin-bottom: 20px;
+        }
+      }
+      
+      .answer {
+        max-width: 400px;
+        
+        @include phone {
+          font-size: 0.9em;
+        }
+      }
+      
+      .anchor-top {
+        margin-top: 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        
+        .anchor {
+          color: inherit;
+          text-decoration: none;
+          font-size: 1.2em;
+        }  
+      }
+      
+      .placeholder {
+        margin-top: 20px;
+        height: 55px;
+        width: 100%;
+      }
+      
+      
+      
+      
+      paper-radio-button {
+        --paper-radio-button-label-color: #fff;
+        --paper-radio-button-unchecked-color: #fff;
+        --paper-radio-button-unchecked-ink-color: #fff;
+        --paper-radio-button-checked-color: #fff;
+        --paper-radio-button-checked-ink-color: #fff;
+      }
+    }
+  }
+  
+}
+
