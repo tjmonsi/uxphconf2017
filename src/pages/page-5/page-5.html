@@ -114,7 +114,10 @@
       
       _resize: function() {
         var height = this.windowSize().height;
-        this.$$('.container').style.height = height + 'px';
+        Polymer.dom.flush();
+        var contentHeight = this.$$('.content').getBoundingClientRect().height;
+        contentHeight = contentHeight ? contentHeight : 600;
+        this.$$('.container').style.height = height < contentHeight ? (contentHeight + 40) + 'px' : height + 'px';
       },
       
       _thisUrl: function() {
