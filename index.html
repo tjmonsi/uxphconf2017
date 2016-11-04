@@ -19,20 +19,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- TITLE ENDS -->
 
     <!-- DESCRIPTION START -->
-    <meta name="description" content="This is the app for the UXPH Conference 2017">
+    <meta name="description" content="This is the site for the UXPH Conference 2017">
     <!-- DESCRIPTION END -->
-    
+
     <link rel="icon" href="/images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/manifest/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/manifest/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/manifest/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/manifest/favicon-16x16.png">
 
     <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="/manifest.json">
 
     <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#3f51b5">
 
     <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -48,19 +44,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- IOS TITLE ENDS -->
 
     <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/manifest/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/images/manifest/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/images/manifest/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/manifest/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/images/manifest/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/manifest/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/manifest/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/images/manifest/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#3f51b5">
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Script used to load Polymer and to load webcomponents when needed -->
@@ -113,24 +105,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           navigator.serviceWorker.register('/service-worker.js');
         });
       }
-
-
     </script>
 
 
-    <link rel="import" href="/src/uxph-conference-2017-app.html">
+    <link rel="import" href="/core/uxph-conference-2017-app-shell.html">
 
     <style>
-      /* This needs to be more automated and dynamic i think */
+      /* INDEX STYLE STARTS */
       body {
         margin: 0;
         font-family: 'Roboto', 'Noto', sans-serif;
         line-height: 1.5;
         min-height: 100vh;
       }
+      /* INDEX STYLE ENDS */
     </style>
   </head>
   <body>
-    <uxph-conference-2017-app></uxph-conference-2017-app>
+    <uxph-conference-2017-app-shell></uxph-conference-2017-app-shell>
   </body>
 </html>

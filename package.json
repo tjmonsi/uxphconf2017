@@ -1,6 +1,6 @@
 {
   "name": "uxph-conference-2017",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -9,15 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "polymer serve -H $IP -p $PORT",
-    "build": "polymer build",
     "bundled": "polymer serve build/bundled -H $IP -p $PORT",
     "unbundled": "polymer serve build/unbundled -H $IP -p $PORT",
     "gulp": "$(npm bin)/gulp",
-    "watch": "$(npm bin)/gulp watch-all",
-    "add-page": "yo polymer-init-reach-starter-kit:page",
-    "add-element": "yo polymer-init-reach-starter-kit:element"
+    "watch": "$(npm bin)/gulp watch-all"
   },
-  "author": "",
+  "author": "TJ Monserrat",
   "license": "MIT",
   "devDependencies": {
     "del": "^2.2.1",

@@ -1,0 +1,132 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<!-- Style dependency -->
+<link rel="import" href="home-page-style.html">
+
+<dom-module id="home-page">
+  <template>
+    <style is="custom-style" include="home-page-style iron-flex iron-flex-alignment iron-flex-factors">
+      :host {
+        display: block;
+      }
+    </style>
+
+    <div class="horizontal layout wrap">
+      <div class="flex-4 main-content">
+        <p class="text-content">
+          DESIGN A BETTER PHILIPPINES! We would like to bring experts on experience design and learn better 
+          interactions, visuals, product,  customer services, government services and startup UX. Let’s make it happen.
+        </p>
+        
+        <p class="text-content">
+          We are are group of UX professionals organizing a conference on experience and design on May 19-20,2016. 
+          We would like know if you would like to be a part of it. 
+          Join us by supporting and pledging to this event. 
+          If you pledge, we will survey you venue options.
+        </p>
+        
+        <p class="text-content">
+          The following international speakers have expressed interest in joining  this conference.
+        </p>
+        
+        <div class="speaker-list">
+          <template is="dom-repeat" items="[[speakers]]">
+            <div class="horizontal layout wrap speaker-item">
+              <iron-image class="speaker-avatar"></iron-image>
+              <div class="flex speaker-content">
+  
+                <h3>[[item.name]]</h3>
+                <p class="speaker-body">
+                  [[item.description]]
+                </p>  
+              </div>
+            </div>
+          </template>
+        </div>
+        
+      </div>
+      <div class="flex side-window">
+        <h1 class="side-window-title">Rewards</h1>
+        <template is="dom-repeat" items="[[pledges]]">
+          <a class="pledge-item-anchor" href="/support/[[item.$key]]">
+            <paper-material class="pledge-item">
+              <h3>[[item.title]]</h3>
+              <p class="pledge-description">
+                [[item.description]]
+              </p>
+            </paper-material>  
+          </a>
+          
+        </template>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'home-page',
+      
+      properties: {
+        speakers: {
+          type: Array,
+          value: function() {
+            return [
+              {
+                name: 'Jennifer P. Teves, PhD',
+                description: 'Principal Research Scientist at Veritas Technologies. She has over 10 years of experience in cognitive science research focusing on aviation technology, human factors in healthcare, enterprise solutions, automation and controls, and data visualization. '
+              },
+              {
+                name: 'Ben Kim',
+                description: 'UX Researcher and Designer based in Los Angeles. His focus is on the end-to-end product experience, starting with research and taking the feature all the way to development. Previously worked with UXPin and Lexus'
+              },
+              {
+                name: 'Brian Caoyonan',
+                description: 'Senior User Experience Consultant at IAG. He was previously a User Experience Lead in NBN telecommunications Australia.'
+              },
+              {
+                name: 'More Speakers...',
+                description: 'With your support, we would actively get popular speakers.'
+              }
+            ]
+          }
+        },
+        pledges: {
+          type: Array,
+          value: function() {
+            return [
+              {
+                $key: '0',
+                title: 'GET A Conf Sticker',
+                description: 'Pledge P50 and get your own UXPH Sticker'
+              },
+              {
+                $key: '1',
+                title: 'GET A Conf PIN',
+                description: 'Pledge P150 and get your own UXPH Pin'
+              },
+              {
+                $key: '2',
+                title: 'GET A Conf T-SHIRT',
+                description: 'Pledge P500 and get your own UXPH Shirt'
+              },
+              {
+                $key: '3',
+                title: 'GET 1 Conf Early bird Ticket',
+                description: 'Tickets will cost P4000. Pledge P2500 now  and get an early ticket'
+              },
+              {
+                $key: '4',
+                title: 'GET 2 Conf Early bird Ticket',
+                description: 'Pledge P4000 and get 2 tickets (instead of paying for P5000)'
+              }
+            ]
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

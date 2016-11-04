@@ -3,7 +3,7 @@ var gulpif = require('gulp-if');
 var watch = require('gulp-watch');
 var path = require('path');
 var injectSass = require('./gulp-tasks/inject-sass.js');
-var injectPage = require('./gulp-tasks/inject-page.js');
+var swPrecacheConfig = require('./sw-precache-config.js');
 
 global.config = {
   polymerJsonPath: path.join(process.cwd(), 'polymer.json'),
@@ -22,9 +22,7 @@ global.config = {
   serviceWorkerPath: 'service-worker.js',
   // Service Worker precache options based on
   // https://github.com/GoogleChrome/sw-precache#options-parameter
-  swPrecacheConfig: {
-    navigateFallback: '/index.html'
-  }
+  swPrecacheConfig: swPrecacheConfig
 };
 /**
  * This is a three part gulpfile. 
@@ -38,28 +36,12 @@ global.config = {
  * SASS STRATEGY
  */ 
 
-/**
- * We need to specify to nodeSass the include paths for Sass' @import
- * command. These are all the paths that it will look for it.
- *
- * Failing to specify this, will NOT Compile your scss and inject it to
- * your .html file.
- *
- */
-
 gulp.task('watch-all', function(){
   injectSass();
-  injectPage();
-  watch(['src/**/*.scss'], injectSass);
-  watch(['config/pages.json'], injectPage);
+  watch(['pages/**/*.scss', 'web-components/**/*.scss', 'styles/**/*.scss'], injectSass);
 });
 
-//This is currently not used. But you can enable by uncommenting
-// " //return gulp.src([basePath+ext,...excludeDirs])" above the return.
-// var excludeDirs = [`!${basePath}bower_components/${ext}`,`!${basePath}images/${ext}`];
-
 gulp.task('injectSass', injectSass);
-gulp.task('injectPage', injectPage)
 
 
 /**
@@ -69,8 +51,6 @@ gulp.task('injectPage', injectPage)
 //   Got problems? Try logging 'em
 // const logging = require('plylog');
 // logging.setVerbose();
-
-
 
 // Add your own custom gulp tasks to the gulp-tasks directory
 // A few sample tasks are provided for you
@@ -121,7 +101,6 @@ function dependencies() {
 // with their own service workers
 gulp.task('default', gulp.series([
   'injectSass',
-  'injectPage',
   clean([global.config.build.rootDirectory]),
   project.merge(source, dependencies),
   project.serviceWorker

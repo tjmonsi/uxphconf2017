@@ -1,21 +1,17 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/uxph-conference-2017-app.html",
+  "shell": "core/uxph-conference-2017-app-shell.html",
   "fragments": [
-    "src/pages/web-home/web-home.html",
-    "src/pages/web-404/web-404.html",
-    "src/pages/web-403/web-403.html",
-    "src/pages/page-2/page-2.html",
-    "src/pages/page-3/page-3.html",
-    "src/pages/page-4/page-4.html",
-    "src/pages/page-5/page-5.html"
+    "pages/home-page/home-page.html",
+    "pages/not-authorized-page/not-authorized-page.html",
+    "pages/not-found-page/not-found-page.html"
   ],
   "sourceGlobs": [
-   "src/**/*",
+   "core/**/*",
    "images/**/*",
-   "bower.json",
-   "config/**/*",
-   "fonts/**/*"
+   "pages/**/*",
+   "web-components/**/*",
+   "bower.json"
   ],
   "includeDependencies": [
     "manifest.json",
