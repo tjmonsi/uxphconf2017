@@ -1,4 +1,4 @@
-# UXPH Conference 2017
+# 
 
 ## Table of Contents
 
@@ -12,12 +12,12 @@
 
 ## Description
 
-The UXPH Conference 2017 site.
 
-It uses the boilerplate template as a starting point for building apps using the REACH
+
+It uses Little Qairoes' boilerplate project template is a starting point for building apps using the REACH
 template. 
 
-This template, along with the `polymer-cli` toolchain, demostrates the use of
+This template, along with `polymer-cli` toolchain, demostrates the use of
 "PRPL pattern". This pattern allows fast first delivery and interaction with the 
 the content at the initial route requested by the user.
 
@@ -38,18 +38,16 @@ The project development structure consists of this...
 /
 |--bower_components/
 |
-|--config/
-|
-|--fonts/
-|
 |--images/
 |   |--manifest/
 |   |--favicon.ico
 |
+|--pages/
+|
 |--src/
-|   |--components/
-|   |--pages/
-|   |--reach-core-app.html
+|   |--uxph-conference-2017-app.html
+|
+|--web-components/
 |
 |--test/
 |
@@ -58,8 +56,6 @@ The project development structure consists of this...
 |--index.html
 |
 |--manifest.json
-|
-|--package.json
 |
 |--polymer.json
 |
@@ -71,28 +67,16 @@ The project development structure consists of this...
 
 * **bower_components/** is where reusable custom elements and/or libraries
     are fetched via bower (or put in bower.json) will go
-* **config/** is where we put config files to set up the pages to be included in 
-    the reach project template (files inside are configurable)
-* **fonts/** is where we put all font files that are neeeded by the project that
-    is not found in online repositories such as google font repositories
-    (files inside are configurable)
 * **images/** is where we put all our static image assets. It includes the following
     folders and files (files inside are configurable): 
     * **manifest/** holds icon branding for the website. See 
         https://goo.gl/OOhYW5 for details. (Files inside are configurable).
     * **favicon.ico** is the icon that we see at the tab (configurable/replacable)
-* **src/** is where your application-specific custom elements will go
-    * **components/** holds all custom-element libraries to be used in the project. 
-        (files inside are configurable)
-        * **reach-core/** is the reach-core library that all reach projects should use.
-            (we will talk about on how we can make this as a reusable component and be
-            put in the bower_components)
-    * **pages/** holds all pages that will be shown when the url changes. 
-        (files inside are configurable)
-    * **styles/** holds all variables, mixins, themes and sass files that will be imported by
-        other custom elements to create dynamically created custom-element-styles.
-    * **reach-core-app.html** is the main core element called in the index.html that
+* **pages/** is where all your custom-made page elements will go
+* **src/** is where your application-specific root-element will go
+    * **uxph-conference-2017-app.html** is the main core element called in the index.html that
         renders the pages.
+* **web-components/** is where reusable custom elements that are not published or just for this project will go
 * **test/** holds all integrated test cases for continuous integration and making sure
     that changes in the app doesn't break the app. (files inside are configurable)
 * **bower.json** is a configurable file that holds all direct dependencies of the
@@ -101,8 +85,6 @@ The project development structure consists of this...
     (we need to talk about how to configure the loader)
 * **manifest.json** is a configurable file to make the webapp look like a mobile app.
     See https://goo.gl/OOhYW5 for details.
-* **package.json** is a configurable file that holds all direct dev dependencies
-    of the project (for gulp rendering and building)
 * **polymer.json** is a configurable file that holds all options for entry points
     and fragments for building the reach polymer app using the `polymer build` command.
 * **service-worker.js** is a default file to be used for building. It will be populated
@@ -116,6 +98,7 @@ The project development structure consists of this...
 ## How to Install
 
 ### Prerequisites
+
 
 
 Install [polymer-cli](https://github.com/Polymer/polymer-cli):

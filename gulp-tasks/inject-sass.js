@@ -9,7 +9,16 @@ var excludeDir = basePath+"bower_components/";
 var ext = "**/*.scss";
 var polymerPath = 'bower_components/polymer/polymer.html';
 
-var includePaths = ['src/**/', 'src/pages/**/', 'src/'];
+/**
+ * We need to specify to nodeSass the include paths for Sass' @import
+ * command. These are all the paths that it will look for it.
+ *
+ * Failing to specify this, will NOT Compile your scss and inject it to
+ * your .html file.
+ *
+ */
+
+var includePaths = ['core/**/', 'pages/**/', 'web-components/**/', 'styles/**/'];
 
 var injectSass = function () {
   /* Original creator: David Vega. I just modified
@@ -29,12 +38,14 @@ var injectSass = function () {
   * exclude this path, this will look inside bower_components and will take a long time
   * (around 7.4 seconds in my machine) to replace all the files.
   */
-  //Uncomment if you want to specify multiple exclude directories. Uses ES6 spread operator.
-  //return gulp.src([basePath+ext,...excludeDirs])
-
+  
   gutil.log('Restarting SASS');
 
-  return gulp.src([basePath + 'src/' + ext, basePath + 'src/pages/' + ext, '!'+excludeDir+ext])
+  return gulp.src([
+    basePath + 'core/' + ext, 
+    basePath + 'web-components/' + ext,
+    basePath + 'styles/' + ext, 
+    basePath + 'pages/' + ext, '!'+excludeDir+ext])
     .pipe(map(function(file, cb) {
       if (path.basename(file.path, '.scss').indexOf('_') === 0) {
         return cb();
@@ -43,17 +54,16 @@ var injectSass = function () {
 
       fs.readFile(file.path, function(err, data) {
         if (err || !data) {
-          console.log(err)
+          console.log(err);
           return cb();
         }
 
         nodeSass.render({
           data: data.toString(),
-          includePaths: includePaths,
-          // outputStyle: 'compressed'
+          includePaths: includePaths
         }, function(err, compiledScss) {
           if (err || !compiledScss) {
-            console.log(err)
+            console.log(err);
             return cb();
           }
 
@@ -61,17 +71,17 @@ var injectSass = function () {
 
           var string = `<link rel="import" href="${newPolymerPath}">\n<dom-module id="${styleName}">\n<template>\n<style>\n` +
             compiledScss.css.toString() +
-            '\n</style>\n</template>\n</dom-module>'
+            '\n</style>\n</template>\n</dom-module>';
 
           fs.writeFile(path.join(path.dirname(file.path), styleName + '.html'), string, 'utf8', function(err) {
             if (err) {
               console.log(err);
             }
-            return cb()
-          })
-        })
-      })
-    }))
+            return cb();
+          });
+        });
+      });
+    }));
 };
 
 module.exports = injectSass;
