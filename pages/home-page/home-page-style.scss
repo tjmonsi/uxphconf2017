@@ -227,3 +227,9 @@ paper-dialog {
     margin-bottom: 0px;
   }
 }
+
+paper-spinner-lite {
+  --paper-spinner-color: $brand-red;
+  height: 50px;
+  width: 50px;
+}
