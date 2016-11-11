@@ -228,9 +228,10 @@
 
       _getReward: function(i) {
         if (this.user) {
+          
           if (this._pledges[i] && i) {
             firebase.database().ref(`/${this.__pledgesSurvey}/${this.user.uid}/pledge`).set(i);
-          } else {
+          } else if (this.pledges.length) {
             this.handleError('You have sent a wrong pledge id. Will automatically go back to home in a few seconds');
             this.async(() => {
               window.location.href = '/'
