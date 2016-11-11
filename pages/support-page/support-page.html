@@ -4,6 +4,10 @@
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <!-- Style dependency -->
 <link rel="import" href="support-page-style.html">
@@ -15,6 +19,15 @@
         display: block;
       }
     </style>
+
+    <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
+
+    <template is="dom-if" if="[[user]]">
+      <firebase-document
+          path="/contactInfo/{{user.uid}}"
+          data="{{contact}}"
+          on-error="handleError"></firebase-document>
+    </template>
     
     <div class="horizontal layout wrap">
       <div class="flex-3 main-content">
@@ -29,14 +42,14 @@
         
         <p class="text-content">
           Reward:<br/>
-          [[_getReward(params.id)]]
+          <b>[[_getReward(params.id)]]</b>
         </p>
         
         <p class="text-content">
-          <paper-input label="First Name" value="{{firstName}}"></paper-input>
-          <paper-input label="Last Name" value="{{lastName}}"></paper-input>
-          <paper-input label="Email" value="{{email}}" type="email"></paper-input>
-          <paper-input label="Contact Number" value="{{contactNumber}}" pattern="\d+"></paper-input>
+          <paper-input label="First Name" value="{{contact.firstName}}"></paper-input>
+          <paper-input label="Last Name" value="{{contact.lastName}}"></paper-input>
+          <paper-input label="Email" value="{{contact.email}}" type="email"></paper-input>
+          <paper-input label="Contact Number" value="{{contact.contactNumber}}" auto-validate pattern="(\d|-|\+|\(|\)|\s)+" error-message="Please input a valid number"></paper-input>
         </p>
         
         <p class="text-content indent">
@@ -52,10 +65,14 @@
           <template is="dom-repeat" items="[[venues]]">
             <div class="venue-item horizontal layout">
               <div class="venue-checkbox">
-                <paper-checkbox value="[[item.$key]]"></paper-checkbox>
+                <paper-checkbox
+                    class="contact-info-place"
+                    value="[[item.$key]]" 
+                    checked="[[_contactInfoPlaceCheck(item.$key, contact.place)]]" 
+                    on-tap="_contactInfoPlaceTapped"></paper-checkbox>
               </div>
 
-              <div class="venue-content">
+              <div class="venue-content" value$="[[item.$key]]" on-tap="_contactInfoPlaceTapped">
                 <h3>[[item.name]]</h3>
                 <p class="venue-body">
                   [[item.description]]
@@ -64,11 +81,16 @@
             </div>
           </template>
         </div>
-        
+
+        <div class="submit-area">
+          <paper-button raised>
+            Submit
+          </paper-button>
+        </div>
       </div>
+
       <!-- FLEX SPACER -->
       <div class="flex spacer"></div>
-
 
       <!-- SIDE WINDOW -->
       <paper-material class="flex-2 side-window">
@@ -83,20 +105,27 @@
                 <b class="pledge-title">[[item.title]]</b><br/>
                 [[item.description]]
               </p>
-            </paper-material>  
-            
-          </template>
-          
-          
+            </paper-material>            
+          </template>         
         </template>
       </div>
     </div>
+
+    <paper-toast id="toaster"></paper-toast>
+
   </template>
 
   <script>
     Polymer({
       is: 'support-page',
       properties: {
+        user: {
+          type: Object,
+          notify: true
+        },
+        contact: {
+          type: Object
+        },
         venues: {
           type: Array,
           value: function() {
@@ -152,12 +181,57 @@
           }
         }
       },
+
+      attached: function() {
+        this.autoLogin();
+      },
+      
+      autoLogin: function() {
+        this.async(() => {
+          if (!this.user) {
+            this.$.gauth.signInAnonymously().then((user) => {
+              this.user = user;
+              return firebase.database().ref(`/contactInfo/${this.user.uid}`).transaction((val) => {
+                if (!val) {
+                  return {};
+                }
+              })
+            }).catch((error) => {
+              console.log(error)
+              this.async(() => {
+                this.handleError(error);
+              }, 6000);
+            });
+          }
+        }, 2000);
+      },
+
+      handleError: function(error) {
+        console.error(error);
+        var err = error.detail ? error.detail : error
+        err = error.message ? error.message : err;
+        
+        this.$.toaster.show({text: err, duration: 10000});
+      },
       
       _checkPledge: function(i, j) {
         return i === j;
       },
+
       _getReward: function(i) {
         return this.pledges[i].reward
+      },
+
+      _contactInfoPlaceCheck: function(key, place) {        
+        return key === place;
+      },
+
+      _contactInfoPlaceTapped: function(e) {
+        var place = e.target.checked && e.target.value;
+        place = place ? place : e.target.parentNode.getAttribute('value');
+        place = place ? place : e.target.getAttribute('value');
+        place = place ? place : 'Manila';
+        firebase.database().ref(`/contactInfo/${this.user.uid}/place`).set(place)
       }
     });
   </script>
