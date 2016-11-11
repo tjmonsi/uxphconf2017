@@ -16,18 +16,25 @@
     </style>
 
     <div class="horizontal layout wrap">
-      <div class="flex-4 main-content">
+      <div class="flex-3 main-content">
         <img src="/images/assets/logo.png" class="logo">
 
         <h1>Design for a better Philippines</h1>
 
         <p class="text-content">
           We would like to bring experts on experience design and learn better 
-          interactions, visuals, product,  customer services, government services and startup UX. Let’s make it happen.
+          interactions, visuals, product,  customer services, government services and startup UX.
+        </p>
+
+        <p class="text-content">
+          Let’s make it happen.
         </p>
         
         <p class="text-content">
-          We are are group of UX professionals organizing a conference on experience and design on May 19-20,2016. 
+          We are are group of UX professionals organizing a conference on experience and design on <b>May 19-20,2016</b>.
+        </p>
+
+        <p class="text-content">
           We would like know if you would like to be a part of it. 
           Join us by supporting and pledging to this event. 
           If you pledge, we will survey you venue options.
@@ -40,9 +47,8 @@
         <div class="speaker-list">
           <template is="dom-repeat" items="[[speakers]]">
             <div class="horizontal layout wrap speaker-item">
-              <iron-image class="speaker-avatar"></iron-image>
-              <div class="flex speaker-content">
-  
+              <iron-image class="speaker-avatar" src$="[[item.src]]" preload fade></iron-image>
+              <div class="flex speaker-content"> 
                 <h3>[[item.name]]</h3>
                 <p class="speaker-body">
                   [[item.description]]
@@ -51,22 +57,31 @@
             </div>
           </template>
         </div>
-        
       </div>
-      <div class="flex side-window">
-        <h1 class="side-window-title">Rewards</h1>
+
+      <!-- FLEX SPACER -->
+      <div class="flex spacer"></div>
+
+
+      <!-- SIDE WINDOW -->
+      <paper-material class="flex-2 side-window">
+        <div class="side-window-title">
+          <h2>Support us</h2>
+          <h4>Rewards</h4>
+        </div>  
+        
         <template is="dom-repeat" items="[[pledges]]">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]">
-            <paper-material class="pledge-item">
-              <h3>[[item.title]]</h3>
+            <paper-material class="pledge-item">              
               <p class="pledge-description">
+                <b class="pledge-title">[[item.title]]</b><br/>
                 [[item.description]]
               </p>
             </paper-material>  
           </a>
           
         </template>
-      </div>
+      </paper-material>
     </div>
   </template>
 
@@ -80,14 +95,17 @@
           value: function() {
             return [
               {
+                src: '/images/assets/Jen.png',
                 name: 'Jennifer P. Teves, PhD',
                 description: 'Principal Research Scientist at Veritas Technologies. She has over 10 years of experience in cognitive science research focusing on aviation technology, human factors in healthcare, enterprise solutions, automation and controls, and data visualization. '
               },
               {
+                src: '/images/assets/Ben.png',
                 name: 'Ben Kim',
                 description: 'UX Researcher and Designer based in Los Angeles. His focus is on the end-to-end product experience, starting with research and taking the feature all the way to development. Previously worked with UXPin and Lexus'
               },
               {
+                src: '/images/assets/Brian.png',
                 name: 'Brian Caoyonan',
                 description: 'Senior User Experience Consultant at IAG. He was previously a User Experience Lead in NBN telecommunications Australia.'
               },
