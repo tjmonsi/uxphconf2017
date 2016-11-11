@@ -1,0 +1,38 @@
+{
+  "rules": {
+    "users": {
+      ".read": true,
+      "$user_id": {
+        "q1": {
+          ".write": "$user_id === auth.uid"
+        },
+        "q2": {
+          ".write": "$user_id === auth.uid"
+        },
+        "q3": {
+          ".write": "$user_id === auth.uid"
+        }
+      }
+    },
+    "contact": {
+      ".read": "root.child('admin/'+auth.uid).exists()",
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    "contactInfo": {
+      ".read": "root.child('admin/'+auth.uid).exists()",
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    "admin": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    }
+  }
+}
