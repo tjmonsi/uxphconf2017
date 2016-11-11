@@ -69,16 +69,28 @@ var injectSass = function () {
 
           var newPolymerPath = (path.relative(path.dirname(file.path), path.resolve(polymerPath)));
 
-          var string = `<link rel="import" href="${newPolymerPath}">\n<dom-module id="${styleName}">\n<template>\n<style>\n` +
-            compiledScss.css.toString() +
-            '\n</style>\n</template>\n</dom-module>';
+          if (styleName !== 'index') {
+            var string = `<link rel="import" href="${newPolymerPath}">\n<dom-module id="${styleName}">\n<template>\n<style>\n` +
+              compiledScss.css.toString() +
+              '\n</style>\n</template>\n</dom-module>';
 
-          fs.writeFile(path.join(path.dirname(file.path), styleName + '.html'), string, 'utf8', function(err) {
-            if (err) {
-              console.log(err);
-            }
-            return cb();
-          });
+            fs.writeFile(path.join(path.dirname(file.path), styleName + '.html'), string, 'utf8', function(err) {
+              if (err) {
+                console.log(err);
+              }
+              return cb();
+            });
+          } else {
+            var string = compiledScss.css.toString();
+            fs.writeFile(path.join(path.dirname(file.path), styleName + '.css'), string, 'utf8', function(err) {
+              if (err) {
+                console.log(err);
+              }
+              return cb();
+            });
+          }
+
+          
         });
       });
     }));
