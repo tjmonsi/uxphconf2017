@@ -1,11 +1,39 @@
+@import 'styles/_variables.scss';
+@import 'styles/_mixins.scss';
+
+
 :host {
-  padding: 20px;
-  text-align: justify;
+  @extend %h1;
+  @extend %paragraph;
+
+  @include phone {
+    h1 {
+      font-size: 43px;
+      line-height: 58px;
+    }
+  }
 }
 
 .main-content {
   min-width: 250px;
   padding-right: 20px;
+  padding-top: 60px;
+  padding-left: 60px;
+
+  .logo {
+    width: 80px;
+  }
+
+  h1 {
+    width: 50%;
+  }
+
+  @include phone {
+    padding: 30px;
+    h1 {
+      width: inherit;
+    }
+  }
   
   .speaker-list {
     margin-top: 20px;
