@@ -1,0 +1,103 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<!-- Style dependency -->
+<link rel="import" href="thanks-page-style.html">
+
+<dom-module id="thanks-page">
+  <template>
+    <style is="custom-style" include="thanks-page-style iron-flex iron-flex-alignment iron-flex-factors">
+      :host {
+        display: block;
+      }
+    </style>
+
+    <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
+
+    <div class="horizontal layout wrap">
+      <div class="flex-3 main-content">
+        <img src="/images/assets/logo.png" class="logo">
+
+        <h1>Design for a better Philippines</h1>
+
+        <p class="text-content">
+          Thank you for your contact information. We will update you about this event in the few weeks to come.
+        </p>
+
+        <p class="text-content">
+          Please share this page to your friends.
+
+        </p>
+        
+        <div class="anchor-top horizontal layout">
+          <div class="flex"></div>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=[[_thisUrl()]]" target="_blank">
+            <paper-icon-button src="/images/assets/facebook.png"></paper-icon-button>
+          </a>
+          <a href="https://twitter.com/share?text=[[_textToUrl(article.title)]]&url=[[_thisUrl()]]" target="_blank">
+            <paper-icon-button src="/images/assets/twitter.png"></paper-icon-button>
+          </a>
+          <div class="flex"></div>
+        </div>
+      </div>
+
+      <!-- FLEX SPACER -->
+      <div class="flex spacer"></div>
+
+
+      <!-- SIDE WINDOW -->
+      <paper-material class="flex-2 side-window">
+      </paper-material>
+    </div>
+
+    <paper-toast id="toaster"></paper-toast>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'thanks-page',
+
+      properties: {
+        user: {
+          type: Object
+        }
+      },
+      
+      attached: function() {
+        this.autoLogOut();
+      },
+
+      autoLogOut: function() {
+        this.async(() => {
+          if (this.user) {
+            this.$.gauth.signOut().catch((error) => {
+              console.log(error)
+              this.async(() => {
+                this.handleError(error);
+              }, 6000);
+            });
+          }
+        }, 2000);
+      },
+
+      handleError: function(error) {
+        console.error(error);
+        var err = error.detail ? error.detail : error
+        err = error.message ? error.message : err;
+        
+        this.$.toaster.show({text: err, duration: 10000});
+      },
+
+      _thisUrl: function() {
+        return window.location.protocol + '//' + window.location.hostname;
+      }
+      
+    });
+  </script>
+</dom-module>
