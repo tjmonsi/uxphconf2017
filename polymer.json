@@ -3,6 +3,8 @@
   "shell": "core/uxph-conference-2017-app-shell.html",
   "fragments": [
     "pages/home-page/home-page.html",
+    "pages/support-page/support-page.html",
+    "pages/thanks-page/thanks-page.html",
     "pages/not-authorized-page/not-authorized-page.html",
     "pages/not-found-page/not-found-page.html"
   ],
