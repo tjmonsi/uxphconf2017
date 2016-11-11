@@ -78,7 +78,7 @@
         </div>
         <template is="dom-repeat" items="[[pledges]]">
           <template is="dom-if" if="[[_checkPledge(params.id, item.$key)]]">          
-            <paper-material class="pledge-item">              
+            <paper-material class="pledge-item pledge-picked">              
               <p class="pledge-description">
                 <b class="pledge-title">[[item.title]]</b><br/>
                 [[item.description]]
