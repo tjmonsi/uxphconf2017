@@ -1,7 +1,6 @@
 @import 'styles/_variables.scss';
 @import 'styles/_mixins.scss';
 
-
 :host {
   @extend %h1;
   @extend %h2;
@@ -22,6 +21,7 @@
       line-height: 58px;
     }
   }
+
 }
 
 .spacer {
@@ -34,10 +34,55 @@
   }
 }
 
+.main-background {
+  background-image: url(/images/assets/bground.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: cover; 
+
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .logo {
+    width: 80px;
+    padding-left: 60px;
+
+    @include phone {
+      padding-left: 30px;
+    }
+  }
+
+  h1 {
+    width: 50%;
+    margin-bottom: 0px;
+  }
+
+  .foreground-title {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    @include phone {
+      padding-left: 30px;
+    }
+  }
+
+  @include phone {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    h1 {
+      width: inherit;
+    }
+  }
+}
+
 .main-content {
   min-width: 250px;
+
   padding-right: 60px;
-  padding-top: 60px;
   padding-left: 60px;
 
   @include phone {
@@ -104,6 +149,7 @@
   padding-top: 0px;
   .side-window-title {
     padding: 20px;
+    padding-top: 50px;
     h2 {
       margin-top: 0px;
       margin-bottom: 5px;
@@ -112,6 +158,14 @@
     h4 {
       margin-top: 0px;
       margin-bottom: 0px;
+    }
+
+    @include phone {
+      padding-top: 20px;
+    }
+
+    @include tablet {
+      padding-top: 20px;
     }
   }
 }

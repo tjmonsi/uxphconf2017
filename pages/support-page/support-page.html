@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
 <!-- Style dependency -->
 <link rel="import" href="support-page-style.html">
@@ -20,6 +21,13 @@
       }
     </style>
 
+    <iron-ajax
+      auto
+      url="https://jsonip.com/"
+      handle-as="json"
+      on-response="_handleIPResponse"
+      debounce-duration="300"></iron-ajax>
+
     <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
 
     <template is="dom-if" if="[[user]]">
@@ -31,12 +39,12 @@
     <div class="horizontal layout wrap">
       <div class="flex-3 main-content">
 
-        <img src="/images/assets/logo.png" class="logo">
+        <a href="/">
+          <img src="/images/assets/logo.png" class="logo">
+        </a>
 
-        <h1>Design for a better Philippines</h1>
-
-        <p class="text-content">
-          Thank you for your pledge!  Please enter your details so we can process:
+        <p class="text-content support-header">
+          Please enter your details so we can process:
         </p>
         
         <p class="text-content">
@@ -47,7 +55,7 @@
         <p class="text-content">
           <paper-input label="First Name" value="{{contact.firstName}}"></paper-input>
           <paper-input label="Last Name" value="{{contact.lastName}}"></paper-input>
-          <paper-input label="Email" value="{{contact.email}}" type="email"></paper-input>
+          <paper-input label="Email" value="{{contact.email}}" type="email" error-message="Please input a valid email"></paper-input>
           <paper-input label="Contact Number" value="{{contact.contactNumber}}" auto-validate pattern="(\d|-|\+|\(|\)|\s)+" error-message="Please input a valid number"></paper-input>
         </p>
         
@@ -121,6 +129,10 @@
     Polymer({
       is: 'support-page',
       properties: {
+        ipAddress: {
+          type: String,
+          observer: '_ipAddressChanged'
+        },
         user: {
           type: Object,
           value: null,
@@ -186,6 +198,7 @@
       },
 
       attached: function() {
+        window.scrollTo(0, 0)
         this.autoLogin();
       },
       
@@ -250,6 +263,17 @@
         place = place ? place : e.target.getAttribute('value');
         place = place ? place : 'Manila';
         firebase.database().ref(`/contactInfo/${this.user.uid}/place`).set(place)
+      },
+
+      _handleIPResponse: function(e) {
+        var data = e.detail.response;
+        this.ipAddress = data.ip;        
+      },
+
+      _ipAddressChanged: function(ip) {
+        if (this.user) {
+          firebase.database().ref(`/contactInfo/${this.user.uid}/ipAddress`).set(ip);
+        }
       }
     });
   </script>

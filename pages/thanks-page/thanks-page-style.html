@@ -19,7 +19,7 @@
   font-weight: 700;
   font-size: 43px;
   line-height: 58px;
-  color: #C6C6C6; }
+  color: #4A4A4A; }
 
 :host h3 {
   font-weight: 700;
@@ -55,7 +55,7 @@
   font-weight: 700;
   font-size: 43px;
   line-height: 58px;
-  color: #C6C6C6; }
+  color: #4A4A4A; }
 
 :host h3 {
   font-weight: 700;
@@ -92,10 +92,42 @@
   .spacer {
     display: none; } }
 
+.main-background {
+  background-image: url(/images/assets/bground.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 60px; }
+  .main-background .logo {
+    width: 80px;
+    padding-left: 60px; }
+    @media (max-width: 479px) {
+      .main-background .logo {
+        padding-left: 30px; } }
+  .main-background h1 {
+    width: 50%;
+    margin-bottom: 0px; }
+  .main-background .foreground-title {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+    background-color: rgba(255, 255, 255, 0.7); }
+    @media (max-width: 479px) {
+      .main-background .foreground-title {
+        padding-left: 30px; } }
+  @media (max-width: 479px) {
+    .main-background {
+      padding-top: 30px;
+      padding-bottom: 30px; }
+      .main-background h1 {
+        width: inherit; } }
+
 .main-content {
   min-width: 250px;
   padding-right: 60px;
-  padding-top: 60px;
   padding-left: 60px; }
   @media (max-width: 479px) {
     .main-content {
@@ -138,13 +170,20 @@
   min-width: 250px;
   padding-top: 0px; }
   .side-window .side-window-title {
-    padding: 20px; }
+    padding: 20px;
+    padding-top: 50px; }
     .side-window .side-window-title h2 {
       margin-top: 0px;
       margin-bottom: 5px; }
     .side-window .side-window-title h4 {
       margin-top: 0px;
       margin-bottom: 0px; }
+    @media (max-width: 479px) {
+      .side-window .side-window-title {
+        padding-top: 20px; } }
+    @media (min-width: 480px) and (max-width: 839px) {
+      .side-window .side-window-title {
+        padding-top: 20px; } }
 
 .pledge-item-anchor {
   color: inherit;
@@ -184,6 +223,10 @@ paper-dialog {
   paper-dialog .pledge-description {
     padding-bottom: 0px;
     margin-bottom: 0px; }
+
+paper-icon-button {
+  width: 100px;
+  height: 100px; }
 
 </style>
 </template>
