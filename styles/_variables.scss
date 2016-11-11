@@ -1,5 +1,99 @@
 // Put your variables for UXPH Conference 2017 here
 
+// Colors
+$gray-1: #4A4A4A;
+$gray-2: #F0F0F0;
+$gray-3: #C6C6C6;
+$gray-4: #4B4B4B;
+$gray-5: #E1E1E1;
+$brand-red: #FF422E;
+$white: #FFFFFF;
+$dark: #000000;
+
+// Weight
+$bold: 700;
+$medium: 500;
+
+// Text styles
+
+%font-play-fair {
+  font-family: 'Playfair Display', serif;
+}
+
+%font-raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+%h1 {
+  h1 {
+    @extend %font-play-fair;
+    font-weight: $bold;
+    font-size: 74px;
+    line-height: 99px;
+    color: $dark;
+  }
+}
+
+%h2 {
+  h2 {
+    @extend %font-play-fair;
+    font-weight: $bold;
+    font-size: 43px;
+    line-height: 58px;
+    color: $gray-3;
+  }
+}
+
+%h3 {
+  h3 {
+    @extend %font-play-fair;
+    font-weight: $bold;
+    font-size: 35px;
+    line-height: 42px;
+    color: $dark;
+  }
+}
+
+%h4 {
+  h4 {
+    @extend %font-raleway;
+    font-weight: $bold;
+    font-size: 33px;
+    line-height: 39px;
+    color: $gray-1;
+  }
+}
+
+%h5 {
+  h5 {
+    @extend %font-raleway;
+    font-weight: $medium;
+    font-size: 20px;
+    line-height: 11px;
+    color: $light;
+  }
+}
+
+%h6 {
+  h6 {
+    @extend %font-raleway;
+    font-size: 18px;
+    line-height: 34px;
+    color: $gray-4;
+  }
+}
+
+%paragraph {
+  p {
+    @extend %font-raleway;
+    font-size: 16px;
+    line-height: 25px;
+    color: $gray-1;
+  }
+}
+
+
+
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
