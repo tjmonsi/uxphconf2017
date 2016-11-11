@@ -1,5 +1,9 @@
 {
-  "name": "UXPH Conference 2017",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "UXPH Conference 2017",  
+  "default_locale": "en",
+  "description": "The UXPH Conference 2017 Website",
   "short_name": "UXPHConf'17",
   "start_url": "/?homescreen=1",
   "display": "standalone",
