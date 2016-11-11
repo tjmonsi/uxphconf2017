@@ -2,6 +2,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/qairoe-app-layout/qairoe-app-layout.html">
 <link rel="import" href="../bower_components/qairoe-app-router/qairoe-app-router.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-database-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 
 <!-- Custom Element dependencies -->
 
@@ -34,6 +38,12 @@ Wham! It's all awesome now!
   <template>
     <style is="custom-style">
     </style>
+
+    <firebase-app 
+        auth-domain="ux-ph-conf-2017.firebaseapp.com"
+        database-url="https://ux-ph-conf-2017.firebaseio.com"
+        api-key="AIzaSyD9PL6zRsYSG7RkdMOHy3n7kRiUN_fGU84"
+        storage-bucket="ux-ph-conf-2017.appspot.com"></firebase-app>
 
     <qairoe-app-layout scroll-progress="{{scrollProgress}}">
 
