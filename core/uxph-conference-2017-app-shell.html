@@ -30,7 +30,7 @@ Wham! It's all awesome now!
   <!-- LAZY LOADER STARTS HERE -->
   <link rel="lazy-import" href="/pages/home-page/home-page.html" group="home-page">
   <link rel="lazy-import" href="/pages/support-page/support-page.html" group="support-page">
-  <link rel="lazy-import" href="/pages/view-three-page/view-three-page.html" group="view-three-page">
+  <link rel="lazy-import" href="/pages/thanks-page/thanks-page.html" group="thanks-page">
   <link rel="lazy-import" href="/pages/not-authorized-page/not-authorized-page.html" group="not-authorized-page">
   <link rel="lazy-import" href="/pages/not-found-page/not-found-page.html" group="not-found-page">
   <!-- LAZY LOADER ENDS HERE -->
@@ -63,8 +63,8 @@ Wham! It's all awesome now!
 
         <!-- ROUTER STARTS HERE -->
         <home-page route="/"></home-page>
-        <support-page route="/support/:id"></support-page>
-        <!--<view-three-page route="/view-three"></view-three-page>-->
+        <support-page route="/support/:id" user="{{user}}"></support-page>
+        <thanks-page route="/thanks" user="{{user}}"></thanks-page>
         <not-authorized-page route="not-authorized"></not-authorized-page>
         <not-found-page route="not-found"></not-found-page>
         <!-- ROUTER ENDS HERE -->
@@ -80,6 +80,10 @@ Wham! It's all awesome now!
       is: 'uxph-conference-2017-app-shell',
 
       properties: {
+        user: {
+          type: Object,
+          value: null
+        },
         navigationList: {
           type: Array,
           value: function() {
