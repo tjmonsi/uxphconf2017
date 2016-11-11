@@ -135,5 +135,41 @@
     }
   }
 
+  .pledge-body {
+    @include phone {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}
+
+.submit-area {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  paper-button {
+    width: 200px;
+    background-color: $brand-red;
+    color: $light;
+  }
   
-} 
+}
+
+paper-dialog {
+  padding: 20px;
+  overflow: auto;
+  h4 {
+    margin-bottom: 5px;
+  }
+
+  .pledge-description {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+}

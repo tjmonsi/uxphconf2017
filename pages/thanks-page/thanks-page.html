@@ -1,6 +1,5 @@
 <!-- Polymer dependencies -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-auth.html">
@@ -52,8 +51,8 @@
 
 
       <!-- SIDE WINDOW -->
-      <paper-material class="flex-2 side-window">
-      </paper-material>
+      <div class="flex-2 side-window">
+      </div>
     </div>
 
     <paper-toast id="toaster"></paper-toast>
@@ -65,7 +64,9 @@
 
       properties: {
         user: {
-          type: Object
+          type: Object,
+          value: null,
+          notify: true
         }
       },
       
@@ -87,6 +88,7 @@
       },
 
       handleError: function(error) {
+        
         console.error(error);
         var err = error.detail ? error.detail : error
         err = error.message ? error.message : err;
