@@ -1,4 +1,59 @@
-:host {
+@import 'pages/home-page/home-page-style';
+
+.main-content {
+  .venue-list {
+    margin-top: 40px;
+    
+    .venue-item {
+      margin-bottom: 20px;
+
+      .venue-checkbox {
+        margin-top: 10px;
+        margin-right: 20px;
+
+        @include phone {
+          margin-top: 3px;
+          margin-right: 10px;
+        }
+
+        @include tablet {
+          margin-top: 3px;
+          margin-right: 10px;
+        }
+      }
+      
+      .venue-content {
+        min-width: 250px;
+        
+        h3 {
+          text-align: left;
+          margin-top: 0;
+          margin-bottom: 5px;
+        }
+
+        .venue-body {
+          margin: 0px;
+        }
+
+        @include phone {
+          h3 {
+            font-size: 21px;
+            line-height: 27px;
+          }
+        }
+
+        @include tablet {
+          h3 {
+            font-size: 21px;
+            line-height: 27px;
+          }
+        }
+      }    
+    }
+  }
+}
+
+/*:host {
   padding: 20px;
   text-align: justify;
 }
@@ -58,5 +113,5 @@
   .pledge-description {
     margin-top: 0px;
   }
-}  
+}  */
 

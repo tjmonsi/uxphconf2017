@@ -17,7 +17,12 @@
     </style>
     
     <div class="horizontal layout wrap">
-      <div class="flex-4 main-content">
+      <div class="flex-3 main-content">
+
+        <img src="/images/assets/logo.png" class="logo">
+
+        <h1>Design for a better Philippines</h1>
+
         <p class="text-content">
           Thank you for your pledge!  Please enter your details so we can process:
         </p>
@@ -45,12 +50,14 @@
         <div class="venue-list">
           
           <template is="dom-repeat" items="[[venues]]">
-            <div class="horizontal layout center wrap venue-item">
-              <paper-checkbox value="[[item.$key]]"></paper-checkbox>
-              <div class="flex speaker-content">
-  
+            <div class="venue-item horizontal layout">
+              <div class="venue-checkbox">
+                <paper-checkbox value="[[item.$key]]"></paper-checkbox>
+              </div>
+
+              <div class="venue-content">
                 <h3>[[item.name]]</h3>
-                <p class="speaker-body">
+                <p class="venue-body">
                   [[item.description]]
                 </p>  
               </div>
@@ -59,14 +66,21 @@
         </div>
         
       </div>
-      <div class="flex side-window">
-        <h1 class="side-window-title">Rewards</h1>
+      <!-- FLEX SPACER -->
+      <div class="flex spacer"></div>
+
+
+      <!-- SIDE WINDOW -->
+      <paper-material class="flex-2 side-window">
+        <div class="side-window-title">
+          <h2>Support us</h2>
+          <h4>Rewards</h4>
+        </div>
         <template is="dom-repeat" items="[[pledges]]">
-          <template is="dom-if" if="[[_checkPledge(params.id, item.$key)]]">
-            
-            <paper-material class="pledge-item">
-              <h3>[[item.title]]</h3>
+          <template is="dom-if" if="[[_checkPledge(params.id, item.$key)]]">          
+            <paper-material class="pledge-item">              
               <p class="pledge-description">
+                <b class="pledge-title">[[item.title]]</b><br/>
                 [[item.description]]
               </p>
             </paper-material>  

@@ -119,15 +119,19 @@
 .pledge-item-anchor {
   color: inherit;
   text-decoration: none;
-  .pledge-item {
-    cursor: pointer;
-    padding: 20px;
-    .pledge-description {
-      margin-top: 0px;
-
-      .pledge-title {
-        
-      }
-    }
-  }  
 }
+
+.pledge-item {
+  cursor: pointer;
+  padding: 20px;
+  .pledge-description {
+    margin-top: 0px;
+  }
+
+  &:hover {
+    background-color: $brand-red;
+    p {
+      color: $light !important;
+    }
+  }
+} 
