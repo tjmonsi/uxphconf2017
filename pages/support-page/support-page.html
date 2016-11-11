@@ -9,6 +9,8 @@
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
 
 <!-- Style dependency -->
 <link rel="import" href="support-page-style.html">
@@ -21,6 +23,8 @@
       }
     </style>
 
+
+    <!-- DATA DOWNLOADERS START -->
     <iron-ajax
       auto
       url="https://jsonip.com/"
@@ -32,9 +36,29 @@
 
     <template is="dom-if" if="[[user]]">
       <firebase-document
-          path="/contactInfo/{{user.uid}}"
+          path="[[_contactInfo]]/{{user.uid}}"
           data="{{contact}}"></firebase-document>
     </template>
+
+    <firebase-document 
+        path="[[_pledgeList]]"
+        data="{{_pledgesLive}}"></firebase-document>
+
+    <app-indexeddb-mirror
+        key="pledgesList"
+        data="{{_pledgesLive}}"
+        persisted-data="{{_pledges}}"></app-indexeddb-mirror>
+
+    <firebase-document 
+        path="[[_venuesList]]"
+        data="{{_venuesLive}}"></firebase-document>
+
+    <app-indexeddb-mirror
+        key="venuesList"
+        data="{{_venuesLive}}"
+        persisted-data="{{_venues}}"></app-indexeddb-mirror>
+
+    <!-- DATA DOWNLOADERS ENDS -->
     
     <div class="horizontal layout wrap">
       <div class="flex-3 main-content">
@@ -49,7 +73,7 @@
         
         <p class="text-content">
           Reward:<br/>
-          <b>[[_getReward(params.id, user)]]</b>
+          <b>[[_getReward(params.id, pledges, user)]]</b>
         </p>
         
         <p class="text-content">
@@ -121,6 +145,8 @@
       </div>
     </div>
 
+    <uxph-conference-2017-footer></uxph-conference-2017-footer>
+
     <paper-toast id="toaster"></paper-toast>
 
   </template>
@@ -140,62 +166,12 @@
         },
         contact: {
           type: Object
-        },
-        venues: {
-          type: Array,
-          value: function() {
-            return [
-              {
-                $key: 'Manila',
-                name: 'Metro Manila, Philippines',
-                description: 'We will find you a nice venue at the heart of the city where it’s easy to shop and accessible to major metropolitan business districts. Might be bad traffic on certain times of the day.'
-              },
-              {
-                $key: 'Cebu',
-                name: 'Mactan, Cebu, Philippines',
-                description: 'Conference and vacation. Experience the beaches in the Philippines. Near an international airport and easily accessible to the sea and waves. If you’re based in Manila, this might involve getting an early plane ticket.'
-              }
-            ]
-          }
-        },
-        pledges: {
-          type: Array,
-          value: function() {
-            return [
-              {
-                $key: '0',
-                title: 'GET A Conf Sticker',
-                description: 'Pledge P50 and get your own UXPH Sticker',
-                reward: 'Conference Sticker'
-              },
-              {
-                $key: '1',
-                title: 'GET A Conf PIN',
-                description: 'Pledge P150 and get your own UXPH Pin',
-                reward: 'UXPH Pin'
-              },
-              {
-                $key: '2',
-                title: 'GET A Conf T-SHIRT',
-                description: 'Pledge P500 and get your own UXPH Shirt',
-                reward: 'UXPH Shirt'
-              },
-              {
-                $key: '3',
-                title: 'GET 1 Conf Early bird Ticket',
-                description: 'Tickets will cost P4000. Pledge P2500 now  and get an early ticket',
-                reward: 'Conference Early Bird Ticket'
-              },
-              {
-                $key: '4',
-                title: 'GET 2 Conf Early bird Ticket',
-                description: 'Pledge P4000 and get 2 tickets (instead of paying for P5000)',
-                reward: 'Two (2) Conference Early Bird Tickets'
-              }
-            ]
-          }
         }
       },
+
+      behaviors: [
+        Polymer.UXPHConf2017Behavior
+      ],
 
       attached: function() {
         window.scrollTo(0, 0)
@@ -207,13 +183,13 @@
           if (!this.user) {
             this.$.gauth.signInAnonymously().then((user) => {
               this.user = user;
-              return firebase.database().ref(`/contactInfo/${this.user.uid}`).transaction((val) => {
+              return firebase.database().ref(`/${this.__contactInfo}/${this.user.uid}`).transaction((val) => {
                 if (!val) {
                   return {};
                 }
               })
             }).catch((error) => {
-              console.log(error)
+              // console.log(error)
               this.async(() => {
                 this.handleError(error);
               }, 6000);
@@ -222,7 +198,14 @@
         }, 2000);
       },
 
-      logout: function() {
+      logout: function(e) {
+        console.log(this.contact)
+
+        if (!this.contact.place) {
+          this.handleError('Please pick a place');
+          return e.preventDefault();
+        }
+
         this.$.gauth.signOut().catch((error) => {
           this.async(() => {
             this.handleError(error);
@@ -245,12 +228,20 @@
 
       _getReward: function(i) {
         if (this.user) {
-          firebase.database().ref(`/contactInfo/${this.user.uid}/pledge`).set({
-            title: this.pledges[i].title,
-            reward: this.pledges[i].reward
-          });
+          if (this._pledges[i] && i) {
+            firebase.database().ref(`/${this.__pledgesSurvey}/${this.user.uid}/pledge`).set(i);
+          } else {
+            this.handleError('You have sent a wrong pledge id. Will automatically go back to home in a few seconds');
+            this.async(() => {
+              window.location.href = '/'
+            }, 5000);
+          }
         }
-        return this.pledges[i].reward
+
+        if (this._pledges && this._pledges[i]) {
+          return this._pledges[i].reward
+        }
+        
       },
 
       _contactInfoPlaceCheck: function(key, place) {        
@@ -262,7 +253,11 @@
         place = place ? place : e.target.parentNode.getAttribute('value');
         place = place ? place : e.target.getAttribute('value');
         place = place ? place : 'Manila';
-        firebase.database().ref(`/contactInfo/${this.user.uid}/place`).set(place)
+        var updates = {};
+        updates[`/${this.__placeSurvey}/${this.user.uid}/place`] = place;
+        updates[`/${this.__contactInfo}/${this.user.uid}/place`] = place;
+        console.log(updates)
+        firebase.database().ref().update(updates);
       },
 
       _handleIPResponse: function(e) {
@@ -272,7 +267,7 @@
 
       _ipAddressChanged: function(ip) {
         if (this.user) {
-          firebase.database().ref(`/contactInfo/${this.user.uid}/ipAddress`).set(ip);
+          firebase.database().ref(`/${this.__contactInfo}/${this.user.uid}/ipAddress`).set(ip);
         }
       }
     });

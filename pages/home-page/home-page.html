@@ -5,8 +5,13 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
 <link rel="import" href="../../bower_components/neon-animation/animations/scale-up-animation.html">
 <link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-footer/uxph-conference-2017-footer.html">
 
 <!-- Style dependency -->
 <link rel="import" href="home-page-style.html">
@@ -19,10 +24,25 @@
       }
     </style>
 
-    <div class="horizontal layout wrap">
-      
-      <!--<div class="main-background"></div>-->
+    <firebase-document 
+        path="[[_speakerList]]"
+        data="{{_speakersLive}}"></firebase-document>
 
+    <app-indexeddb-mirror
+        key="speakerList"
+        data="{{_speakersLive}}"
+        persisted-data="{{_speakers}}"></app-indexeddb-mirror>
+
+    <firebase-document 
+        path="[[_pledgeList]]"
+        data="{{_pledgesLive}}"></firebase-document>
+
+    <app-indexeddb-mirror
+        key="pledgesList"
+        data="{{_pledgesLive}}"
+        persisted-data="{{_pledges}}"></app-indexeddb-mirror>
+
+    <div class="horizontal layout wrap">
       <div class="flex-4">
         <div class="main-background">
           <a href="/">
@@ -31,9 +51,7 @@
           
           <div class="foreground-title">
             <h1>Design for a better Philippines</h1>
-          </div>
-
-          
+          </div>  
         </div>
 
         <div class="horizontal layout wrap">
@@ -62,7 +80,7 @@
             </p>
             
             <div class="speaker-list">
-              <template is="dom-repeat" items="[[speakers]]">
+              <template is="dom-repeat" items="[[speakers]]" sort="_sorter">
                 <div class="horizontal layout wrap speaker-item">
                   <iron-image class="speaker-avatar" src$="[[item.src]]" preload fade></iron-image>
                   <div class="flex speaker-content"> 
@@ -73,19 +91,16 @@
                   </div>
                 </div>
               </template>
+              
+              <template is="dom-if" if="[[!_checkEmptyArray(speakers)]]">                             
+                <paper-spinner-lite active></paper-spinner-lite>
+              </template>
             </div>
           </div>
           <!-- FLEX SPACER -->
           <div class="flex spacer"></div>
-        </div>
-
-        
-        
-
-        
+        </div>     
       </div>
-
-      
 
 
       <!-- SIDE WINDOW -->
@@ -95,7 +110,7 @@
           <h4>Rewards</h4>
         </div>  
         
-        <template is="dom-repeat" items="[[pledges]]">
+        <template is="dom-repeat" items="[[pledges]]" sort="_sorter">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]">
             <paper-material class="pledge-item pledge-picked">              
               <p class="pledge-description">
@@ -106,6 +121,15 @@
           </a>
         </template>
 
+        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">  
+          <div class="horizontal layout">
+            <div class="flex"></div>
+            <paper-spinner-lite active></paper-spinner-lite>
+            <div class="flex-3"></div>
+          </div>                           
+          
+        </template>
+
         <div class="submit-area">
           <paper-button raised on-tap="_openSupportDialog">
             Support
@@ -113,6 +137,8 @@
         </div>
       </paper-material>
     </div>
+
+    <uxph-conference-2017-footer></uxph-conference-2017-footer>
 
     <paper-dialog 
         id="support-dialog" 
@@ -131,6 +157,10 @@
             </paper-material>  
           </a>
         </template>
+
+        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">                            
+          <paper-spinner-lite active></paper-spinner-lite>
+        </template>
       </div>
       
 
@@ -140,66 +170,18 @@
   <script>
     Polymer({
       is: 'home-page',
-      
-      properties: {
-        speakers: {
-          type: Array,
-          value: function() {
-            return [
-              {
-                src: '/images/assets/Jen.png',
-                name: 'Jennifer P. Teves, PhD',
-                description: 'Principal Research Scientist at Veritas Technologies. She has over 10 years of experience in cognitive science research focusing on aviation technology, human factors in healthcare, enterprise solutions, automation and controls, and data visualization. '
-              },
-              {
-                src: '/images/assets/Ben.png',
-                name: 'Ben Kim',
-                description: 'UX Researcher and Designer based in Los Angeles. His focus is on the end-to-end product experience, starting with research and taking the feature all the way to development. Previously worked with UXPin and Lexus'
-              },
-              {
-                src: '/images/assets/Brian.png',
-                name: 'Brian Caoyonan',
-                description: 'Senior User Experience Consultant at IAG. He was previously a User Experience Lead in NBN telecommunications Australia.'
-              },
-              {
-                name: 'More Speakers...',
-                description: 'With your support, we would actively get popular speakers.'
-              }
-            ]
-          }
-        },
-        pledges: {
-          type: Array,
-          value: function() {
-            return [
-              {
-                $key: '0',
-                title: 'GET A Conf Sticker',
-                description: 'Pledge P50 and get your own UXPH Sticker'
-              },
-              {
-                $key: '1',
-                title: 'GET A Conf PIN',
-                description: 'Pledge P150 and get your own UXPH Pin'
-              },
-              {
-                $key: '2',
-                title: 'GET A Conf T-SHIRT',
-                description: 'Pledge P500 and get your own UXPH Shirt'
-              },
-              {
-                $key: '3',
-                title: 'GET 1 Conf Early bird Ticket',
-                description: 'Tickets will cost P4000. Pledge P2500 now  and get an early ticket'
-              },
-              {
-                $key: '4',
-                title: 'GET 2 Conf Early bird Ticket',
-                description: 'Pledge P4000 and get 2 tickets (instead of paying for P5000)'
-              }
-            ]
-          }
-        }
+
+      behaviors: [
+        Polymer.UXPHConf2017Behavior
+      ],
+
+      _checkEmptyArray: function(a) {        
+        return a && a.length > 0;
+      },
+
+      _sorter: function(i, j) {        
+        Polymer.dom.flush();
+        return i.index > j.index
       },
 
       _openSupportDialog: function() {
