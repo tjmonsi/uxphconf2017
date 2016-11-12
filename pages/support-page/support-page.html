@@ -173,6 +173,10 @@
         Polymer.UXPHConf2017Behavior
       ],
 
+      observers: [
+        '_ipAddressChanged(ipAddress, user)'
+      ],
+
       attached: function() {
         window.scrollTo(0, 0)
         this.autoLogin();
