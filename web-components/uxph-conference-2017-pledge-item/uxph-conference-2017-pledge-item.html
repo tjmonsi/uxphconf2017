@@ -1,0 +1,42 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<!-- Style dependency -->
+<link rel="import" href="uxph-conference-2017-pledge-item-style.html">
+
+<dom-module id="uxph-conference-2017-pledge-item">
+  <template>
+    <style is="custom-style" include="uxph-conference-2017-pledge-item-style iron-flex iron-flex-alignment">
+      :host {
+        display: block;
+      }
+    </style>
+    <paper-material class$="pledge-item horizontal layout [[pledgeClass]]">
+      <iron-icon class="pledge-icon" src="[[item.icon]]"></iron-icon>
+      <div class="flex">              
+        <p class="pledge-description">
+          <b class="pledge-title">[[item.title]]</b><br/>
+          <span class="pledge-body">[[item.description]]</span>
+        </p>
+      </div>
+    </paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: 'uxph-conference-2017-pledge-item',
+
+      properties: {
+        item: {
+          type: Object
+        },
+        pledgeClass: {
+          type: String,
+          value: ''
+        }
+      }
+    });
+  </script>
+</dom-module>

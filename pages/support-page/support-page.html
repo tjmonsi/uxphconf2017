@@ -11,6 +11,7 @@
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-pledge-item/uxph-conference-2017-pledge-item.html">
 
 <!-- Style dependency -->
 <link rel="import" href="support-page-style.html">
@@ -129,17 +130,21 @@
       <!-- SIDE WINDOW -->
       <paper-material class="flex-2 side-window">
         <div class="side-window-title">
-          <h2>Support us</h2>
-          <h4>Rewards</h4>
+          <h2>Design Conference</h2>
+          <p> In 2014, we brought speakers like Whitney Hess in Manila to talk about User Experience Design and the Design Career path.  
+            Next year, we would like to make it more meaningful for you as we bring speakers on topics like:</p>
+          <ul>
+          <li>Data-driven Visual Design</li>
+          <li>Designing Services and Products for the Public Sector</li>
+          <li>Product Design for Start-ups</li>
+          <li>How to apply User Experience and Human Center Design Concepts in other businesses like Finance and Health</li>
+          </ul>
+          <p>Thanks for your support. Here's the reward you have picked: </p>
         </div>
         <template is="dom-repeat" items="[[pledges]]">
-          <template is="dom-if" if="[[_checkPledge(params.id, item.$key)]]">          
-            <paper-material class="pledge-item pledge-picked">              
-              <p class="pledge-description">
-                <b class="pledge-title">[[item.title]]</b><br/>
-                [[item.description]]
-              </p>
-            </paper-material>            
+          <template is="dom-if" if="[[_checkPledge(params.id, item.$key, pledges)]]">          
+            <!-- PLEDGE HERE -->
+            <uxph-conference-2017-pledge-item item="[[item]]" pledge-class="pledge-picked"></uxph-conference-2017-pledge-item>       
           </template>         
         </template>
       </div>
@@ -268,6 +273,7 @@
       },
       
       _checkPledge: function(i, j) {
+        console.log(i===j)        
         return i === j;
       },
 

@@ -175,28 +175,6 @@
   text-decoration: none;
 }
 
-.pledge-item {
-  cursor: pointer;
-  padding: 20px;
-  .pledge-description {
-    margin-top: 0px;
-  }
-
-  &:hover {
-    background-color: $brand-red;
-    p {
-      color: $light !important;
-    }
-  }
-
-  .pledge-body {
-    @include phone {
-      font-size: 12px;
-      line-height: 12px;
-    }
-  }
-}
-
 .submit-area {
   margin-top: 20px;
   margin-bottom: 50px;

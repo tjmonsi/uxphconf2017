@@ -12,6 +12,7 @@
 <link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-footer/uxph-conference-2017-footer.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-pledge-item/uxph-conference-2017-pledge-item.html">
 
 <!-- Style dependency -->
 <link rel="import" href="home-page-style.html">
@@ -23,8 +24,6 @@
         display: block;
       }
     </style>
-
-    
 
     <firebase-document 
         path="[[_speakerList]]"
@@ -108,18 +107,22 @@
       <!-- SIDE WINDOW -->
       <paper-material class="flex-2 side-window">
         <div class="side-window-title">
-          <h2>Support us</h2>
-          <h4>Rewards</h4>
+          <h2>Design Conference</h2>
+          <p> In 2014, we brought speakers like Whitney Hess in Manila to talk about User Experience Design and the Design Career path.  
+            Next year, we would like to make it more meaningful for you as we bring speakers on topics like:</p>
+          <ul>
+          <li>Data-driven Visual Design</li>
+          <li>Designing Services and Products for the Public Sector</li>
+          <li>Product Design for Start-ups</li>
+          <li>How to apply User Experience and Human Center Design Concepts in other businesses like Finance and Health</li>
+          </ul>
+          <p>For your early support we offer the following rewards</p>
         </div>  
         
         <template is="dom-repeat" items="[[pledges]]" sort="_sorter">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]">
-            <paper-material class="pledge-item pledge-picked">              
-              <p class="pledge-description">
-                <b class="pledge-title">[[item.title]]</b><br/>
-                [[item.description]]
-              </p>
-            </paper-material>  
+            <!-- PLEDGE HERE -->
+            <uxph-conference-2017-pledge-item item="[[item]]"></uxph-conference-2017-pledge-item>
           </a>
         </template>
 
@@ -151,12 +154,8 @@
       <div>
         <template is="dom-repeat" items="[[pledges]]">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]" on-tap="_closeSupportDialog">
-            <paper-material class="pledge-item pledge-picked">              
-              <p class="pledge-description">
-                <b class="pledge-title">[[item.title]]</b><br/>
-                <span class="pledge-body">[[item.description]]</span>
-              </p>
-            </paper-material>  
+            <!-- PLEDGE HERE -->
+            <uxph-conference-2017-pledge-item item="[[item]]"></uxph-conference-2017-pledge-item>
           </a>
         </template>
 
