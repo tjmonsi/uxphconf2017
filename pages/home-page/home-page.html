@@ -152,7 +152,7 @@
       <h4>Please pick a pledge</h4>
 
       <div>
-        <template is="dom-repeat" items="[[pledges]]">
+        <template is="dom-repeat" items="[[pledges]]" sort="_sorter">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]" on-tap="_closeSupportDialog">
             <!-- PLEDGE HERE -->
             <uxph-conference-2017-pledge-item item="[[item]]"></uxph-conference-2017-pledge-item>
