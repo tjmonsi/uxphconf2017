@@ -272,8 +272,7 @@
         this.$.toaster.show({text: err, duration: 10000});
       },
       
-      _checkPledge: function(i, j) {
-        console.log(i===j)        
+      _checkPledge: function(i, j) {    
         return i === j;
       },
 
@@ -319,6 +318,13 @@
       _ipAddressChanged: function(ip) {
         if (this.user) {
           firebase.database().ref(`/${this.__contactInfo}/${this.user.uid}/ipAddress`).set(ip);
+          firebase.database().ref(`/${this.__systemInfo}/${this.user.uid}/ipAddress`).set(ip);
+          if (window.navigator && window.navigator.userAgent) {
+            firebase.database().ref(`/${this.__systemInfo}/${this.user.uid}/userAgent`).set(window.navigator.userAgent);
+          }          
+          if (window.navigator && window.navigator.platform) {
+            firebase.database().ref(`/${this.__systemInfo}/${this.user.uid}/platform`).set(window.navigator.platform);
+          }
         }
       }
     });

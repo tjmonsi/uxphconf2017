@@ -46,6 +46,13 @@
                         return this.__venueList
                     }
                 },
+                _systemInfo: {
+                    type: String,
+                    readonly: true,
+                    value: function() {
+                        return this.__systemInfo
+                    }
+                },
                 _contactInfo: {
                     type: String,
                     readonly: true,
@@ -83,6 +90,10 @@
 
             get __contactInfo() {
                 return `${this.__feedbackPath}/contactInfo`
+            },
+
+            get __systemInfo() {
+                return `${this.__feedbackPath}/systemInfo`
             },
 
             get __pledgesSurvey() {

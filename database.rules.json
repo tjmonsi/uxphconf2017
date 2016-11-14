@@ -11,6 +11,12 @@
           ".write": "$user_id === auth.uid"
         }
       },
+      "systemInfo": {
+        "$user_id": {
+          ".read": "$user_id === auth.uid",
+          ".write": "$user_id === auth.uid"
+        }
+      },
       "placeSurvey": {
         "$user_id": {
           ".read": "$user_id === auth.uid",
