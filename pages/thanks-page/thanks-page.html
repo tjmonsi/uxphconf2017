@@ -147,7 +147,7 @@
         var linkdecoded = encodeURI(link);
         var picture = `${link}/images/assets/bground.jpg`;
         if (pledge) {
-          return `https://www.facebook.com/dialog/feed?app_id=398545717202929&redirect_uri=${link}&link=${linkdecoded}&picture=${picture}&name=${encodeURI('I pledged to have UX PH 2017 and I will get ' + pledge.reward + ' for it!!!')}&caption=${encodeURI('UX Philippines Conference 2017')}&description=${encodeURI('Let\'s bring experts on experience design and learn better interactions, visuals, product, customer services, government services and startup UX.')}`
+          return `https://www.facebook.com/dialog/feed?app_id=398545717202929&redirect_uri=${encodeURI('https://uxphilippines.com')}&link=${linkdecoded}&picture=${picture}&name=${encodeURI('I pledged to have UX PH 2017 and I will get ' + pledge.reward + ' for it!!!')}&caption=${encodeURI('UX Philippines Conference 2017')}&description=${encodeURI('Let\'s bring experts on experience design and learn better interactions, visuals, product, customer services, government services and startup UX.')}&display=page`
         }
         
       }
