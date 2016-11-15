@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "name": "UXPH Conference 2017",  
   "default_locale": "en",
-  "description": "The UXPH Conference 2017 Website",
+  "description": "We would like to bring experts on experience design and learn better interactions, visuals, product,  customer services, government services and startup UX.",
   "short_name": "UXPHConf'17",
   "start_url": "/?homescreen=1",
   "display": "standalone",
