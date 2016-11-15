@@ -62,7 +62,7 @@
               <a href="[[_shareFacebookLink(_pledges, params.id)]]" target="_blank">
                 <paper-icon-button src="/images/assets/facebook.png"></paper-icon-button>
               </a>
-              <a href="https://twitter.com/share?text=[[_textToUrl(article.title)]]&url=[[_thisUrl()]]" target="_blank">
+              <a href="[[_shareTwitterLink(_pledges, params.id)]]" target="_blank">
                 <paper-icon-button src="/images/assets/twitter.png"></paper-icon-button>
               </a>
               <div class="flex"></div>
@@ -141,15 +141,28 @@
       },
 
       _shareFacebookLink: function(pledges, id) {
-        console.log(pledges, id)
         var pledge = pledges[id];
         var link = window.location.protocol + '//' + window.location.hostname;
         var linkdecoded = encodeURI(link);
         var picture = `${link}/images/assets/bground.jpg`;
+        var text = 'Let\'s make UX PH 2017 happen!!!'
         if (pledge) {
-          return `https://www.facebook.com/dialog/feed?app_id=398545717202929&redirect_uri=${encodeURI('https://uxphilippines.com')}&link=${linkdecoded}&picture=${picture}&name=${encodeURI('I pledged to have UX PH 2017 and I will get ' + pledge.reward + ' for it!!!')}&caption=${encodeURI('UX Philippines Conference 2017')}&description=${encodeURI('Let\'s bring experts on experience design and learn better interactions, visuals, product, customer services, government services and startup UX.')}&display=page`
-        }
+          text = 'I pledged to have UX PH 2017 and I will get ' + pledge.reward + ' for it!!!'
+        }  
+        return `https://www.facebook.com/dialog/feed?app_id=398545717202929&redirect_uri=${encodeURI('https://uxphilippines.com')}&link=${linkdecoded}&picture=${picture}&name=${encodeURI(text)}&caption=${encodeURI('UX Philippines Conference 2017')}&description=${encodeURI('Let\'s bring experts on experience design and learn better interactions, visuals, product, customer services, government services and startup UX.')}&display=page`
         
+      },
+
+      _shareTwitterLink: function(pledges, id) {
+        var pledge = pledges[id];
+        var link = window.location.protocol + '//' + window.location.hostname;
+        var linkdecoded = encodeURI(link);
+        var picture = `${link}/images/assets/bground.jpg`;
+        var text = 'Let\'s make UX PH 2017 happen!!!'
+        if (pledge) {
+          text = 'I pledged to have UXPH2017 and I will get ' + pledge.reward + ' for it!!!'
+        }
+        return `https://twitter.com/share?text=${encodeURI(text)}&url=${encodeURI('https://uxphilippines.com')}&hashtags=${encodeURI('uxphconf2017,uxph')}`;
       }
       
     });
