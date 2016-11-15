@@ -5,6 +5,10 @@
 <link rel="import" href="../../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 
 <!-- Style dependency -->
 <link rel="import" href="thanks-page-style.html">
@@ -19,40 +23,62 @@
 
     <firebase-auth id="gauth" user="{{user}}" provider="google" on-error="handleError"></firebase-auth>
 
+    <firebase-document 
+        path="[[_pledgeList]]"
+        data="{{_pledgesLive}}"></firebase-document>
+
+    <app-indexeddb-mirror
+        key="pledgesList"
+        data="{{_pledgesLive}}"
+        persisted-data="{{_pledges}}"></app-indexeddb-mirror>
+
     <div class="horizontal layout wrap">
-      <div class="flex-3 main-content">
-        <a href="/">
-          <img src="/images/assets/logo.png" class="logo">
-        </a>
-
-        <h1>Thank you for your pledge!</h1>
-
-        <p class="text-content">
-          We will update you about this event in the few weeks to come.
-        </p>
-
-        <p class="text-content">
-          Please share this page to your friends!
-        </p>
-        
-        <div class="anchor-top horizontal layout">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=[[_thisUrl()]]" target="_blank">
-            <paper-icon-button src="/images/assets/facebook.png"></paper-icon-button>
+      <div class="flex-4">
+        <div class="main-background">
+          <a href="/">
+            <img src="/images/assets/logo.png" class="logo">
           </a>
-          <a href="https://twitter.com/share?text=[[_textToUrl(article.title)]]&url=[[_thisUrl()]]" target="_blank">
-            <paper-icon-button src="/images/assets/twitter.png"></paper-icon-button>
-          </a>
-          <div class="flex"></div>
+
+          
+          
+          <div class="foreground-title">
+            <h1>Thank you for your pledge!</h1>
+          </div>  
+        </div>
+
+        <div class="horizontal layout wrap">
+          <div class="flex-3 main-content">
+
+            <p class="text-content">
+              We will update you about this event in the few weeks to come.
+            </p>
+
+            <p class="text-content">
+              Please share this page to your friends!
+            </p>
+            
+            <div class="anchor-top horizontal layout">
+              <!--https://www.facebook.com/sharer/sharer.php?u=[[_thisUrl()]]-->
+              <a href="[[_shareFacebookLink(_pledges, params.id)]]" target="_blank">
+                <paper-icon-button src="/images/assets/facebook.png"></paper-icon-button>
+              </a>
+              <a href="https://twitter.com/share?text=[[_textToUrl(article.title)]]&url=[[_thisUrl()]]" target="_blank">
+                <paper-icon-button src="/images/assets/twitter.png"></paper-icon-button>
+              </a>
+              <div class="flex"></div>
+            </div>
+          </div>
+
+          <!-- FLEX SPACER -->
+          <div class="flex spacer"></div>
         </div>
       </div>
-
-      <!-- FLEX SPACER -->
-      <div class="flex spacer"></div>
+      
 
 
       <!-- SIDE WINDOW -->
-      <div class="flex-2 side-window">
-      </div>
+      <paper-material class="flex-2 side-window" style="height: 100vh">
+      </paper-material>
     </div>
 
     <uxph-conference-2017-footer></uxph-conference-2017-footer>
@@ -69,8 +95,20 @@
           type: Object,
           value: null,
           notify: true
+        },
+        _pledges: {
+          type: Object,
+          observer: '_check'
         }
       },
+
+      _check: function(e) {
+        console.log(e)
+      },
+
+      behaviors: [
+        Polymer.UXPHConf2017Behavior
+      ],
       
       attached: function() {
         this.autoLogOut();
@@ -100,6 +138,18 @@
 
       _thisUrl: function() {
         return window.location.protocol + '//' + window.location.hostname;
+      },
+
+      _shareFacebookLink: function(pledges, id) {
+        console.log(pledges, id)
+        var pledge = pledges[id];
+        var link = window.location.protocol + '//' + window.location.hostname;
+        var linkdecoded = encodeURI(link);
+        var picture = `${link}/images/assets/bground.jpg`;
+        if (pledge) {
+          return `https://www.facebook.com/dialog/feed?app_id=398545717202929&redirect_uri=${link}&link=${linkdecoded}&picture=${picture}&name=${encodeURI('I pledged to have UX PH 2017 and I will get ' + pledge.reward + ' for it!!!')}&caption=${encodeURI('UX Philippines Conference 2017')}&description=${encodeURI('Let\'s bring experts on experience design and learn better interactions, visuals, product, customer services, government services and startup UX.')}`
+        }
+        
       }
       
     });
