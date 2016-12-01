@@ -15,10 +15,15 @@ module.exports = {
   ],
   navigateFallback: '/index.html',
   navigateFallbackWhitelist: [/^(?!\/__)/],
+  // ignoreUrlParametersMatching: [/^utm_/, /service-worker.js/],
   runtimeCaching: [
     {
       // cache Google user profile pics
       urlPattern: /^https:\/\/lh3.googleusercontent.com\/.*/,
+      handler: 'networkFirst'
+    },
+    {
+      urlPattern: /service-worker.js/,
       handler: 'networkFirst'
     }
   ]
