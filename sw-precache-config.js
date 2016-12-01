@@ -14,5 +14,12 @@ module.exports = {
     '/bower_components/webcomponentsjs/webcomponents-lite.min.js'
   ],
   navigateFallback: '/index.html',
-  skipWaiting: true
+  navigateFallbackWhitelist: [/^(?!\/__)/],
+  runtimeCaching: [
+    {
+      // cache Google user profile pics
+      urlPattern: /^https:\/\/lh3.googleusercontent.com\/.*/,
+      handler: 'networkFirst'
+    }
+  ]
 };

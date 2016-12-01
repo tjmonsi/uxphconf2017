@@ -9,10 +9,12 @@
 <link rel="import" href="../../bower_components/neon-animation/animations/scale-up-animation.html">
 <link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-footer/uxph-conference-2017-footer.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-pledge-item/uxph-conference-2017-pledge-item.html">
+
 
 <!-- Style dependency -->
 <link rel="import" href="home-page-style.html">
@@ -80,10 +82,11 @@
                 <div class="horizontal layout wrap speaker-item">
                   <iron-image class="speaker-avatar" src$="[[item.src]]" preload fade></iron-image>
                   <div class="flex speaker-content"> 
-                    <h3>[[item.name]]</h3>
-                    <p class="speaker-body">
-                      [[item.description]]
-                    </p>  
+                    <a href="[[item.link]]" class="title-link"><h3>[[item.name]]</h3></a>
+
+                    <marked-element class="speaker-body" markdown="[[item.description]]">
+                      <div class="markdown-html"></div>
+                    </marked-element>  
                   </div>
                 </div>
               </template>

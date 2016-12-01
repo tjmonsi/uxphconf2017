@@ -116,6 +116,11 @@
       .speaker-content {
         min-width: 250px;
         
+        a.title-link {
+          text-decoration: none;
+          color: inherit
+        }
+
         h3 {
           text-align: left;
           margin-top: 0;
@@ -124,6 +129,10 @@
 
         .speaker-body {
           margin: 0px;
+          a {
+            text-decoration: none;
+            color: $brand-red;
+          }
         }
 
         @include phone {
