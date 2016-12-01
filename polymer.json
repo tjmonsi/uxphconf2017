@@ -13,6 +13,8 @@
    "images/**/*",
    "pages/**/*",
    "web-components/**/*",
+   "scripts/**/*",
+   "styles/**/*",
    "bower.json"
   ],
   "includeDependencies": [

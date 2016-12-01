@@ -6,6 +6,7 @@
 <link rel="import" href="../bower_components/polymerfire/firebase-auth-script.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-database-script.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 
 <!-- Custom Element dependencies -->
 
@@ -72,6 +73,7 @@ Wham! It's all awesome now!
       </qairoe-app-router>
     </qairoe-app-layout>
 
+    <paper-toast id="toast"></paper-toast>
   </template>
   <script>
     /*global Polymer*/
@@ -109,8 +111,12 @@ Wham! It's all awesome now!
       },
 
       ready: function() {
-        this.fire('uxph-conference-2017-app-shell-ready');
-
+        
+        Polymer.RenderStatus.afterNextRender(this, function () {
+          UXPHCONF2017.ServiceWorkerRegistration.register();
+          this.fire('uxph-conference-2017-app-shell-ready');          
+        }.bind(this));
+        
       }
     });
   </script>
