@@ -9,6 +9,7 @@
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
 <link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-behaviors/uxph-conference-2017-behaviors.html">
 <link rel="import" href="../../web-components/uxph-conference-2017-pledge-item/uxph-conference-2017-pledge-item.html">
@@ -61,6 +62,7 @@
 
     <!-- DATA DOWNLOADERS ENDS -->
     
+    
     <div class="horizontal layout wrap">
       <div class="flex-3 main-content">
 
@@ -72,56 +74,62 @@
           Please enter your details so we can process:
         </p>
         
-        <p class="text-content">
+        <p class="text-content" style="margin-bottom: 0px">
           Reward:<br/>
           <b>[[_getReward(params.id, pledges, user)]]</b>
         </p>
         
-        <p class="text-content">
-          <paper-input id="first-name" label="First Name" value="{{contact.firstName}}" required></paper-input>
-          <paper-input id="last-name" label="Last Name" value="{{contact.lastName}}" required></paper-input>
-          <paper-input id="email" label="Email" value="{{contact.email}}" type="email" error-message="Please input a valid email" required></paper-input>
-          <paper-input id="contact-number" label="Contact Number" value="{{contact.contactNumber}}" auto-validate pattern="(\d|-|\+|\(|\)|\s)+" error-message="Please input a valid number"></paper-input>
-        </p>
-        
-        <p class="text-content indent">
-          (We will keep your emails/phone numbers confidential and promise not to spam you or sell/share to any other party.)
-        </p>
-        
-        <p class="text-content">
-          Before we proceed, we would like to find out your venue preference. Which is a more favorable venue for you?
-        </p>
-        
-        <div class="venue-list">
+        <template is="dom-if" if="[[user]]">
+          <p class="text-content">
+            <paper-input id="full-name" label="Full Name" value="{{contact.fullName}}" required></paper-input>
+            <!--<paper-input id="last-name" label="Last Name" value="{{contact.lastName}}" required></paper-input>-->
+            <paper-input id="email" label="Email" value="{{contact.email}}" type="email" error-message="Please input a valid email" required></paper-input>
+            <paper-input id="contact-number" label="Contact Number (optional)" value="{{contact.contactNumber}}" auto-validate pattern="(\d|-|\+|\(|\)|\s)+" error-message="Please input a valid number"></paper-input>
+          </p>
           
-          <template is="dom-repeat" items="[[venues]]" sort="_sorter">
-            <div class="venue-item horizontal layout">
-              <div class="venue-checkbox">
-                <paper-checkbox
-                    class="contact-info-place"
-                    value="[[item.$key]]" 
-                    checked="[[_contactInfoPlaceCheck(item.$key, contact.place)]]" 
-                    on-tap="_contactInfoPlaceTapped"></paper-checkbox>
-              </div>
-
-              <div class="venue-content" value$="[[item.$key]]" on-tap="_contactInfoPlaceTapped">
-                <h3>[[item.name]]</h3>
-                <p class="venue-body">
-                  [[item.description]]
-                </p>  
-              </div>
-            </div>
-          </template>
-        </div>
-
-        <div class="submit-area">
-          <a href="/thanks/[[params.id]]" on-tap="logout">
-            <paper-button raised>
-              Submit
-            </paper-button>
-          </a>
+          <p class="text-content indent">
+            (We will keep your emails/phone numbers confidential and promise not to spam you or sell/share to any other party.)
+          </p>
           
-        </div>
+          <!--<p class="text-content">
+            Before we proceed, we would like to find out your venue preference. Which is a more favorable venue for you?
+          </p>-->
+          
+          <div class="venue-list">
+          
+            <template is="dom-repeat" items="[[venues]]" sort="_sorter">
+              <div class="venue-item horizontal layout">
+                <div class="venue-checkbox">
+                  <paper-checkbox
+                      class="contact-info-place"
+                      value="[[item.$key]]" 
+                      checked="[[_contactInfoPlaceCheck(item.$key, contact.place)]]" 
+                      on-tap="_contactInfoPlaceTapped"></paper-checkbox>
+                </div>
+
+                <div class="venue-content" value$="[[item.$key]]" on-tap="_contactInfoPlaceTapped">
+                  <h3>[[item.name]]</h3>
+                  <p class="venue-body">
+                    [[item.description]]
+                  </p>  
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <div class="submit-area support-submit-area">
+            <a href="/thanks/[[params.id]]" on-tap="logout">
+              <paper-button raised>
+                Submit
+              </paper-button>
+            </a>
+            
+          </div>
+        </template>
+
+        <template is="dom-if" if="[[!user]]">
+          <paper-spinner-lite active></paper-spinner-lite>
+        </template>
       </div>
 
       <!-- FLEX SPACER -->
@@ -191,6 +199,7 @@
       
       autoLogin: function() {
         this.async(() => {
+          console.log('user')
           if (!this.user) {
             this.$.gauth.signInAnonymously().then((user) => {
               this.user = user;
@@ -216,21 +225,21 @@
       logout: function(e) {
         var errors = [];
 
-        console.log(this.$$('#email').validate())
+        // console.log(this.$$('#email').validate())
 
-        if (!this.$$('#first-name').value || !this.$$('#first-name').value.trim()) {
+        if (!this.$$('#full-name').value || !this.$$('#full-name').value.trim()) {
           errors.push({
-             message: 'First Name',
-             element: this.$$('#first-name')
+             message: 'Full Name',
+             element: this.$$('#full-name')
           });
         }
 
-        if (!this.$$('#last-name').value || !this.$$('#last-name').value.trim()) {
-          errors.push({
-             message: 'Last Name',
-             element: this.$$('#last-name')
-          });
-        }
+        // if (!this.$$('#last-name').value || !this.$$('#last-name').value.trim()) {
+        //   errors.push({
+        //      message: 'Last Name',
+        //      element: this.$$('#last-name')
+        //   });
+        // }
 
         if (!this.$$('#email').value || !this.$$('#email').value.trim() || !this.$$('#email').validate()) {
           errors.push({
@@ -239,12 +248,12 @@
           });
         }
 
-        if (!this.$$('#contact-number').value || !this.$$('#contact-number').value.trim() || !this.$$('#contact-number').validate()) {
-          errors.push({
-             message: 'Contact Number',
-             element: this.$$('#contact-number') 
-          });
-        }
+        // if (!this.$$('#contact-number').value || !this.$$('#contact-number').value.trim() || !this.$$('#contact-number').validate()) {
+        //   errors.push({
+        //      message: 'Contact Number',
+        //      element: this.$$('#contact-number') 
+        //   });
+        // }
 
         if (!this.contact || !this.contact.place) {
           errors.push({
@@ -259,6 +268,7 @@
           return e.preventDefault();
         }
 
+        //console.log('signout')
         this.$.gauth.signOut().catch((error) => {
           this.async(() => {
             this.handleError(error);
