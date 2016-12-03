@@ -117,7 +117,10 @@ Wham! It's all awesome now!
       ready: function() {
         
         Polymer.RenderStatus.afterNextRender(this, function () {
-          UXPHCONF2017.ServiceWorkerRegistration.register();
+          if (UXPHCONF2017 && UXPHCONF2017.ServiceWorkerRegistration) {
+            UXPHCONF2017.ServiceWorkerRegistration.register();
+          }
+          
           this.fire('uxph-conference-2017-app-shell-ready');          
         }.bind(this));
         
