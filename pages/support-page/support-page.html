@@ -38,9 +38,9 @@
 
     <template is="dom-if" if="[[user]]">
       <firebase-document
+          id="contact-info"
           path="[[_contactInfo]]/{{user.uid}}"
-          data="{{contact}}"
-          on-error="handleError"></firebase-document>
+          data="{{contact}}"></firebase-document>
     </template>
 
     <firebase-document 
@@ -274,6 +274,8 @@
         }
 
         //console.log('signout')
+        this.$$('#contact-info').detached();
+        
         this.$.gauth.signOut().catch((error) => {
           this.async(() => {
             this.handleError(error);

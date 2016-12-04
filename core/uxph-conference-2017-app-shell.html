@@ -116,7 +116,6 @@ Wham! It's all awesome now!
       },
 
       ready: function() {
-        
         Polymer.RenderStatus.afterNextRender(this, function () {
           if (UXPHCONF2017 && UXPHCONF2017.ServiceWorkerRegistration) {
             UXPHCONF2017.ServiceWorkerRegistration.register();
@@ -129,7 +128,7 @@ Wham! It's all awesome now!
       viewLoaded: function() {
         console.log('loaded')
         if (UXPHCONF2017 && UXPHCONF2017.Elements && UXPHCONF2017.Elements.Loader) {
-          UXPHCONF2017.Elements.Loader.style = "display: none";
+          UXPHCONF2017.Elements.Loader.style.cssText = "display: none";
           
         }
 

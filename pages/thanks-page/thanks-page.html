@@ -141,7 +141,6 @@
         err = error.message ? error.message : err;
         if (window.Ravern) {
           Raven.captureException(err);
-          
         }
         this.$.toaster.show({text: err, duration: 10000});
 
