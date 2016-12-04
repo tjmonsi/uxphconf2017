@@ -88,7 +88,7 @@ function source() {
 function dependencies() {
   return project.splitDependencies()
     .pipe(gulpif(function(file) {
-      return file.path.indexOf('firebase') < 0 && file.path.indexOf('web-animations') < 0 && /\.js$/.test(file.path);
+      return file.path.indexOf('firebase') < 0 && file.path.indexOf('web-animations') < 0 && file.path.indexOf('webcomponents-lite') < 0 && /\.js$/.test(file.path);
     }, babel({presets: ['es2015'], compact: true, minified: true})))
     .pipe(gulpif(/\.js$/, uglify({compress: true})))
     .pipe(gulpif(/\.css$/, cssSlam()))
