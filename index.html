@@ -85,7 +85,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       window.UXPHCONF2017.LoaderTimer = setTimeout(function() {
         console.log('Really slow network here')
-        RavenLoaderMessages.push('Really slow network here')
+        RavenLoaderMessages.push('Really slow network here');
+        window.slowNetwork = new Date();
         sendRavenMessages();
       }, 20000);
 
