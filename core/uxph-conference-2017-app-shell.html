@@ -132,6 +132,16 @@ Wham! It's all awesome now!
           
         }
 
+        if (UXPHCONF2017.LoaderTimerShort) {
+          clearTimeout(UXPHCONF2017.LoaderTimerShort);
+          UXPHCONF2017.LoaderTimerShort = null;
+        }
+
+        if (UXPHCONF2017.LoaderTimerShorter) {
+          clearTimeout(UXPHCONF2017.LoaderTimerShorter);
+          UXPHCONF2017.LoaderTimerShorter = null;
+        }
+
         if (UXPHCONF2017.LoaderTimer) {
           console.log('clearing timer')
           clearTimeout(UXPHCONF2017.LoaderTimer);
@@ -141,6 +151,11 @@ Wham! It's all awesome now!
         if (UXPHCONF2017.LoaderTimerLong) {
           clearTimeout(UXPHCONF2017.LoaderTimerLong);
           UXPHCONF2017.LoaderTimerLong = null;
+        }
+
+        if (UXPHCONF2017.LoaderMessagesInterval) {
+          clearInterval(UXPHCONF2017.LoaderMessagesInterval);
+          UXPHCONF2017.LoaderMessagesInterval = null
         }
 
         if (window.slowNetwork) {

@@ -81,12 +81,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       window.UXPHCONF2017 = window.UXPHCONF2017 || {};
       // window.ENV = 'dev';
       window.PREFIX = '/';
+      
+      window.UXPHCONF2017.LoaderMessagesIndex = 2;
+      window.UXPHCONF2017.LoaderMessages = [
+        'Might be the network...',
+        'If you are using Safari 9, you might need to update it to the latest version...',
+        'If you are using a lower version of Firefox or Chrome, please update it above version 30...',
+        'Nuninuninuninu...',
+        'We haven\'t tested this yet on IE 8... so, give us as a holler if you see this (and you are on IE 10 below)...',
+        'Please wait...',
+        'Why is the network so slow today???'
+      ]
       window.RavenLoaderMessages = [];
+
+      window.UXPHCONF2017.LoaderTimerShort = setTimeout(function() {
+        window.UXPHCONF2017.LoaderText = document.getElementById('loader-text');
+        window.UXPHCONF2017.LoaderText.innerHTML = 'Might be the network...'
+      }, 6000);
+
+      window.UXPHCONF2017.LoaderTimerShorter = setTimeout(function() {
+        window.UXPHCONF2017.LoaderText = document.getElementById('loader-text');
+        window.UXPHCONF2017.LoaderText.innerHTML = 'Please wait...'
+      }, 14000);
 
       window.UXPHCONF2017.LoaderTimer = setTimeout(function() {
         console.log('Really slow network here')
         RavenLoaderMessages.push('Really slow network here');
+        window.UXPHCONF2017.LoaderText.innerHTML = 'If you are using Safari 9, you might need to update it to the latest version...';
         window.slowNetwork = new Date();
+
+        window.UXPHCONF2017.LoaderMessagesInterval = setInterval(function() {
+          window.UXPHCONF2017.LoaderText.innerHTML = window.UXPHCONF2017.LoaderMessages[window.UXPHCONF2017.LoaderMessagesIndex];
+          window.UXPHCONF2017.LoaderMessagesIndex++;
+          if (window.UXPHCONF2017.LoaderMessagesIndex >= window.UXPHCONF2017.LoaderMessages.length) {
+            window.UXPHCONF2017.LoaderMessagesIndex = 0;
+          }
+        }, 7000);
+
         sendRavenMessages();
       }, 20000);
 
@@ -95,6 +126,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         RavenLoaderMessages.push('Really really slow network here');
         sendRavenMessages();
       }, 60000);
+
+
 
       function sendRavenMessages() {
         console.log('raven loaded')
@@ -250,6 +283,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         80%,
         90% {
           stroke: #ffa700; } }
+
+      .loader-text {
+        text-align: center;
+        padding: 20px;
+      }
     </style>
   </head>
   <body>
@@ -259,6 +297,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <svg class="circular" viewBox="25 25 50 50">
           <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
         </svg>
+      </div>
+      <div class="loader-text" id="loader-text">
       </div>
     </div>
 
