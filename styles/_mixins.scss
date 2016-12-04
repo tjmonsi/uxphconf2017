@@ -9,6 +9,12 @@
   }
 }
 
+@mixin specialsize {
+  @media only screen and (max-width: map-get($grid-breakpoints, specialsize) - 1) {
+    @content
+  }
+}
+
 ////////// Tablet //////////
 @mixin tablet {
   @media only screen and  (min-width: map-get($grid-breakpoints, phone)) and (max-width: map-get($grid-breakpoints, tablet) - 1) {
