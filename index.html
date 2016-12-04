@@ -77,13 +77,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-TileImage" content="/images/manifest/ms-icon-144x144.png">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="Raven.config('https://9f5d8e1abe974d799eefe34c0cba46af@sentry.io/119409').install()"></script>
-
-    <!-- Script used to load Polymer and to load webcomponents when needed -->
     <script>
       window.UXPHCONF2017 = window.UXPHCONF2017 || {};
       // window.ENV = 'dev';
       window.PREFIX = '/';
+      window.RavenLoaderMessages = [];
+
+      window.UXPHCONF2017.LoaderTimer = setTimeout(function() {
+        console.log('Really slow network here')
+        RavenLoaderMessages.push('Really slow network here')
+        sendRavenMessages();
+      }, 20000);
+
+      window.UXPHCONF2017.LoaderTimerLong = setTimeout(function() {
+        console.log('Really really slow network here')
+        RavenLoaderMessages.push('Really really slow network here');
+        sendRavenMessages();
+      }, 60000);
+
+      function sendRavenMessages() {
+        console.log('raven loaded')
+        while (window.RavenLoaderMessages.length > 0) {
+          if (window.Raven) {
+            var message = window.RavenLoaderMessages.pop();
+            Raven.captureMessage(message);
+          } else {
+            break;
+          }
+        }
+      }
+
+      window.loadRaven = function() {
+        Raven.config('https://9f5d8e1abe974d799eefe34c0cba46af@sentry.io/119409').install();
+        setTimeout(sendRavenMessages, 10);
+      }
+    </script>
+
+    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
+
+    <!-- Script used to load Polymer and to load webcomponents when needed -->
+    <script>
+      
 
       // Setup Polymer options
       // Based on https://youtu.be/Rd0plknSPYU?t=19m58s

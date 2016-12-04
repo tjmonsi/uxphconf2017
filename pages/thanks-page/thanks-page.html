@@ -128,8 +128,15 @@
       },
 
       handleError: function(error) {
-        
+        console.log('error here')
         console.error(error);
+        if (error.type) {
+          console.error(error.type)
+        }
+
+        if (error.detail) {
+          console.log(error.detail);
+        }
         var err = error.detail ? error.detail : error
         err = error.message ? error.message : err;
         if (window.Ravern) {

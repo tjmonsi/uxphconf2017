@@ -130,6 +130,17 @@ Wham! It's all awesome now!
         console.log('loaded')
         if (UXPHCONF2017 && UXPHCONF2017.Elements && UXPHCONF2017.Elements.Loader) {
           UXPHCONF2017.Elements.Loader.style = "display: none";
+          
+        }
+
+        if (UXPHCONF2017.LoaderTimer) {
+          clearTimeout(UXPHCONF2017.LoaderTimer);
+          UXPHCONF2017.LoaderTimer = null;
+        }
+
+        if (UXPHCONF2017.LoaderTimerLong) {
+          clearTimeout(UXPHCONF2017.LoaderTimerLong);
+          UXPHCONF2017.LoaderTimerLong = null;
         }
       }
     });

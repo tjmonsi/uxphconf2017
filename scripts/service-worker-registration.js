@@ -46,12 +46,14 @@ UXPHCONF2017.ServiceWorkerRegistration = (function () {
                   break;
 
                 case 'redundant':
-                  throw Error('The installing service worker became redundant.');
+                  console.error(Error('The installing service worker became redundant.'));
+                  Raven.captureMessage('The installing service worker became redundant.');
               }
             };
           };
         }).catch(function (e) {
           UXPHCONF2017.Analytics.trackError('navigator.serviceWorker.register() error', e);
+          Raven.captureMessage('Service worker registration failed:', e);
           console.error('Service worker registration failed:', e);
         });
       }

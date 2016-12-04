@@ -4,6 +4,7 @@ UXPHCONF2017.Elements = (function () {
   function init() {
     UXPHCONF2017.Elements.Template = document.getElementById('uxphconf-app');
     UXPHCONF2017.Elements.Loader = document.getElementById('showbox');
+    
   }
 
   return {
