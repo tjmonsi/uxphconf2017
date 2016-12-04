@@ -39,12 +39,14 @@
     <template is="dom-if" if="[[user]]">
       <firebase-document
           path="[[_contactInfo]]/{{user.uid}}"
-          data="{{contact}}"></firebase-document>
+          data="{{contact}}"
+          on-error="handleError"></firebase-document>
     </template>
 
     <firebase-document 
         path="[[_pledgeList]]"
-        data="{{_pledgesLive}}"></firebase-document>
+        data="{{_pledgesLive}}"
+        on-error="handleError"></firebase-document>
 
     <app-indexeddb-mirror
         key="pledgesList"
@@ -53,7 +55,8 @@
 
     <firebase-document 
         path="[[_venuesList]]"
-        data="{{_venuesLive}}"></firebase-document>
+        data="{{_venuesLive}}"
+        on-error="handleError"></firebase-document>
 
     <app-indexeddb-mirror
         key="venuesList"
@@ -134,6 +137,8 @@
 
       <!-- FLEX SPACER -->
       <div class="flex spacer"></div>
+
+      <div class="mobile-wrapper"></div>
 
       <!-- SIDE WINDOW -->
       <paper-material class="flex-2 side-window">
@@ -280,8 +285,13 @@
         console.error(error);
         var err = error.detail ? error.detail : error
         err = error.message ? error.message : err;
-        
+        if (window.Ravern) {
+          Raven.captureException(err);
+          
+        }        
         this.$.toaster.show({text: err, duration: 10000});
+        // Raven.showReportDialog();
+
       },
       
       _checkPledge: function(i, j) {    

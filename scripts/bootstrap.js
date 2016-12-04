@@ -83,6 +83,13 @@
       document.head.appendChild(script);
     }
 
+    if (!window.Promise) {
+      var parent = document.querySelector('body');
+      var polyfillScript = document.createElement('script');
+      polyfillScript.src = '/bower_components/es6-promise-polyfill/promise.min.js';
+      parent.insertBefore(polyfillScript, swScript);
+    }
+
     if (!(UXPHCONF2017.Util.getChromeVersion() &&
       UXPHCONF2017.Util.getChromeVersion() >= 46 || UXPHCONF2017.Util.getFirefoxVersion() && UXPHCONF2017.Util.getFirefoxVersion() >= 40)) {
       var parent = document.querySelector('body');

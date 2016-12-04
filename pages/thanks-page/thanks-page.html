@@ -25,7 +25,8 @@
 
     <firebase-document 
         path="[[_pledgeList]]"
-        data="{{_pledgesLive}}"></firebase-document>
+        data="{{_pledgesLive}}"
+        on-error="handleError"></firebase-document>
 
     <app-indexeddb-mirror
         key="pledgesList"
@@ -131,8 +132,12 @@
         console.error(error);
         var err = error.detail ? error.detail : error
         err = error.message ? error.message : err;
-        
+        if (window.Ravern) {
+          Raven.captureException(err);
+          
+        }
         this.$.toaster.show({text: err, duration: 10000});
+
       },
 
       _thisUrl: function() {

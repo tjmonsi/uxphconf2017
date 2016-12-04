@@ -109,6 +109,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ga('send', 'event', 'error', file + ':' + lineNumber, message);
           }
           
+          if (window.Raven) {
+            Raven.captureException(error);
+            Raven.showReportDialog();
+          }
+          
+          
+          
         } catch (e) {
           console.error(e);
           // no-op
@@ -118,7 +125,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </script>
 
 
-    <link rel="import" href="/core/uxph-conference-2017-app-shell.html">
+    
     
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:400,500,700" rel="stylesheet" async>
 
@@ -135,13 +142,89 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       #uxphconf-app {
         min-width: 100%;
       }
+
+      
       /* INDEX STYLE ENDS */
+
+      .showbox {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 5%;
+        margin-top: 140px; }
+        .showbox.hidden {
+          display: none; }
+
+      .loader {
+        position: relative;
+        margin: 0 auto;
+        width: 100px; }
+        .loader:before {
+          content: '';
+          display: block;
+          padding-top: 100%; }
+
+      .circular {
+        animation: rotate 2s linear infinite;
+        height: 100%;
+        transform-origin: center center;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto; }
+
+      .path {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+        stroke-linecap: round; }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg); } }
+
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0; }
+        50% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -35px; }
+        100% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -124px; } }
+
+      @keyframes color {
+        100%,
+        0% {
+          stroke: #d62d20; }
+        40% {
+          stroke: #0057e7; }
+        66% {
+          stroke: #008744; }
+        80%,
+        90% {
+          stroke: #ffa700; } }
     </style>
   </head>
   <body>
+
+    <div class="showbox" id="showbox">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+
     <uxph-conference-2017-app-shell id="uxphconf-app"></uxph-conference-2017-app-shell>
 
-   
+    
 
     <noscript>
       
@@ -184,11 +267,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script src="/scripts/util.js"></script>
     <script src="/scripts/elements.js"></script>
-    <script src="/scripts/deferred.js"></script>
-    <script src="/scripts/metrics.js"></script>
-    <script src="/scripts/bootstrap.js"></script>
-    
     <script id="sw-registration" src="/scripts/service-worker-registration.js"></script>
+    <script src="/scripts/deferred.js" async></script>
+    <script src="/scripts/metrics.js" async></script>
+    <script src="/scripts/bootstrap.js" async></script>
+    
+    <link rel="import" href="/core/uxph-conference-2017-app-shell.html" async>
 
     
     <link href="/styles/index.css" rel="stylesheet">

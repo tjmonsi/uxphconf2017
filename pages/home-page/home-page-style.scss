@@ -24,6 +24,18 @@
 
 }
 
+.mobile-wrapper {
+  display: none;
+  width: 0px;
+  height: 0px;
+
+  @include phone {
+    display: block;
+    width: 100%;
+    height: 1px;
+  }
+}
+
 .spacer {
   @include phone {
     display: none;
