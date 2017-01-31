@@ -30,8 +30,8 @@ Wham! It's all awesome now!
   <!-- Lazy loaded dependencies -->
   <!-- LAZY LOADER STARTS HERE -->
   <link rel="lazy-import" href="/pages/home-page/home-page.html" group="home-page">
-  <link rel="lazy-import" href="/pages/support-page/support-page.html" group="support-page">
-  <link rel="lazy-import" href="/pages/thanks-page/thanks-page.html" group="thanks-page">
+  <!--<link rel="lazy-import" href="/pages/support-page/support-page.html" group="support-page">-->
+  <!--<link rel="lazy-import" href="/pages/thanks-page/thanks-page.html" group="thanks-page">-->
   <link rel="lazy-import" href="/pages/not-authorized-page/not-authorized-page.html" group="not-authorized-page">
   <link rel="lazy-import" href="/pages/not-found-page/not-found-page.html" group="not-found-page">
   <!-- LAZY LOADER ENDS HERE -->
@@ -44,7 +44,7 @@ Wham! It's all awesome now!
       }
     </style>
 
-    <firebase-app 
+    <firebase-app
         auth-domain="ux-ph-conf-2017.firebaseapp.com"
         database-url="https://ux-ph-conf-2017.firebaseio.com"
         api-key="AIzaSyD9PL6zRsYSG7RkdMOHy3n7kRiUN_fGU84"
@@ -52,9 +52,9 @@ Wham! It's all awesome now!
 
     <qairoe-app-layout scroll-progress="{{scrollProgress}}">
 
-      <!--<uxph-conference-2017-header 
-        main-header 
-        scroll-progress="{{scrollProgress}}" 
+      <!--<uxph-conference-2017-header
+        main-header
+        scroll-progress="{{scrollProgress}}"
         user="{{user}}"></uxph-conference-2017-header>-->
       <!--<uxph-conference-2017-drawer
         main-drawer
@@ -69,8 +69,8 @@ Wham! It's all awesome now!
 
         <!-- ROUTER STARTS HERE -->
         <home-page route="/"></home-page>
-        <support-page route="/support/:id" user="{{user}}"></support-page>
-        <thanks-page route="/thanks/:id" user="{{user}}"></thanks-page>
+        <!--<support-page route="/support/:id" user="{{user}}"></support-page>
+        <thanks-page route="/thanks/:id" user="{{user}}"></thanks-page>-->
         <not-authorized-page route="not-authorized"></not-authorized-page>
         <not-found-page route="not-found"></not-found-page>
         <!-- ROUTER ENDS HERE -->
@@ -119,17 +119,17 @@ Wham! It's all awesome now!
         Polymer.RenderStatus.afterNextRender(this, function () {
           if (UXPHCONF2017 && UXPHCONF2017.ServiceWorkerRegistration) {
             UXPHCONF2017.ServiceWorkerRegistration.register();
-          }     
-          this.fire('uxph-conference-2017-app-shell-ready');          
+          }
+          this.fire('uxph-conference-2017-app-shell-ready');
         }.bind(this));
-        
+
       },
 
       viewLoaded: function() {
         console.log('loaded')
         if (UXPHCONF2017 && UXPHCONF2017.Elements && UXPHCONF2017.Elements.Loader) {
           UXPHCONF2017.Elements.Loader.style.cssText = "display: none";
-          
+
         }
 
         if (UXPHCONF2017.LoaderTimerShort) {
