@@ -59,7 +59,22 @@
                     value: function() {
                         return this.__contactInfo
                     }
-                }
+                },
+                _pledgeSurvey: {
+                    type: String,
+                    readonly: true,
+                    value: function() {
+                        return this.__pledgesSurvey
+                    }
+                },
+
+                // _feedbackPath: {
+                //     type: String,
+                //     readonly: true,
+                //     value: function() {
+                //         return this.__feedbackPath
+                //     }
+                // }
             },
 
             observers: [
