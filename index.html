@@ -1,26 +1,33 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <!-- TITLE START -->
-    <title>UXPH Conference 2017</title>
-    <!-- TITLE ENDS -->
+    <!-- TITLE START HERE --><title>UXPH 2017</title><!-- TITLE END HERE -->
 
-    <!-- DESCRIPTION START -->
-    <meta name="description" content="This is the site for the UXPH Conference 2017">
-    <!-- DESCRIPTION END -->
+    <!-- DESCRIPTION START --><meta name="description" content="This is the UXPH 2017 website" /><!-- DESCRIPTION END -->
+
+    <!-- OG TITLE START HERE --><meta property="og:title" content="UXPH 2017" /><!-- OG TITLE END HERE -->
+
+    <!-- OG TYPE START HERE --><meta property="og:type" content="website" /><!-- OG TYPE END HERE -->
+
+    <!-- OG IMG START HERE --><meta property="og:image" content="http://url.of/image-uxph.jpg" /><!-- OG IMG END HERE -->
+
+    <!-- OG DESC START HERE --><meta property="og:description" content="This is the UXPH 2017 website" /><!-- OG DESC END HERE -->
+
+    <!-- TWITTER CARD START HERE --><meta name="twitter:card" content="summary_large_image" /><!-- TWITTER CARD END HERE -->
+
+    <!-- TWITTER SITE START HERE --><meta name="twitter:site" content="@UXPH" /><!-- TWITTER SITE END HERE -->
+
+    <!-- TWITTER CREATOR START HERE --><meta name="twitter:creator" content="@UXPH" /><!-- TWITTER CREATOR END HERE -->
+
+    <!-- TWITTER TITLE START HERE --><meta property="twitter:title" content="UXPH 2017" /><!-- TWITTER TITLE END HERE -->
+
+    <!-- TWITTER DESC START HERE --><meta name="twitter:description" content="This is the UXPH 2017 website" /><!-- TWITTER DESC END HERE -->
+
+    <!-- TWITTER IMG START HERE --><meta name="twitter:image" content="http://url.of/image-uxph.jpg" /><!-- TWITTER IMG END HERE -->
+
 
     <link rel="icon" href="/images/favicon.ico">
 
@@ -28,20 +35,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="manifest" href="/manifest.json">
 
     <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#3f51b5">
+    <!-- THEME COLOR START HERE --><meta name="theme-color" content="#3f51b5" /><!-- THEME COLOR END HERE -->
+
 
     <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
     <meta name="mobile-web-app-capable" content="yes">
-    <!-- CHROME TITLE STARTS -->
-    <meta name="application-name" content="UXPH Conference 2017">
-    <!-- CHROME TITLE ENDS -->
+    <!-- CHROME TITLE STARTS --><meta name="application-name" content="UXPH 2017" /><!-- CHROME TITLE ENDS -->
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- IOS TITLE STARTS -->
-    <meta name="apple-mobile-web-app-title" content="UXPH Conference 2017">
-    <!-- IOS TITLE ENDS -->
+    <!-- IOS TITLE STARTS --><meta name="apple-mobile-web-app-title" content="UXPH 2017" /><!-- IOS TITLE ENDS -->
 
     <!-- Homescreen icons -->
     <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
@@ -52,76 +56,203 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#3f51b5">
+
+    <!-- MSTHEME COLOR START HERE --><meta name="msapplication-TileColor" content="#3f51b5" /><!-- MSTHEME COLOR END HERE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Script used to load Polymer and to load webcomponents when needed -->
+    <!-- =========================================================================================== -->
+    <!-- =========================================================================================== -->
+
     <script>
-      // Setup Polymer options
-      // Based on https://youtu.be/Rd0plknSPYU?t=19m58s
-      // Making Chromsestatus.com a Lightning-fast PWA (Polymer Summit 2016)
-      window.Polymer = {
-        // Use native Shadow DOM (if available)
-        dom: 'shadow',
+      (function(){
+        window.UXPH = window.UXPH || {};
+        window.PREFIX = '/';
 
-        // Delay Polymer startup work until instance-time,
-        lazyRegister: 'max'
-      };
+        /** VERSION START HERE **/
+        window.UXPH.version = 'beta';
+        /** VERSION END HERE**/
 
-      // Load webcomponentsjs polyfill if browser does not support native Web Components
-      (function() {
-        'use strict';
+        window.UXPH.SplashMessagesIndex = 0;
+        window.UXPH.RavenSplashMessages = [];
 
-        var onload = function() {
-          // For native Imports, manually fire WebComponentsReady so user code
-          // can use the same code path for native and polyfill'd imports.
-          if (!window.HTMLImports) {
-            document.dispatchEvent(
-              new CustomEvent('WebComponentsReady', {bubbles: true})
-            );
-          }
+        /** SPLASH MESSAGES START HERE **/
+        window.UXPH.SplashMessages = [
+          'Might be the network...',
+          'If you are using Safari 9, you might need to update it to the latest version...',
+          'If you are using a lower version of Firefox or Chrome, please update it above version 30...',
+          'Nuninuninuninu...',
+          'We haven\'t tested this yet on IE 8... so, give us as a holler if you see this (and you are on IE 10 below)...',
+          'Please wait...',
+          'Why is the network so slow today???'
+        ];
+        /** SPLASH MESSAGES END HERE **/
+
+        // Setup Polymer options
+        // Based on https://youtu.be/Rd0plknSPYU?t=19m58s
+        // Making Chromsestatus.com a Lightning-fast PWA (Polymer Summit 2016)
+        window.Polymer = {
+          dom: 'shadow', // Use native Shadow DOM (if available)
+          lazyRegister: 'max' // Delay Polymer startup work until instance-time,
         };
 
-        var webComponentsSupported = (
-          'registerElement' in document
-          && 'import' in document.createElement('link')
-          && 'content' in document.createElement('template')
-        );
+        window.UXPH.SplashMessagesInterval = setInterval(function() {
+          if (window.UXPH.SplashText) {
+            window.UXPH.SplashText.innerHTML = window.UXPH.SplashMessages[window.UXPH.SplashMessagesIndex];
+            window.UXPH.SplashMessagesIndex++;
+            if (window.UXPH.SplashMessagesIndex >= window.UXPH.SplashMessages.length) {
+              window.UXPH.SplashMessagesIndex = 0;
+            }
+          }
+        }, 7000);
 
-        if (!webComponentsSupported) {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-          script.onload = onload;
-          document.head.appendChild(script);
-        } else {
-          onload();
+        function sendRavenMessages() {
+          if (window.Raven) {
+            while (window.UXPH.RavenSplashMessages.length > 0) {
+              var message = window.RavenLoaderMessages.pop();
+              Raven.captureMessage(message);
+            }
+          }
         }
-      })();
 
-      // Load pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-      }
+        window.loadRaven = function() {
+
+          /** RAVEN CONFIG START HERE **/
+          Raven.config('https://827acc4cd4d04b009157881a6939baac@sentry.io/123192').install();
+          /** RAVEN CONFIG END HERE **/
+
+          setTimeout(sendRavenMessages, 10);
+        }
+
+        window.onerror = function (message, file, lineNumber, columnNumber, error) {
+        // We don't want to trigger any errors inside window.onerror, so wrap in a try/catch.
+          try {
+            // Some browsers don't support error param yet.
+            if (error !== undefined && error !== null) {
+              message = error.stack;
+            }
+            if (window.ga) {
+              ga('send', 'event', 'error', file + ':' + lineNumber, message);
+            }
+
+            if (window.Raven && error) {
+              Raven.captureException(error);
+              if (window.UXPH.version !== 'beta' && window.UXPH.version !== 'alpha') {
+                Raven.showReportDialog();
+              }
+            } else {
+              console.log(message);
+            }
+          } catch (e) {
+            console.error(e);
+            // no-op
+          }
+        };
+      }());
+
     </script>
 
+    <link rel="import" href="project-core.html" async>
+    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
 
-    <link rel="import" href="/core/uxph-conference-2017-app-shell.html">
+    <!-- INDEX STYLE START HERE -->
+<style>
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-width: 100%; }
 
-    <style>
-      /* INDEX STYLE STARTS */
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-      }
-      /* INDEX STYLE ENDS */
-    </style>
+#core-app {
+  min-width: 100%; }
+
+#splash-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%;
+  margin-top: 140px; }
+  #splash-page.hidden {
+    display: none; }
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 100px; }
+  .loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%; }
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round; }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px; } }
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #d62d20; }
+  40% {
+    stroke: #0057e7; }
+  66% {
+    stroke: #008744; }
+  80%,
+  90% {
+    stroke: #ffa700; } }
+
+.splash-text {
+  text-align: center;
+  padding: 20px; }
+
+</style>
+<!-- INDEX STYLE END HERE -->
   </head>
   <body>
-    <uxph-conference-2017-app-shell></uxph-conference-2017-app-shell>
+
+    <div id="splash-page">
+    <!-- SPLASH PAGE START HERE -->
+<div class="loader">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+  </svg>
+</div>
+<div class="splash-text" id="splash-text">
+</div>
+<!-- SPLASH PAGE END HERE -->
+    </div>
+
+    <project-core id="project-core"></project-core>
+
   </body>
 </html>
