@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       window.UXPHCONF2017 = window.UXPHCONF2017 || {};
       // window.ENV = 'dev';
       window.PREFIX = '/';
-      
+
       window.UXPHCONF2017.LoaderMessagesIndex = 2;
       window.UXPHCONF2017.LoaderMessages = [
         'Might be the network...',
@@ -147,14 +147,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </script>
 
-    <link rel="import" href="/core/uxph-conference-2017-app-shell.html" async>
 
 
-    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
+
+    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" onload="window.loadRaven()"></script>
 
     <!-- Script used to load Polymer and to load webcomponents when needed -->
     <script>
-      
+
 
       // Setup Polymer options
       // Based on https://youtu.be/Rd0plknSPYU?t=19m58s
@@ -179,16 +179,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (window.ga) {
             ga('send', 'event', 'error', file + ':' + lineNumber, message);
           }
-          
+
           if (window.Raven && error) {
             Raven.captureException(error);
             Raven.showReportDialog();
           } else {
             console.log(message)
           }
-          
-          
-          
+
+
+
         } catch (e) {
           console.error(e);
           // no-op
@@ -198,8 +198,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </script>
 
 
-    
-    
+    <link rel="import" href="/core/uxph-conference-2017-app-shell.html" >
+
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:400,500,700" rel="stylesheet" async>
 
     <style>
@@ -216,7 +216,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         min-width: 100%;
       }
 
-      
+
       /* INDEX STYLE ENDS */
 
       .showbox {
@@ -304,17 +304,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <uxph-conference-2017-app-shell id="uxphconf-app"></uxph-conference-2017-app-shell>
 
-    
+
 
     <noscript>
-      
+
       <div class="main-content">
         <img src="/images/assets/logo.png" class="logo">
 
         <h1>Design for a better Philippines</h1>
 
         <p class="text-content">
-          We would like to bring experts on experience design and learn better 
+          We would like to bring experts on experience design and learn better
           interactions, visuals, product,  customer services, government services and startup UX.
         </p>
 
@@ -323,10 +323,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </p>
 
         <p class="text-content">
-          We are a group of UX professionals organizing a conference on user experience and design on <b>May 19-20,2017</b>. If you would like to be a part of it, you can join us by supporting and pledging to this event. 
+          We are a group of UX professionals organizing a conference on user experience and design on <b>May 20-21,2017</b>. If you would like to be a part of it, you can join us by supporting and pledging to this event.
           You can choose from the different pledges available. Pledging will also allow you to be surveyed for the conference venue options.
         </p>
-        
+
 
         <p class="text-content">
           To see the different pledges, please turn on your Javascript.
@@ -351,10 +351,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="/scripts/deferred.js"></script>
     <script src="/scripts/metrics.js" async></script>
     <script src="/scripts/bootstrap.js" async></script>
-    
-    
 
-    
+
+
+
     <link href="/styles/index.css" rel="stylesheet">
   </body>
 </html>
