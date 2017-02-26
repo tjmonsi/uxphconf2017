@@ -27,7 +27,7 @@
       }
     </style>
 
-    <firebase-document 
+    <firebase-document
         path="[[_speakerList]]"
         data="{{_speakersLive}}"></firebase-document>
 
@@ -36,7 +36,7 @@
         data="{{_speakersLive}}"
         persisted-data="{{_speakers}}"></app-indexeddb-mirror>
 
-    <firebase-document 
+    <firebase-document
         path="[[_pledgeList]]"
         data="{{_pledgesLive}}"></firebase-document>
 
@@ -51,24 +51,24 @@
           <a href="/">
             <img src="/images/assets/logo.png" class="logo">
           </a>
-          
+
           <div class="foreground-title">
             <h1>Design for a better Philippines</h1>
-          </div>  
+          </div>
         </div>
 
         <div class="horizontal layout wrap">
           <div class="flex-3 main-content">
             <p class="text-content">
-              We are a group of UX professionals organizing a conference on experience and design on <b>May 19-20, 2017</b>. 
-              If you would like to be a part of it, you can join us by supporting and pledging to this event. 
+              We are a group of UX professionals organizing a conference on experience and design on <b>May 20-21, 2017</b>.
+              If you would like to be a part of it, you can join us by supporting and pledging to this event.
               You can choose from the different pledges available on this page. Pledging will also allow you to be surveyed for the conference venue options.
             </p>
 
             <!--<p class="text-content">
               Let’s make it happen.
             </p>
-            
+
             <p class="text-content">
               We are are group of UX professionals organizing a conference on experience and design on <b>May 19-20,2016</b>.
             </p>-->
@@ -76,29 +76,29 @@
             <p class="text-content">
               The following international speakers have already expressed their interest in joining this conference:
             </p>
-            
+
             <div class="speaker-list">
               <template is="dom-repeat" items="[[speakers]]" sort="_sorter">
                 <div class="horizontal layout wrap speaker-item">
                   <iron-image class="speaker-avatar" src$="[[item.src]]" preload fade></iron-image>
-                  <div class="flex speaker-content"> 
+                  <div class="flex speaker-content">
                     <a href="[[item.link]]" class="title-link"><h3>[[item.name]]</h3></a>
 
                     <marked-element class="speaker-body" markdown="[[item.description]]">
                       <div class="markdown-html"></div>
-                    </marked-element>  
+                    </marked-element>
                   </div>
                 </div>
               </template>
-              
-              <template is="dom-if" if="[[!_checkEmptyArray(speakers)]]">                             
+
+              <template is="dom-if" if="[[!_checkEmptyArray(speakers)]]">
                 <paper-spinner-lite active></paper-spinner-lite>
               </template>
             </div>
           </div>
           <!-- FLEX SPACER -->
           <div class="flex spacer"></div>
-        </div>     
+        </div>
       </div>
 
       <div class="mobile-wrapper"></div>
@@ -107,7 +107,7 @@
       <paper-material class="flex-2 side-window">
         <div class="side-window-title">
           <h2>Design Conference</h2>
-          <p> In 2014, we brought speakers like Whitney Hess in Manila to talk about User Experience Design and the Design Career path.  
+          <p> In 2014, we brought speakers like Whitney Hess in Manila to talk about User Experience Design and the Design Career path.
             In 2017, we would like to make it more meaningful for you as we bring speakers on topics like:</p>
           <p>
             <ul>
@@ -121,12 +121,12 @@
           <div class="submit-area">
             <paper-button raised on-tap="_openSupportDialog">
               Support
-            </paper-button>   
+            </paper-button>
           </div>
 
           <p>For your early support we offer the following rewards</p>
-        </div>  
-        
+        </div>
+
         <template is="dom-repeat" items="[[pledges]]" sort="_sorter">
           <a class="pledge-item-anchor" href="/support/[[item.$key]]">
             <!-- PLEDGE HERE -->
@@ -134,28 +134,28 @@
           </a>
         </template>
 
-        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">  
+        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">
           <div class="horizontal layout">
             <div class="flex"></div>
             <paper-spinner-lite active></paper-spinner-lite>
             <div class="flex-3"></div>
-          </div>                           
-          
+          </div>
+
         </template>
 
         <!--<div class="submit-area">
           <paper-button raised on-tap="_openSupportDialog">
             Support
-          </paper-button>   
+          </paper-button>
         </div>-->
       </paper-material>
     </div>
 
     <uxph-conference-2017-footer></uxph-conference-2017-footer>
 
-    <paper-dialog 
-        id="support-dialog" 
-        entry-animation="scale-up-animation" 
+    <paper-dialog
+        id="support-dialog"
+        entry-animation="scale-up-animation"
         exit-animation="fade-out-animation" with-backdrop>
       <h4>Please pick a pledge</h4>
 
@@ -167,11 +167,11 @@
           </a>
         </template>
 
-        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">                            
+        <template is="dom-if" if="[[!_checkEmptyArray(pledges)]]">
           <paper-spinner-lite active></paper-spinner-lite>
         </template>
       </div>
-      
+
 
     </paper-dialog>
   </template>
@@ -184,11 +184,11 @@
         Polymer.UXPHConf2017Behavior
       ],
 
-      _checkEmptyArray: function(a) {        
+      _checkEmptyArray: function(a) {
         return a && a.length > 0;
       },
 
-      _sorter: function(i, j) {        
+      _sorter: function(i, j) {
         return i.index > j.index
       },
 
