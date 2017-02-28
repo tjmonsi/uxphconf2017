@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const path = require('path');
 const fs = require('fs');
 const versions = require('../config/versions.json');
+const pages = require('../config/pages.json');
 const map = require('map-stream');
 const gutil = require('gulp-util');
 const indexFile = 'index.html';
@@ -158,14 +159,18 @@ const injectMetadata = function(v) {
                 }
               }
             }
-          
 
-            fs.writeFile(indexFile, content, 'utf-8', function(err) {
-              if (err) {
-                console.log(err)
-              }
-              return cb();
-            })
+            for (var p in pages.pages) {
+              fs.writeFileSync(pages.pages[p], content, 'utf-8');
+            }
+
+            cb();
+            // fs.writeFile(indexFile, content, 'utf-8', function(err) {
+            //   if (err) {
+            //     console.log(err)
+            //   }
+            //   return cb();
+            // })
 
           })
 
