@@ -149,11 +149,30 @@
             // no-op
           }
         };
+
+        window.initFontLoader = function() {
+          if (window.FontFaceObserver) {
+            console.log('font-face-observer loaded');
+            var font = new FontFaceObserver('Open Sans');
+            font.load().then(function() {
+              document.body.className += 'font-loaded';
+            })
+          }
+        }
+
+        // check if Promise is existing
+        if (!window.Promise) {
+          var promiseLink = document.createElement('script');
+          promiseLink.setAttribute('src', "bower_components/promise-polyfill/promise.min.js");
+          document.head.appendChild(promiseLink);
+        }
       }());
 
     </script>
 
     <link rel="import" href="project-core.html" async>
+    <script src="bower_components/fontfaceobserver/fontfaceobserver.standalone.js" async onload="window.initFontLoader()"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" async>
     <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
 
     <!-- INDEX STYLE START HERE -->
@@ -164,15 +183,93 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-width: 100%; }
+  body.font-loaded {
+    font-family: 'Open Sans', 'sans-serif'; }
+
+.uxph-white-bg {
+  background-color: #ffffff;
+  position: relative;
+  padding-bottom: -10px; }
+  .uxph-white-bg .uxph-small-box {
+    position: absolute;
+    width: 10px;
+    height: 10px; }
+  .uxph-white-bg .uxph-red-box {
+    background-color: #D71635; }
+  .uxph-white-bg .uxph-blue-box {
+    background-color: #15B0DE; }
+  .uxph-white-bg .uxph-top-right {
+    top: 0px;
+    right: 0px; }
+  .uxph-white-bg .uxph-top-left {
+    top: 0px;
+    left: 0px; }
+  .uxph-white-bg .uxph-bottom-right {
+    bottom: 0px;
+    right: 0px;
+    float: left; }
+  .uxph-white-bg .uxph-bottom-left {
+    bottom: 0px;
+    left: 0px;
+    float: left; }
 
 #header-container header {
-  height: 55px;
-  padding-left: 42px; }
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-right: 5px; }
   #header-container header .uxph-logo-anchor {
     text-decoration: none;
     color: inherit; }
     #header-container header .uxph-logo-anchor .uxph-logo {
-      height: 30px; }
+      padding-top: 13px;
+      padding-bottom: 12px;
+      margin-right: 37.5px;
+      margin-left: 37.5px;
+      height: 30px;
+      vertical-align: bottom; }
+  #header-container header nav {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center; }
+    #header-container header nav .uxph-nav-link-anchor {
+      color: #3DBBE0;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 17px;
+      text-align: center; }
+      #header-container header nav .uxph-nav-link-anchor .uxph-nav-link {
+        height: 17px;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 18px;
+        position: relative; }
+    #header-container header nav .uxph-nav-link-anchor-active {
+      color: #000000; }
+      #header-container header nav .uxph-nav-link-anchor-active .uxph-nav-link {
+        padding-bottom: 16px;
+        border-bottom: 2px solid #3DBBE0; }
 
 </style>
 <!-- INDEX STYLE END HERE -->
@@ -182,10 +279,71 @@ body {
     <div id="header-container">
       <!-- HEADER START HERE -->
 <!-- Fragment here -->
-<header>
+<header class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
   <a class="uxph-logo-anchor" href="/">
     <img class="uxph-logo" src="/images/assets/uxphlogo.png" />
   </a>
+
+  <nav>
+    <a href="/#about" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        About
+      </div>
+    </a>
+
+    <a href="/#speakers" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Speakers
+      </div>
+    </a>
+
+    <a href="/#schedule" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Schedule
+      </div>
+    </a>
+
+    <a href="/#location" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Location
+      </div>
+    </a>
+
+    <a href="/#gallery" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Gallery
+      </div>
+    </a>
+
+    <a href="/#pricing" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Pricing
+      </div>
+    </a>
+
+    <a href="/#faqs" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        FAQs
+      </div>
+    </a>
+
+    <a href="/#contact-us" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Contact Us
+      </div>
+    </a>
+
+    <a href="/#sponsors" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Sponsors
+      </div>
+    </a>
+  </nav>
 </header>
 
 <!-- HEADER END HERE -->

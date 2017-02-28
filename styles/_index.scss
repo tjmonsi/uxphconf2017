@@ -1,4 +1,5 @@
 @import 'styles/variables';
+@import 'styles/mixins';
 
 body {
   margin: 0;
@@ -6,22 +7,108 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-width: 100%;
+
+  &.font-loaded {
+    font-family: 'Open Sans', 'sans-serif'
+  }
+}
+
+.uxph-white-bg {
+  background-color: $background-white;
+  position: relative;
+  padding-bottom: -10px;
+
+  .uxph-small-box {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+  }
+
+  .uxph-red-box {
+    background-color: $brand-red-1;
+  }
+
+  .uxph-blue-box {
+    background-color: $brand-blue-1;
+  }
+
+  .uxph-top-right {
+    top: 0px;
+    right: 0px;
+  }
+
+  .uxph-top-left {
+    top: 0px;
+    left: 0px;
+  }
+
+  .uxph-bottom-right {
+    bottom: 0px;
+    right: 0px;
+    float: left;
+  }
+
+  .uxph-bottom-left {
+    bottom: 0px;
+    left: 0px;
+    float: left;
+  }
 }
 
 #header-container {
   header {
-    height: 55px;
-    padding-left: 42px;
+    @include flex;
+    @include horizontal-layout;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
     .uxph-logo-anchor {
       text-decoration: none;
       color: inherit;
       .uxph-logo {
+        padding-top: 13px;
+        padding-bottom: 12px;
+        margin-right: 37.5px;
+        margin-left: 37.5px;
         height: 30px;
+        vertical-align: bottom;
       }
     }
 
-  }
+    nav {
+      @include flex;
+      @include horizontal-layout;
+      @include center;
 
+      .uxph-nav-link-anchor {
+        color: $brand-blue-2;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 17px;
+        text-align: center;
+
+        .uxph-nav-link {
+          height: 17px;
+          padding-top: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 18px;
+          position: relative;
+        }
+
+
+      }
+
+      .uxph-nav-link-anchor-active {
+        color: $black;
+        .uxph-nav-link {
+          padding-bottom: 16px;
+          border-bottom: 2px solid $brand-blue-2;
+        }
+      }
+    }
+  }
 }
 
 #page-container {
