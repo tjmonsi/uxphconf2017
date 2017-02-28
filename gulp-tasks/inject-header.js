@@ -3,7 +3,7 @@ const fs = require('fs');
 const map = require('map-stream');
 const gutil = require('gulp-util');
 const pages = require('../config/pages.json');
-// const indexFile = 'index.html';
+const indexFile = 'index.html';
 const injectHeader = function(v) {
   gutil.log('Injecting Header Fragment');
   return gulp.src(['header-fragment.html'])
