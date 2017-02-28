@@ -1,5 +1,7 @@
 @import 'styles/variables';
 @import 'styles/mixins';
+@import 'styles/uxph-backgrounds';
+@import 'styles/index-page';
 
 body {
   margin: 0;
@@ -10,48 +12,6 @@ body {
 
   &.font-loaded {
     font-family: 'Open Sans', 'sans-serif'
-  }
-}
-
-.uxph-white-bg {
-  background-color: $background-white;
-  position: relative;
-  padding-bottom: -10px;
-
-  .uxph-small-box {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-  }
-
-  .uxph-red-box {
-    background-color: $brand-red-1;
-  }
-
-  .uxph-blue-box {
-    background-color: $brand-blue-1;
-  }
-
-  .uxph-top-right {
-    top: 0px;
-    right: 0px;
-  }
-
-  .uxph-top-left {
-    top: 0px;
-    left: 0px;
-  }
-
-  .uxph-bottom-right {
-    bottom: 0px;
-    right: 0px;
-    float: left;
-  }
-
-  .uxph-bottom-left {
-    bottom: 0px;
-    left: 0px;
-    float: left;
   }
 }
 
@@ -96,8 +56,6 @@ body {
           padding-bottom: 18px;
           position: relative;
         }
-
-
       }
 
       .uxph-nav-link-anchor-active {

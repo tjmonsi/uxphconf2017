@@ -172,11 +172,147 @@
 
     <link rel="import" href="project-core.html" async>
     <script src="bower_components/fontfaceobserver/fontfaceobserver.standalone.js" async onload="window.initFontLoader()"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
     <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
 
     <!-- INDEX STYLE START HERE -->
 <style>
+.uxph-white-bg {
+  background-color: #ffffff;
+  position: relative; }
+
+.uxph-grey-bg {
+  background-color: #EFEFEF;
+  position: relative; }
+
+.uxph-small-box {
+  position: absolute;
+  width: 10px;
+  height: 10px; }
+
+.uxph-red-box {
+  background-color: #D71635; }
+
+.uxph-blue-box {
+  background-color: #15B0DE; }
+
+.uxph-top-right {
+  top: 0px;
+  right: 0px; }
+
+.uxph-top-left {
+  top: 0px;
+  left: 0px; }
+
+.uxph-bottom-right {
+  bottom: 0px;
+  right: 0px;
+  float: left; }
+
+.uxph-bottom-left {
+  bottom: 0px;
+  left: 0px;
+  float: left; }
+
+.uxph-banner {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+  .uxph-banner .flex {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px; }
+  .uxph-banner .uxph-banner-text {
+    padding-top: 88px;
+    padding-left: 40px; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-title {
+      font-weight: 700;
+      font-size: 50px;
+      color: #EC3558;
+      line-height: 56px;
+      margin-top: 0px;
+      margin-bottom: 19px; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-date-location {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date {
+        width: 150px; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-location {
+        width: 180px; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor {
+        color: inherit;
+        text-decoration: none; }
+        .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container {
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          background-color: #ffffff;
+          position: relative;
+          margin-right: 10px;
+          padding: 12px;
+          height: 60px; }
+          .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .material-icons {
+            color: #C4C4C4; }
+          .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area {
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+            text-align: center; }
+            .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area .uxph-banner-text-date-location-title {
+              font-weight: 600;
+              font-size: 16px;
+              color: #000000;
+              line-height: 24px; }
+            .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area .uxph-banner-text-date-location-subtitle {
+              font-size: 14px;
+              color: #000000;
+              line-height: 20px; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-divider {
+      margin-top: 35px;
+      margin-bottom: 33px;
+      height: 2px;
+      width: 20px;
+      background-color: #888888; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-register-anchor {
+      color: inherit;
+      text-decoration: none; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-register-anchor .uxph-banner-text-register {
+        text-align: center;
+        margin-bottom: 76px;
+        padding-top: 16px;
+        padding-bottom: 15px;
+        color: #ffffff;
+        background-color: #15B0DE;
+        border: none;
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+        letter-spacing: 0; }
+
 body {
   margin: 0;
   font-family: 'Roboto', 'Noto', sans-serif;
@@ -185,33 +321,6 @@ body {
   min-width: 100%; }
   body.font-loaded {
     font-family: 'Open Sans', 'sans-serif'; }
-
-.uxph-white-bg {
-  background-color: #ffffff;
-  position: relative;
-  padding-bottom: -10px; }
-  .uxph-white-bg .uxph-small-box {
-    position: absolute;
-    width: 10px;
-    height: 10px; }
-  .uxph-white-bg .uxph-red-box {
-    background-color: #D71635; }
-  .uxph-white-bg .uxph-blue-box {
-    background-color: #15B0DE; }
-  .uxph-white-bg .uxph-top-right {
-    top: 0px;
-    right: 0px; }
-  .uxph-white-bg .uxph-top-left {
-    top: 0px;
-    left: 0px; }
-  .uxph-white-bg .uxph-bottom-right {
-    bottom: 0px;
-    right: 0px;
-    float: left; }
-  .uxph-white-bg .uxph-bottom-left {
-    bottom: 0px;
-    left: 0px;
-    float: left; }
 
 #header-container header {
   -ms-flex: 1 1 0.000000001px;
@@ -359,7 +468,6 @@ body {
 
     <project-core id="project-core"></project-core>
     <script src="scripts/header.js"></script>
-
 
   </body>
 </html>
