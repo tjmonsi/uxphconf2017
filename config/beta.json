@@ -1,0 +1,15 @@
+{
+  "version": "beta",
+  "metadata": {
+    "title": "UXPH 2017",
+    "description": "This is the UXPH 2017 website",
+    "type": "website",
+    "image": "http://url.of/image-uxph.jpg",
+    "card": "summary_large_image",
+    "site": "@UXPH",
+    "creator": "@UXPH",
+    "themeColor": "#3f51b5"
+  },
+  "splashMessages": [
+  ]
+}
