@@ -4,6 +4,7 @@ const map = require('map-stream');
 const gutil = require('gulp-util');
 const pages = require('../config/pages.json');
 const indexFile = 'index.html';
+const baseFile = 'base.html';
 const injectHeader = function(v) {
   gutil.log('Injecting Header Fragment');
   return gulp.src(['header-fragment.html'])
@@ -15,16 +16,19 @@ const injectHeader = function(v) {
           cb(err)
         }
 
-        fs.readFile(indexFile, 'utf-8', function(err, content) {
-          if (err || !content) {
-            console.log(err);
+        const start = "<!-- HEADER START HERE -->";
+        const end = "<!-- HEADER END HERE -->";
+        //Creates the regEx this ways so I can pass the constiables.
+        const regEx = new RegExp(start+"[\\s\\S]*"+end, "g");
+
+        for (var p in pages.pages) {
+          var content = fs.readFileSync(pages.pages[p].target, 'utf-8');
+
+          if (!regEx.test(content)) {
+            //Return empty. if we return cb(null, file). It will add
+            //the file that we do not want to the pipeline!!
             return cb();
           }
-
-          const start = "<!-- HEADER START HERE -->";
-          const end = "<!-- HEADER END HERE -->";
-          //Creates the regEx this ways so I can pass the constiables.
-          const regEx = new RegExp(start+"[\\s\\S]*"+end, "g");
 
           var injectSplashContent = start +
               "\n" +
@@ -34,22 +38,11 @@ const injectHeader = function(v) {
 
           content = content.replace(regEx, injectSplashContent);
 
-          for (var p in pages.pages) {
-            fs.writeFileSync(pages.pages[p], content, 'utf-8');
-          }
+          fs.writeFileSync(pages.pages[p].target, content, 'utf-8');
+        }
 
-          cb();
+        cb();
 
-          // fs.writeFile(indexFile, content, 'utf-8', function(err) {
-          //   if (err) {
-          //     console.log(err)
-          //   }
-          //   return cb();
-          // })
-
-          cb();
-
-        })
       })
     }));
 }

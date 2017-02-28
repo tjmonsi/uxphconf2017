@@ -1,5 +1,16 @@
 {
   "pages": [
-    "index.html"
+    {
+      "page": "index-page.html",
+      "target": "index.html"
+    },
+    {
+      "page": "404-page.html",
+      "target": "404.html"
+    },
+    {
+      "page": "style-guide-page.html",
+      "target": "style-guide/index.html"
+    }
   ]
 }

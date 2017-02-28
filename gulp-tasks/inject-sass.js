@@ -9,7 +9,8 @@ const basePath = "";
 const excludeDir = basePath+"bower_components/";
 const ext = "**/*.scss";
 const polymerPath = 'bower_components/polymer/polymer.html';
-const indexFile = 'index.html';
+// const indexFile = 'index.html';
+const baseFile = 'base.html';
 
 /**
  * We need to specify to nodeSass the include paths for Sass' @import
@@ -77,11 +78,9 @@ const injectSass = function () {
             //Creates the regEx this ways so I can pass the constiables.
             const regEx = new RegExp(startStyle+"[\\s\\S]*"+endStyle, "g");
 
-            fs.readFile(indexFile, 'utf-8', function(err, content) {
-              if (err || !content) {
-                console.log(err);
-                return cb();
-              }
+            for (var p in pages.pages) {
+
+              var content = fs.readFileSync(pages.pages[p].target, 'utf-8');
 
               if (!regEx.test(content)) {
                 //Return empty. if we return cb(null, file). It will add
@@ -97,19 +96,10 @@ const injectSass = function () {
 
               content = content.replace(regEx, injectSassContent);
 
-              // fs.writeFile(indexFile, content, 'utf-8', function(err) {
-              //   if (err) {
-              //     console.log(err)
-              //   }
-              //   return cb();
-              // })
-              for (var p in pages.pages) {
-                fs.writeFileSync(pages.pages[p], content, 'utf-8');
-              }
+              fs.writeFileSync(pages.pages[p].target, content, 'utf-8');
+            }
 
-              cb();
-            })
-            // return cb();
+            cb();
           } else {
             const newPolymerPath = (path.relative(path.dirname(file.path), path.resolve(polymerPath)));
 

@@ -6,6 +6,7 @@ const pages = require('../config/pages.json');
 const map = require('map-stream');
 const gutil = require('gulp-util');
 const indexFile = 'index.html';
+const baseFile = 'base.html';
 const injectMetadata = function(v) {
   gutil.log('Injecting Metadata');
   return gulp.src(['config/**/*.json'])
@@ -141,12 +142,8 @@ const injectMetadata = function(v) {
           };
 
           // OTHERS
-
-          fs.readFile(indexFile, 'utf-8', function(err, content) {
-            if (err || !content) {
-              console.log(err);
-              return cb();
-            }
+          for (var p in pages.pages) {
+            var content = fs.readFileSync(pages.pages[p].target, 'utf-8');
 
             for (var j in metadata) {
               for (var i in metadata[j]) {
@@ -160,20 +157,10 @@ const injectMetadata = function(v) {
               }
             }
 
+            fs.writeFileSync(pages.pages[p].target, content, 'utf-8');
+          }
 
-            // fs.writeFile(indexFile, content, 'utf-8', function(err) {
-            //   if (err) {
-            //     console.log(err)
-            //   }
-            //   return cb();
-            // })
-            for (var p in pages.pages) {
-              fs.writeFileSync(pages.pages[p], content, 'utf-8');
-            }
-
-            cb();
-
-          })
+          cb();
 
         } catch (e) {
           gutil.log(e.message);

@@ -1,16 +1,9 @@
 {
   "entrypoint": "index.html",
-  "shell": "core/uxph-conference-2017-app-shell.html",
-  "fragments": [
-    "pages/home-page/home-page.html",
-    "pages/not-authorized-page/not-authorized-page.html",
-    "pages/not-found-page/not-found-page.html"
-  ],
+  "shell": "project-core.html",
+
   "sourceGlobs": [
-   "core/**/*",
    "images/**/*",
-   "pages/**/*",
-   "web-components/**/*",
    "bower.json"
   ],
   "includeDependencies": [

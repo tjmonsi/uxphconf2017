@@ -8,3 +8,22 @@ body {
   min-width: 100%;
 }
 
+#header-container {
+  header {
+    height: 55px;
+    padding-left: 42px;
+    .uxph-logo-anchor {
+      text-decoration: none;
+      color: inherit;
+      .uxph-logo {
+        height: 30px;
+      }
+    }
+
+  }
+
+}
+
+#page-container {
+
+}

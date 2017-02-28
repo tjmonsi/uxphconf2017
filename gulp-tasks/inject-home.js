@@ -2,10 +2,10 @@ const gulp = require('gulp');
 const fs = require('fs');
 const map = require('map-stream');
 const gutil = require('gulp-util');
-const indexFile = 'index.html';
+const pageFile = 'index.html';
 const injectSplash = function() {
   gutil.log('Injecting Home Page');
-  return gulp.src(['home-page.html'])
+  return gulp.src(['index-page.html'])
     .pipe(map(function(file, cb) {
       fs.readFile(file.path, 'utf-8', function(err, data) {
         if (err) {
@@ -13,7 +13,9 @@ const injectSplash = function() {
           console.log(err);
           cb(err)
         }
-        fs.readFile(indexFile, 'utf-8', function(err, content) {
+
+        var content
+        fs.readFile(baseFile, 'utf-8', function(err, content) {
           if (err || !content) {
             console.log(err);
             return cb();
