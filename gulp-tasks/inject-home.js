@@ -4,8 +4,8 @@ const map = require('map-stream');
 const gutil = require('gulp-util');
 const indexFile = 'index.html';
 const injectSplash = function() {
-  gutil.log('Injecting Splash Page');
-  return gulp.src(['project-splash.html'])
+  gutil.log('Injecting Home Page');
+  return gulp.src(['home-page.html'])
     .pipe(map(function(file, cb) {
       fs.readFile(file.path, 'utf-8', function(err, data) {
         if (err) {
@@ -19,8 +19,8 @@ const injectSplash = function() {
             return cb();
           }
 
-          const start = "<!-- SPLASH PAGE START HERE -->";
-          const end = "<!-- SPLASH PAGE END HERE -->";
+          const start = "<!-- HOME PAGE START HERE -->";
+          const end = "<!-- HOME PAGE END HERE -->";
           //Creates the regEx this ways so I can pass the constiables.
           const regEx = new RegExp(start+"[\\s\\S]*"+end, "g");
 
