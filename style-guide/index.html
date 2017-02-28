@@ -172,18 +172,56 @@
 
     <link rel="import" href="project-core.html" async>
     <script src="bower_components/fontfaceobserver/fontfaceobserver.standalone.js" async onload="window.initFontLoader()"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" async>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
     <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
 
     <!-- INDEX STYLE START HERE -->
 <style>
+.uxph-section-title {
+  opacity: 0.8;
+  font-weight: 700;
+  font-size: 36px;
+  color: #000000;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px; }
+
+.uxph-section-title-2 {
+  font-weight: 700;
+  font-size: 36px;
+  color: #ffffff;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px; }
+
+.uxph-paragraph-1 {
+  font-size: 14px;
+  color: #555555;
+  letter-spacing: 0;
+  line-height: 20px; }
+
+.uxph-list-1 {
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 22px; }
+
+.uxph-list-item-1 {
+  margin-left: -20px;
+  padding-left: 20px;
+  margin-bottom: 11px; }
+
 .uxph-white-bg {
   background-color: #ffffff;
   position: relative; }
 
 .uxph-grey-bg {
   background-color: #EFEFEF;
+  position: relative; }
+
+.uxph-blue-bg {
+  background-color: #24B0DB;
   position: relative; }
 
 .uxph-small-box {
@@ -215,6 +253,52 @@
   left: 0px;
   float: left; }
 
+.uxph-button-anchor {
+  color: inherit;
+  text-decoration: none; }
+  .uxph-button-anchor .uxph-button-1 {
+    text-align: center;
+    margin-bottom: 76px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #ffffff;
+    background-color: #15B0DE;
+    border: none;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+  .uxph-button-anchor .uxph-button-2 {
+    text-align: center;
+    margin-bottom: 76px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    color: #15B0DE;
+    background-color: inherit;
+    border: 2px solid #15B0DE;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+  .uxph-button-anchor .uxph-button-3 {
+    text-align: center;
+    margin-bottom: 76px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    color: #ffffff;
+    background-color: inherit;
+    border: 2px solid #ffffff;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+
 .uxph-banner {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -224,7 +308,10 @@
   flex-direction: row;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  align-items: center; }
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; }
   .uxph-banner .flex {
     -ms-flex: 1 1 0.000000001px;
     -webkit-flex: 1;
@@ -232,8 +319,7 @@
     -webkit-flex-basis: 0.000000001px;
     flex-basis: 0.000000001px; }
   .uxph-banner .uxph-banner-text {
-    padding-top: 88px;
-    padding-left: 40px; }
+    padding-top: 37px; }
     .uxph-banner .uxph-banner-text .uxph-banner-text-title {
       font-weight: 700;
       font-size: 50px;
@@ -291,62 +377,99 @@
               font-size: 14px;
               color: #000000;
               line-height: 20px; }
-    .uxph-banner .uxph-banner-text .uxph-banner-text-divider {
-      margin-top: 35px;
-      margin-bottom: 33px;
-      height: 2px;
-      width: 20px;
-      background-color: #888888; }
-    .uxph-banner .uxph-banner-text .uxph-banner-text-register-anchor {
-      color: inherit;
-      text-decoration: none; }
-      .uxph-banner .uxph-banner-text .uxph-banner-text-register-anchor .uxph-banner-text-register {
-        text-align: center;
-        margin-bottom: 76px;
-        padding-top: 16px;
-        padding-bottom: 15px;
-        color: #ffffff;
-        background-color: #15B0DE;
-        border: none;
-        width: 200px;
-        height: 50px;
-        font-size: 16px;
-        letter-spacing: 0; }
 
-body {
-  margin: 0;
-  font-family: 'Roboto', 'Noto', sans-serif;
-  line-height: 1.5;
-  min-height: 100vh;
-  min-width: 100%; }
-  body.font-loaded {
-    font-family: 'Open Sans', 'sans-serif'; }
+section {
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 51px; }
+  section .uxph-section-divider {
+    margin-top: 35px;
+    margin-bottom: 33px;
+    height: 2px;
+    width: 20px;
+    background-color: #888888; }
+  section .uxph-small-divider {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: #ffffff; }
 
-#header-container header {
-  -ms-flex: 1 1 0.000000001px;
-  -webkit-flex: 1;
-  flex: 1;
-  -webkit-flex-basis: 0.000000001px;
-  flex-basis: 0.000000001px;
+#about .uxph-about-section {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
-  padding-left: 5px;
-  padding-right: 5px; }
-  #header-container header .uxph-logo-anchor {
-    text-decoration: none;
-    color: inherit; }
-    #header-container header .uxph-logo-anchor .uxph-logo {
-      padding-top: 13px;
-      padding-bottom: 12px;
-      margin-right: 37.5px;
-      margin-left: 37.5px;
-      height: 30px;
-      vertical-align: bottom; }
-  #header-container header nav {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  #about .uxph-about-section .uxph-about-title {
+    -ms-flex: 2;
+    -webkit-flex: 2;
+    flex: 2; }
+    #about .uxph-about-section .uxph-about-title .uxph-about-caption {
+      font-weight: 300;
+      font-size: 40px;
+      color: #000000;
+      letter-spacing: 0;
+      line-height: 50px;
+      margin: 0px; }
+  #about .uxph-about-section .uxph-about-description {
+    -ms-flex: 3;
+    -webkit-flex: 3;
+    flex: 3; }
+
+#speakers {
+  color: #ffffff; }
+  #speakers .uxph-speaker-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #speakers .uxph-speaker-section .uxph-speaker-container {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px; }
+      #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-avatar {
+        height: 140px;
+        margin-right: 20px; }
+      #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container {
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+        margin-bottom: 45px; }
+        #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container .uxph-speaker-name {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 24px;
+          color: #ffffff;
+          letter-spacing: 0; }
+        #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container .uxph-speaker-caption {
+          font-size: 14px;
+          color: #ffffff;
+          letter-spacing: 0;
+          line-height: 16px; }
+
+#header-container {
+  height: 55px; }
+  #header-container header {
     -ms-flex: 1 1 0.000000001px;
     -webkit-flex: 1;
     flex: 1;
@@ -358,27 +481,65 @@ body {
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center; }
-    #header-container header nav .uxph-nav-link-anchor {
-      color: #3DBBE0;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    padding-left: 5px;
+    padding-right: 5px; }
+    #header-container header .uxph-logo-anchor {
       text-decoration: none;
-      font-weight: 600;
-      line-height: 17px;
-      text-align: center; }
-      #header-container header nav .uxph-nav-link-anchor .uxph-nav-link {
-        height: 17px;
-        padding-top: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 18px;
-        position: relative; }
-    #header-container header nav .uxph-nav-link-anchor-active {
-      color: #000000; }
-      #header-container header nav .uxph-nav-link-anchor-active .uxph-nav-link {
-        padding-bottom: 16px;
-        border-bottom: 2px solid #3DBBE0; }
+      color: inherit; }
+      #header-container header .uxph-logo-anchor .uxph-logo {
+        padding-top: 13px;
+        padding-bottom: 12px;
+        margin-right: 37.5px;
+        margin-left: 37.5px;
+        height: 30px;
+        vertical-align: bottom; }
+    #header-container header nav {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+      #header-container header nav .uxph-nav-link-anchor {
+        color: #3DBBE0;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 17px;
+        text-align: center; }
+        #header-container header nav .uxph-nav-link-anchor .uxph-nav-link {
+          height: 17px;
+          padding-top: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 18px;
+          position: relative; }
+      #header-container header nav .uxph-nav-link-anchor-active {
+        color: #000000; }
+        #header-container header nav .uxph-nav-link-anchor-active .uxph-nav-link {
+          padding-bottom: 16px;
+          border-bottom: 2px solid #3DBBE0; }
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-width: 100%; }
+  body.font-loaded {
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 400; }
 
 </style>
 <!-- INDEX STYLE END HERE -->

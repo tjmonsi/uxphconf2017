@@ -1,7 +1,10 @@
 @import 'styles/variables';
 @import 'styles/mixins';
 @import 'styles/uxph-backgrounds';
+@import 'styles/buttons';
 @import 'styles/index-page';
+@import 'styles/header';
+
 
 body {
   margin: 0;
@@ -11,63 +14,11 @@ body {
   min-width: 100%;
 
   &.font-loaded {
-    font-family: 'Open Sans', 'sans-serif'
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 400;
   }
 }
 
-#header-container {
-  header {
-    @include flex;
-    @include horizontal-layout;
-
-    padding-left: 5px;
-    padding-right: 5px;
-
-    .uxph-logo-anchor {
-      text-decoration: none;
-      color: inherit;
-      .uxph-logo {
-        padding-top: 13px;
-        padding-bottom: 12px;
-        margin-right: 37.5px;
-        margin-left: 37.5px;
-        height: 30px;
-        vertical-align: bottom;
-      }
-    }
-
-    nav {
-      @include flex;
-      @include horizontal-layout;
-      @include center;
-
-      .uxph-nav-link-anchor {
-        color: $brand-blue-2;
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 17px;
-        text-align: center;
-
-        .uxph-nav-link {
-          height: 17px;
-          padding-top: 20px;
-          padding-left: 10px;
-          padding-right: 10px;
-          padding-bottom: 18px;
-          position: relative;
-        }
-      }
-
-      .uxph-nav-link-anchor-active {
-        color: $black;
-        .uxph-nav-link {
-          padding-bottom: 16px;
-          border-bottom: 2px solid $brand-blue-2;
-        }
-      }
-    }
-  }
-}
 
 #page-container {
 

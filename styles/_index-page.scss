@@ -1,17 +1,14 @@
-@import 'styles/variables';
-@import 'styles/mixins';
-
 .uxph-banner {
   @include horizontal-layout;
   @include center;
+  @include wrap;
 
   .flex {
     @include flex;
   }
 
   .uxph-banner-text {
-    padding-top: 88px;
-    padding-left: 40px;
+    padding-top: 37px;
 
     .uxph-banner-text-title {
       font-weight: 700;
@@ -71,31 +68,90 @@
         }
       }
     }
+  }
+}
 
-    .uxph-banner-text-divider {
-      margin-top: 35px;
-      margin-bottom: 33px;
-      height: 2px;
-      width: 20px;
-      background-color: $grey-2;
+section {
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 51px;
+
+  .uxph-section-divider {
+    margin-top: 35px;
+    margin-bottom: 33px;
+    height: 2px;
+    width: 20px;
+    background-color: $grey-2;
+  }
+
+  .uxph-small-divider {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: $white;
+  }
+}
+
+#about {
+  .uxph-about-section {
+    @include horizontal-layout;
+    @include wrap;
+    // @include center;
+
+    .uxph-about-title {
+      @include flex-2;
+
+      .uxph-about-caption {
+        font-weight: 300;
+        font-size: 40px;
+        color: $black;
+        letter-spacing: 0;
+        line-height: 50px;
+        margin: 0px;
+      }
     }
 
-    .uxph-banner-text-register-anchor {
-      color: inherit;
-      text-decoration: none;
+    .uxph-about-description {
+      @include flex-3;
+    }
+  }
+}
 
-      .uxph-banner-text-register {
-        text-align: center;
-        margin-bottom: 76px;
-        padding-top: 16px;
-        padding-bottom: 15px;
-        color: $white;
-        background-color: $brand-blue-1;
-        border: none;
-        width: 200px;
-        height: 50px;
-        font-size: 16px;
-        letter-spacing: 0;
+#speakers {
+  color: $white;
+
+  .uxph-speaker-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-speaker-container {
+      @include horizontal-layout;
+      @include flex;
+
+      .uxph-speaker-avatar {
+        height: 140px;
+        margin-right: 20px;
+      }
+
+      .uxph-speaker-text-container {
+        @include flex;
+        margin-bottom: 45px;
+
+        .uxph-speaker-name {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 24px;
+          color: $white;
+          letter-spacing: 0;
+        }
+
+        .uxph-speaker-caption {
+          font-size: 14px;
+          color: $white;
+          letter-spacing: 0;
+          line-height: 16px;
+        }
       }
     }
   }

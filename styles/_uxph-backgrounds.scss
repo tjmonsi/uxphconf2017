@@ -1,6 +1,3 @@
-@import 'styles/variables';
-@import 'styles/mixins';
-
 .uxph-white-bg {
   background-color: $white;
   position: relative;
@@ -8,6 +5,11 @@
 
 .uxph-grey-bg {
   background-color: $grey-1;
+  position: relative;
+}
+
+.uxph-blue-bg {
+  background-color: $brand-blue-3;
   position: relative;
 }
 
