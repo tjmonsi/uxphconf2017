@@ -4,6 +4,7 @@ const path = require('path');
 const injectSass = require('./gulp-tasks/inject-sass.js');
 const injectMetadata = require('./gulp-tasks/inject-metadata.js');
 const injectHeader = require('./gulp-tasks/inject-header.js');
+const injectFooter = require('./gulp-tasks/inject-footer.js');
 const injectPage = require('./gulp-tasks/inject-page.js');
 /**
  * This is a three part gulpfile.
@@ -21,17 +22,21 @@ gulp.task('inject-header', function(cb) {
   injectHeader();
   cb();
 })
+gulp.task('inject-footer', function(cb) {
+  injectFooter();
+  cb();
+})
 gulp.task('inject-metadata', function(cb) {
   injectMetadata();
   cb();
 });
 // gulp.task('inject-home', injectHome);
 gulp.task('inject-sass', injectSass);
-gulp.task('inject-all',  gulp.series(['inject-page', 'inject-sass', 'inject-header', 'inject-metadata']));
+gulp.task('inject-all',  gulp.series(['inject-page', 'inject-sass', 'inject-header', 'inject-footer','inject-metadata']));
 
 gulp.task('watch-all', function(cb) {
 
-  gulp.watch(['pages/**/*.scss', 'project_components/**/*.scss', 'styles/**/*.scss', 'config/**/*.json', 'pages/**/*.html', 'header-fragment.html', 'base.html'],
+  gulp.watch(['pages/**/*.scss', 'project_components/**/*.scss', 'styles/**/*.scss', 'config/**/*.json', 'pages/**/*.html', 'header-fragment.html', 'footer-fragment.html', 'base.html'],
    gulp.series('inject-all', function(cb2) { cb2(); }));
   cb();
 

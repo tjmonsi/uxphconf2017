@@ -70,6 +70,12 @@
       }
     }
   }
+
+  .uxph-banner-image {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 section {
@@ -171,7 +177,7 @@ section {
 }
 
 #schedule {
-  display: none;
+  // display: none;
   color: $black;
   padding-bottom: 84px;
 
@@ -309,7 +315,11 @@ section {
 }
 
 #gallery {
-  display: none;
+  padding-bottom: 75px;
+
+  .gallery-example {
+    width: 100%
+  }
 }
 
 #pricing {
