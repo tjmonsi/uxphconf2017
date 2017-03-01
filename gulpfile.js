@@ -31,7 +31,7 @@ gulp.task('inject-all',  gulp.series(['inject-page', 'inject-sass', 'inject-head
 
 gulp.task('watch-all', function(cb) {
 
-  gulp.watch(['pages/**/*.scss', 'web-components/**/*.scss', 'styles/**/*.scss', 'config/**/*.json', 'pages/**/*.html', 'header-fragment.html', 'base.html'],
+  gulp.watch(['pages/**/*.scss', 'project_components/**/*.scss', 'styles/**/*.scss', 'config/**/*.json', 'pages/**/*.html', 'header-fragment.html', 'base.html'],
    gulp.series('inject-all', function(cb2) { cb2(); }));
   cb();
 

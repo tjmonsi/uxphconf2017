@@ -220,8 +220,16 @@
   background-color: #EFEFEF;
   position: relative; }
 
+.uxph-grey-bg-2 {
+  background-color: #556E79;
+  position: relative; }
+
 .uxph-blue-bg {
   background-color: #24B0DB;
+  position: relative; }
+
+.uxph-red-bg {
+  background-color: #EA385A;
   position: relative; }
 
 .uxph-small-box {
@@ -258,7 +266,6 @@
   text-decoration: none; }
   .uxph-button-anchor .uxph-button-1 {
     text-align: center;
-    margin-bottom: 76px;
     padding-top: 16px;
     padding-bottom: 15px;
     padding-left: 30px;
@@ -272,7 +279,6 @@
     cursor: pointer; }
   .uxph-button-anchor .uxph-button-2 {
     text-align: center;
-    margin-bottom: 76px;
     padding-top: 16px;
     padding-bottom: 15px;
     color: #15B0DE;
@@ -286,7 +292,6 @@
     cursor: pointer; }
   .uxph-button-anchor .uxph-button-3 {
     text-align: center;
-    margin-bottom: 76px;
     padding-top: 16px;
     padding-bottom: 15px;
     color: #ffffff;
@@ -311,7 +316,8 @@
   align-items: center;
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding-bottom: 76px; }
   .uxph-banner .flex {
     -ms-flex: 1 1 0.000000001px;
     -webkit-flex: 1;
@@ -394,35 +400,45 @@ section {
     height: 1px;
     width: 20px;
     background-color: #ffffff; }
+  section .uxph-small-divider-2 {
+    margin-top: 6.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: #888888; }
 
-#about .uxph-about-section {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  #about .uxph-about-section .uxph-about-title {
-    -ms-flex: 2;
-    -webkit-flex: 2;
-    flex: 2; }
-    #about .uxph-about-section .uxph-about-title .uxph-about-caption {
-      font-weight: 300;
-      font-size: 40px;
-      color: #000000;
-      letter-spacing: 0;
-      line-height: 50px;
-      margin: 0px; }
-  #about .uxph-about-section .uxph-about-description {
-    -ms-flex: 3;
-    -webkit-flex: 3;
-    flex: 3; }
+#about {
+  color: #000000;
+  padding-bottom: 76px; }
+  #about .uxph-about-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #about .uxph-about-section .uxph-about-title {
+      -ms-flex: 2;
+      -webkit-flex: 2;
+      flex: 2; }
+      #about .uxph-about-section .uxph-about-title .uxph-about-caption {
+        font-weight: 300;
+        font-size: 40px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 50px;
+        margin: 0px; }
+    #about .uxph-about-section .uxph-about-description {
+      -ms-flex: 3;
+      -webkit-flex: 3;
+      flex: 3; }
 
 #speakers {
-  color: #ffffff; }
+  color: #ffffff;
+  padding-bottom: 84px; }
   #speakers .uxph-speaker-section {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -466,6 +482,224 @@ section {
           color: #ffffff;
           letter-spacing: 0;
           line-height: 16px; }
+
+#schedule {
+  display: none;
+  color: #000000;
+  padding-bottom: 84px; }
+  #schedule .uxph-schedule-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #schedule .uxph-schedule-section .uxph-schedule-container {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule-date {
+        color: #15B0DE;
+        font-size: 16px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule-day {
+        font-size: 30px;
+        color: #000000;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 26px;
+        font-weight: 600; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-half-day {
+        font-weight: 700;
+        font-size: 16px;
+        color: #D71635;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 12px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-time {
+          width: 61px;
+          margin-bottom: 7px;
+          font-size: 16px;
+          color: #000000;
+          letter-spacing: 0;
+          line-height: 40px; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-space {
+          width: 6px;
+          height: 16px; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-top-line {
+          width: 1px;
+          margin-left: 3px;
+          margin-right: 3px;
+          height: 16px;
+          background-color: #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-bullet {
+          border-radius: 50%;
+          height: 6px;
+          width: 6px;
+          border: 1px solid #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-bottom-line {
+          width: 1px;
+          margin-left: 3px;
+          margin-right: 3px;
+          height: 23px;
+          background-color: #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-time-caption {
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+          margin-bottom: 7px;
+          margin-left: 41px;
+          font-size: 16px;
+          color: #000000;
+          letter-spacing: 0;
+          line-height: 40px; }
+
+#venue {
+  padding-bottom: 60px;
+  color: #ffffff; }
+  #venue .uxph-venue-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #venue .uxph-venue-section .uxph-venue-text {
+      -ms-flex: 2;
+      -webkit-flex: 2;
+      flex: 2; }
+      #venue .uxph-venue-section .uxph-venue-text .uxph-venue-title {
+        margin-top: 0px;
+        margin-bottom: 8px;
+        font-size: 30px;
+        font-weight: 400;
+        color: #ffffff;
+        letter-spacing: 0; }
+      #venue .uxph-venue-section .uxph-venue-text .uxph-venue-address {
+        border-left: 1px solid #ffffff;
+        padding-left: 16px;
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 0;
+        line-height: 20px;
+        font-style: normal;
+        margin-bottom: 21px; }
+    #venue .uxph-venue-section .uxph-venue-map {
+      -ms-flex: 5;
+      -webkit-flex: 5;
+      flex: 5;
+      position: relative;
+      margin-left: 20px; }
+      #venue .uxph-venue-section .uxph-venue-map .uxph-venue-map-png {
+        position: absolute;
+        left: 0px;
+        width: 100%; }
+
+#gallery {
+  display: none; }
+
+#pricing {
+  padding-bottom: 82px; }
+  #pricing .uxph-pricing-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #pricing .uxph-pricing-section .uxph-pricing-container {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #ffffff; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-title {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 30px;
+        color: #555555;
+        letter-spacing: 0;
+        line-height: 33px; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-inclusions {
+        margin-bottom: 59px; }
+        #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-inclusions .uxph-pricing-inclusions-anchor {
+          text-decoration: none;
+          color: #15B0DE;
+          font-size: 14px;
+          letter-spacing: 0; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-price {
+        color: #000000;
+        font-size: 26px;
+        letter-spacing: 0;
+        margin-bottom: 16px; }
+        #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-price .uxph-pricing-price-decimal {
+          font-size: 20px;
+          letter-spacing: 0;
+          line-height: 32px; }
+
+#faqs .uxph-faq-divider {
+  height: 1px;
+  background-color: #EEEEEE; }
+
+#faqs .uxph-faq {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding-top: 17px;
+  padding-bottom: 19px; }
+  #faqs .uxph-faq .uxph-faq-button-container .uxph-faq-button-anchor {
+    color: #15B0DE;
+    text-decoration: none; }
+  #faqs .uxph-faq .uxph-faq-title-text {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    margin-left: 14px; }
+    #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-title-anchor {
+      color: #000000;
+      text-decoration: none; }
+      #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-title-anchor .uxph-faq-title {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 18px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 20px; }
+    #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-text {
+      margin-top: 25px; }
+      #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-text .uxph-faq-answer {
+        font-size: 14px;
+        color: #555555;
+        letter-spacing: 0;
+        line-height: 20px; }
 
 #header-container {
   height: 55px; }
@@ -572,11 +806,11 @@ body {
       </div>
     </a>
 
-    <a href="/#schedule" class="uxph-nav-link-anchor">
+    <!--<a href="/#schedule" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
         Schedule
       </div>
-    </a>
+    </a>-->
 
     <a href="/#location" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
@@ -584,11 +818,11 @@ body {
       </div>
     </a>
 
-    <a href="/#gallery" class="uxph-nav-link-anchor">
+    <!--<a href="/#gallery" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
         Gallery
       </div>
-    </a>
+    </a>-->
 
     <a href="/#pricing" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
@@ -602,11 +836,11 @@ body {
       </div>
     </a>
 
-    <a href="/#contact-us" class="uxph-nav-link-anchor">
+    <!--<a href="/#contact-us" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
         Contact Us
       </div>
-    </a>
+    </a>-->
 
     <a href="/#sponsors" class="uxph-nav-link-anchor">
       <div class="uxph-nav-link">
@@ -802,10 +1036,509 @@ body {
         </a>
       </div>
     </div>
-
-
   </div>
 </section>
+
+<!-- Schedule -->
+<section id="schedule" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-red-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Schedule
+  </h1>
+
+  <div class="uxph-schedule-section">
+
+    <!-- DAY ONE -->
+    <div class="uxph-schedule-container">
+      <span class="uxph-schedule-date">May 20, Saturday</span>
+      <h2 class="uxph-schedule-day">DAY ONE</h2>
+      <div class="uxph-schedule">
+        <h3 class="uxph-schedule-half-day">AM</h3>
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">9:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Registration</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">10:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Public Sector</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">11:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Product Design for Start-ups</div>
+        </div>
+
+        <div class="uxph-small-divider-2">
+          &nbsp;
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">12:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Lunch Break</div>
+        </div>
+
+        <div class="uxph-small-divider-2">
+          &nbsp;
+        </div>
+
+        <h3 class="uxph-schedule-half-day">PM</h3>
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">1:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Designing Services</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">2:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Start-ups</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">3:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Product Design for Start-ups</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">4:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Socials</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY TWO -->
+    <div class="uxph-schedule-container">
+      <span class="uxph-schedule-date">May 21, Sunday</span>
+      <h2 class="uxph-schedule-day">DAY TWO</h2>
+      <div class="uxph-schedule">
+        <h3 class="uxph-schedule-half-day">AM</h3>
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">9:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Registration</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">10:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Public Sector</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">11:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Product Design for Start-ups</div>
+        </div>
+
+        <div class="uxph-small-divider-2">
+          &nbsp;
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">12:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Lunch Break</div>
+        </div>
+
+        <div class="uxph-small-divider-2">
+          &nbsp;
+        </div>
+
+        <h3 class="uxph-schedule-half-day">PM</h3>
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">1:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-space"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Designing Services</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">2:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Start-ups</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">3:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+            <div class="uxph-schedule-divider-bottom-line"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Product Design for Start-ups</div>
+        </div>
+
+        <div class="uxph-schedule-row">
+          <div class="uxph-schedule-time">4:00</div>
+          <div class="uxph-schedule-divider">
+            <div class="uxph-schedule-divider-top-line"></div>
+            <div class="uxph-schedule-bullet"></div>
+          </div>
+          <div class="uxph-schedule-time-caption">Socials</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Venue -->
+<section id="venue" class="uxph-red-bg">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title-2">
+    Venue
+  </h1>
+
+  <div class="uxph-venue-section">
+    <div class="uxph-venue-text">
+      <h2 class="uxph-venue-title">Address</h2>
+      <address class="uxph-venue-address">
+        Basement 1, The Globe Tower <br/>
+        Bonifacio Global City (BGC) <br/>
+        32nd Street cor 7th Avenue <br/>
+        Taguig, Metro Manila <br/>
+        Philippines 1000
+      </address>
+      <a target="_blank" href="https://goo.gl/maps/TrDyP2HcSuL2" class="uxph-button-anchor">
+        <button class="uxph-button-3">
+          View Guide Map
+        </button>
+      </a>
+      <div class="uxph-section-divider">
+        &nbsp;
+      </div>
+      <p class="uxph-venue-caption">
+        List of nearby landmark, malls, coffee and food shops.
+      </p>
+    </div>
+    <div class="uxph-venue-map">
+      <link rel="import" href="/project_components/uxph-venue-map/uxph-venue-map.html">
+      <img class="uxph-venue-map-png" src="/images/assets/map.png">
+      <uxph-venue-map id="uxph-venue-map"></uxph-venue-map>
+    </div>
+  </div>
+
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Gallery
+  </h1>
+
+</section>
+
+<!-- Buy Tickets -->
+<section id="pricing" class="uxph-grey-bg-2">
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-red-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title-2">
+    Buy Tickets
+  </h1>
+
+  <div class="uxph-pricing-section">
+    <div class="uxph-pricing-container">
+      <h2 class="uxph-pricing-title">1 Day <br/>Access</h2>
+      <div class="uxph-pricing-inclusions">
+        <a class="uxph-pricing-inclusions-anchor" href="#">
+          See inclusions
+        </a>
+      </div>
+      <div class="uxph-pricing-price">
+        Php 2,500.<span class="uxph-pricing-price-decimal">00</span>
+      </div>
+      <a target="_blank" href="https://www.eventbrite.com/e/design-a-better-philippines-ux-philippines-uxph-conference-tickets-31579032737" class="uxph-button-anchor">
+        <button class="uxph-button-1" style="width: 100%">
+          Buy Ticket
+        </button>
+      </a>
+    </div>
+
+    <div class="uxph-pricing-container">
+      <h2 class="uxph-pricing-title">2 Day <br/>Access</h2>
+      <div class="uxph-pricing-inclusions">
+        <a class="uxph-pricing-inclusions-anchor" href="#">
+          See inclusions
+        </a>
+      </div>
+      <div class="uxph-pricing-price">
+        Php 4,000.<span class="uxph-pricing-price-decimal">00</span>
+      </div>
+      <a target="_blank" href="https://www.eventbrite.com/e/design-a-better-philippines-ux-philippines-uxph-conference-tickets-31579032737" class="uxph-button-anchor">
+        <button class="uxph-button-1" style="width: 100%">
+          Buy Ticket
+        </button>
+      </a>
+    </div>
+
+    <div class="uxph-pricing-container">
+      <h2 class="uxph-pricing-title">VIP <br/>Access</h2>
+      <div class="uxph-pricing-inclusions">
+        <a class="uxph-pricing-inclusions-anchor" href="#">
+          See inclusions
+        </a>
+      </div>
+      <div class="uxph-pricing-price">
+        Php 4,000.<span class="uxph-pricing-price-decimal">00</span>
+      </div>
+      <a target="_blank" href="https://www.eventbrite.com/e/design-a-better-philippines-ux-philippines-uxph-conference-tickets-31579032737" class="uxph-button-anchor">
+        <button class="uxph-button-1" style="width: 100%">
+          Buy Ticket
+        </button>
+      </a>
+    </div>
+
+    <div class="uxph-pricing-container">
+      <h2 class="uxph-pricing-title">VIP Access <br/>+ Dinner</h2>
+      <div class="uxph-pricing-inclusions">
+        <a class="uxph-pricing-inclusions-anchor" href="#">
+          See inclusions
+        </a>
+      </div>
+      <div class="uxph-pricing-price">
+        Php 4,500.<span class="uxph-pricing-price-decimal">00</span>
+      </div>
+      <a target="_blank" href="https://www.eventbrite.com/e/design-a-better-philippines-ux-philippines-uxph-conference-tickets-31579032737" class="uxph-button-anchor">
+        <button class="uxph-button-1" style="width: 100%">
+          Buy Ticket
+        </button>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQs -->
+<section id="faqs" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    FAQs
+  </h1>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-1-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-1-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-1">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-2-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-2-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-2">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-3-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-3-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-3">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-4-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-4-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-4">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-5-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-5-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-5">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    <div class="uxph-faq-button-container">
+      <a href="#" class="uxph-faq-button-anchor">
+        <i class="material-icons" id="uxph-faq-6-button">&#xE313;</i>
+      </a>
+    </div>
+    <div class="uxph-faq-title-text">
+      <a href="#" class="uxph-faq-title-anchor" id="uxph-faq-6-text">
+        <h2 class="uxph-faq-title">The quick brown fox jumps over the lazy dog.</h2>
+      </a>
+      <div class="uxph-faq-text" id="uxph-faq-6">
+        <p class="uxph-faq-answer">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="uxph-faq-divider"></div>
+</section>
+
 
 <!-- CONTENT END HERE -->
     </div>

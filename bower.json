@@ -17,7 +17,8 @@
     "paper-checkbox": "PolymerElements/paper-checkbox#^1.4.1",
     "fontfaceobserver": "bramstein/fontfaceobserver#^2.0.9",
     "promise-polyfill": "^6.0.2",
-    "flexibility": "jonathantneal/flexibility#^2.0.1"
+    "flexibility": "jonathantneal/flexibility#^2.0.1",
+    "google-map": "GoogleWebComponents/google-map#^1.2.0"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

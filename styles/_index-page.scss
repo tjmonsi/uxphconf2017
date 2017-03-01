@@ -2,6 +2,7 @@
   @include horizontal-layout;
   @include center;
   @include wrap;
+  padding-bottom: 76px;
 
   .flex {
     @include flex;
@@ -91,9 +92,20 @@ section {
     width: 20px;
     background-color: $white;
   }
+
+  .uxph-small-divider-2 {
+    margin-top: 6.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: $grey-2;
+  }
 }
 
 #about {
+  color: $black;
+  padding-bottom: 76px;
+
   .uxph-about-section {
     @include horizontal-layout;
     @include wrap;
@@ -120,6 +132,7 @@ section {
 
 #speakers {
   color: $white;
+  padding-bottom: 84px;
 
   .uxph-speaker-section {
     @include horizontal-layout;
@@ -151,6 +164,248 @@ section {
           color: $white;
           letter-spacing: 0;
           line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+#schedule {
+  display: none;
+  color: $black;
+  padding-bottom: 84px;
+
+  .uxph-schedule-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-schedule-container {
+      @include flex;
+
+      .uxph-schedule-date {
+        color: $brand-blue-1;
+        font-size: 16px;
+      }
+
+      .uxph-schedule-day {
+        font-size: 30px;
+        color: $black;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 26px;
+        font-weight: 600;
+      }
+
+      .uxph-schedule {
+        .uxph-schedule-half-day {
+          font-weight: 700;
+          font-size: 16px;
+          color: $brand-red-1;
+          letter-spacing: 0;
+          margin-top: 0px;
+          margin-bottom: 12px;
+        }
+
+        .uxph-schedule-row {
+          @include horizontal-layout;
+
+          .uxph-schedule-time {
+            width: 61px;
+            margin-bottom: 7px;
+            font-size: 16px;
+            color: $black;
+            letter-spacing: 0;
+            line-height: 40px;
+          }
+
+          .uxph-schedule-divider {
+            .uxph-schedule-divider-space {
+              width: 6px;
+              height: 16px;
+            }
+
+            .uxph-schedule-divider-top-line {
+              width: 1px;
+              margin-left: 3px;
+              margin-right:3px;
+              height: 16px;
+              background-color: $brand-blue-1;
+            }
+
+            .uxph-schedule-bullet {
+              border-radius: 50%;
+              height: 6px;
+              width: 6px;
+              border: 1px solid $brand-blue-1;
+            }
+            .uxph-schedule-divider-bottom-line {
+              width: 1px;
+              margin-left: 3px;
+              margin-right:3px;
+              height: 23px;
+              background-color: $brand-blue-1;
+            }
+          }
+
+          .uxph-schedule-time-caption {
+            @include flex;
+            margin-bottom: 7px;
+            margin-left: 41px;
+            font-size: 16px;
+            color: $black;
+            letter-spacing: 0;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#venue {
+  padding-bottom: 60px;
+  color: $white;
+
+  .uxph-venue-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-venue-text {
+      @include flex-2;
+
+      .uxph-venue-title {
+        margin-top: 0px;
+        margin-bottom: 8px;
+        font-size: 30px;
+        font-weight: 400;
+        color: $white;
+        letter-spacing: 0;
+      }
+
+      .uxph-venue-address {
+        border-left: 1px solid $white;
+        padding-left: 16px;
+        font-size: 18px;
+        color: $white;
+        letter-spacing: 0;
+        line-height: 20px;
+        font-style: normal;
+        margin-bottom: 21px;
+      }
+    }
+
+    .uxph-venue-map {
+      @include flex-5;
+      position: relative;
+      margin-left: 20px;
+
+      .uxph-venue-map-png {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+#gallery {
+  display: none;
+}
+
+#pricing {
+  padding-bottom: 82px;
+
+  .uxph-pricing-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-pricing-container {
+      @include flex;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: $white;
+
+      .uxph-pricing-title {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 30px;
+        color: $grey-4;
+        letter-spacing: 0;
+        line-height: 33px;
+      }
+
+      .uxph-pricing-inclusions {
+        margin-bottom: 59px;
+
+        .uxph-pricing-inclusions-anchor {
+          text-decoration: none;
+          color: $brand-blue-1;
+          font-size: 14px;
+          letter-spacing: 0;
+        }
+      }
+
+      .uxph-pricing-price {
+        color: $black;
+        font-size: 26px;
+        letter-spacing: 0;
+        margin-bottom: 16px;
+
+        .uxph-pricing-price-decimal {
+          font-size: 20px;
+          letter-spacing: 0;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
+
+#faqs {
+  .uxph-faq-divider {
+    height: 1px;
+    background-color: $grey-6;
+  }
+
+  .uxph-faq {
+    @include horizontal-layout;
+    padding-top: 17px;
+    padding-bottom: 19px;
+
+    .uxph-faq-button-container {
+      .uxph-faq-button-anchor {
+        color: $brand-blue-1;
+        text-decoration: none;
+      }
+    }
+
+    .uxph-faq-title-text {
+      @include flex;
+      margin-left: 14px;
+
+      .uxph-faq-title-anchor {
+        color: $black;
+        text-decoration: none;
+
+        .uxph-faq-title {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          color: $black;
+          letter-spacing: 0;
+          line-height: 20px;
+        }
+      }
+
+      .uxph-faq-text {
+        margin-top: 25px;
+
+        .uxph-faq-answer {
+          font-size: 14px;
+          color: $grey-4;
+          letter-spacing: 0;
+          line-height: 20px;
         }
       }
     }
