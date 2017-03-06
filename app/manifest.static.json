@@ -1,0 +1,7 @@
+---
+{
+  _options: {
+    layout: 'app/layouts/manifest.static.json'
+  }
+}
+---

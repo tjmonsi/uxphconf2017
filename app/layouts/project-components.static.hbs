@@ -1,0 +1,23 @@
+---
+{
+  _options: {
+    partials: [
+      'app/partials/link-import-bower.static.hbs',
+      'app/partials/link-import-project-components.static.hbs',
+      'app/partials/link-lazy-import.static.hbs'
+    ]
+  }
+}
+---
+{{#each bower_imports}}
+{{>link-import-bower}}
+{{/each}}
+{{#each project_component_imports}}
+{{>link-import-project-components}}
+{{/each}}
+<dom-module id="{{name}}">
+  {{#each lazy_imports}}
+  {{>link-lazy-import}}
+  {{/each}}
+  {{content}}
+</dom-module>

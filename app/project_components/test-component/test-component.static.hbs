@@ -1,0 +1,27 @@
+---
+{
+  name: 'test-component',
+  bower_imports: [
+    {
+      source: 'polymer/polymer.html'
+    }
+  ],
+  _options: {
+    layout: 'app/layouts/project-components.static.hbs',
+    partials: [
+      'app/project_components/test-component/script.static.js',
+      'app/project_components/test-component/style.static.scss',
+    ]
+  }
+}
+---
+  <template>
+    <style is="custom-style" include="{{styleIncludes}}">
+      {{>style}}
+    </style>
+    \{{hello}}
+    hehe
+  </template>
+  <script>
+    {{>script}}
+  </script>

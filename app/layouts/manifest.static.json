@@ -1,0 +1,22 @@
+{
+  "manifest_version": {{manifest.version}},
+  "version": "{{app.version}}",
+  "name": "{{app.name}}",
+  "default_locale": "{{manifest.defaultLocale}}",
+  "description": "{{app.description}}",
+  "short_name": "{{app.shortName}}",
+  "start_url": "{{manifest.startUrl}}",
+  "display": "{{manifest.display}}",
+  "theme_color": "{{app.themeColor}}",
+  "background_color": "{{app.backgroundColor}}",
+  "icons": [
+    {{#each manifest.icons}}
+    {
+      "src": "{{src}}",
+      "sizes": "{{sizes}}",
+      "type": "{{type}}",
+      "density": "{{density}}"
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
+  ]
+}

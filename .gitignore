@@ -30,3 +30,7 @@ public/
 
 # Bower stuff.
 bower_components/
+app/assets/bower_components
+
+# Build folder
+build/
