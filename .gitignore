@@ -34,3 +34,4 @@ app/assets/bower_components
 
 # Build folder
 build/
+temp_build/

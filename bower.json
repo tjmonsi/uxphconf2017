@@ -18,7 +18,8 @@
     "fontfaceobserver": "bramstein/fontfaceobserver#^2.0.9",
     "promise-polyfill": "^6.0.2",
     "flexibility": "jonathantneal/flexibility#^2.0.1",
-    "google-map": "GoogleWebComponents/google-map#^1.2.0"
+    "google-map": "GoogleWebComponents/google-map#^1.2.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1.0.0-rc.4"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

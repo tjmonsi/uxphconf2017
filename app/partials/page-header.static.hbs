@@ -13,7 +13,9 @@
 
     window.loadRaven = function() {
       Raven.config("{{app.ravenConfig}}", {
-
+        autoBreadcrumbs: {
+          console: false
+        }
       }).install();
 
     }
@@ -41,6 +43,7 @@
         // no-op
       }
     };
+
     window.initFontLoader = function() {
       if (window.FontFaceObserver) {
         console.log('font-face-observer loaded');
@@ -57,9 +60,11 @@
       promiseLink.setAttribute('src', "/bower_components/promise-polyfill/promise.min.js");
       document.head.appendChild(promiseLink);
     }
+
   })();
 </script>
 
 <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
 <script src="/bower_components/fontfaceobserver/fontfaceobserver.standalone.js" async onload="window.initFontLoader()"></script>
+<script src="/bower_components/webcomponentsjs/webcomponents-loader.js" async></script>
 
