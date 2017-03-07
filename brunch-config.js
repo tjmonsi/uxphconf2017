@@ -10,6 +10,9 @@ const appConfig = require('./config/app');
 //         'app/project_components/' + project_components[i].trim() + '/' + project_components[i].trim() + '.js';
 //   }
 // }
+// exports.paths = {
+//   watched: ['app', 'config/data.static.hbs']
+// }
 
 exports.files = {
   javascripts: javascripts,
