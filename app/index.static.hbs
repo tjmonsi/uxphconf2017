@@ -203,6 +203,49 @@ data:
       id: uxph-faq-5
       title: The quick brown fox jumps over the lazy dog.
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  contact:
+    action: #
+    column:
+      -
+        -
+          text: true
+          id: uxph-contact-name
+          label: Name
+          placeholder: Type your full name
+        -
+          text: true
+          id: uxph-contact-email
+          label: Email Address
+          placeholder: email@domain.com
+        -
+          text: true
+          id: uxph-contact-number
+          label: Contact Number
+          placeholder: Type your telephone or mobile number
+      -
+        -
+          dropdown: true
+          id: uxph-contact-concern
+          label: Type of Concern
+          default: general-concern
+          options:
+            -
+              id: uxph-contact-concern
+              name: General Concern
+              value: general-concern
+            -
+              id: uxph-contact-concern
+              name: General Concern 1
+              value: general-concern-1
+            -
+              id: uxph-contact-concern
+              name: General Concern 2
+              value: general-concern-2
+        -
+          textarea: true
+          id: uxph-contact-message
+          label: Message
+          placeholder: Type your message here
 _options:
   layout: app/layouts/page.static.hbs
   partials:
@@ -215,6 +258,7 @@ _options:
     - app/partials/pages/index/gallery.static.hbs
     - app/partials/pages/index/pricing.static.hbs
     - app/partials/pages/index/faq.static.hbs
+    - app/partials/pages/index/contact.static.hbs
 ---
     <link rel="import" href="/project_components/core-component/core-component.html" async>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300400600700" rel="stylesheet" async>
@@ -239,5 +283,6 @@ _options:
       {{>gallery}}
       {{>pricing}}
       {{>faq}}
+      {{>contact}}
     </div>
   </body>

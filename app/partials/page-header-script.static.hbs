@@ -32,9 +32,9 @@
         }
         if (window.Raven && error) {
           Raven.captureException(error);
-          if (window.UXPH.version !== 'beta' && window.UXPH.version !== 'alpha') {
-            Raven.showReportDialog();
-          }
+          // if (window.UXPH.version !== 'beta' && window.UXPH.version !== 'alpha') {
+          //  Raven.showReportDialog();
+          // }
         } else {
           console.log(message);
         }

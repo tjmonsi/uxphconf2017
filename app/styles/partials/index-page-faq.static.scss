@@ -1,3 +1,6 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
 .uxph-faq-trigger:checked ~ .uxph-faq-text {
   max-height: 600px;
   transition: max-height 0.2s;

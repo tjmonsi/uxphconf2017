@@ -1,0 +1,94 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#contact-us {
+  padding-bottom: 70px;
+
+  .uxph-section-title {
+    margin-bottom: 9px;
+  }
+
+  .uxph-contact-sub {
+    margin-top: 0px;
+    margin-bottom: 34px;
+    font-size: 14px;
+    color: $grey-4;
+    letter-spacing: 0;
+  }
+
+  .uxph-contact-form-container {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-contact-form-flex {
+      @include flex;
+    }
+
+    .uxph-contact-submit-container {
+      margin-right: 35px;
+    }
+
+    .uxph-contact-form-column {
+      @include flex;
+      margin-right: 35px;
+
+      .uxph-contact-label {
+        width: calc(100% - 20px);
+        margin-bottom: 7px;
+        font-size: 14px;
+        color: $black;
+        letter-spacing: 0;
+      }
+
+      .uxph-contact-text-input {
+        font-family: 'Roboto', 'Noto', 'sans-serif';
+        font-weight: 400;
+        width: calc(100% - 20px);
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 16px;
+        letter-spacing: 0;
+        border: 0;
+        margin-bottom: 17px;
+      }
+
+      .uxph-contact-select {
+        font-family: 'Roboto', 'Noto', 'sans-serif';
+        font-weight: 400;
+        width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 16px;
+        letter-spacing: 0;
+        border: 0;
+        margin-bottom: 17px;
+
+        background: $white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><path style='fill: #15B0DE' d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'></path></svg>");
+        background-repeat: no-repeat;
+        -webkit-appearance: inherit;
+        background-position: right -20px top 10px;
+      }
+
+      .uxph-contact-textarea {
+        font-family: 'Roboto', 'Noto', 'sans-serif';
+        font-weight: 400;
+        width: calc(100% - 30px);
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 16px;
+        letter-spacing: 0;
+        border: 0;
+        margin-bottom: 17px;
+        height: 100px;
+      }
+    }
+
+
+  }
+}

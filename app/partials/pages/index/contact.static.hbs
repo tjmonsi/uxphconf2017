@@ -1,0 +1,60 @@
+<section id="contact-us" class="uxph-grey-bg-3">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Email Us
+  </h1>
+
+  <p class="uxph-contact-sub">
+    The quick brown fox jumps over the lazy dog.
+  </p>
+
+  <form id="uxph-contact-form" method="POST" action="{{data.contact.action}}">
+    <div class="uxph-contact-form-container">
+      {{#each data.contact.column}}
+      <div class="uxph-contact-form-column">
+        {{#each this}}
+        {{#if text}}
+        <label for="{{id}}" class="uxph-contact-label">
+          {{label}}
+        </label>
+        <input id="{{id}}" name="{{id}}" class="uxph-contact-text-input" placeholder="{{placeholder}}" required/>
+        {{/if}}
+
+        {{#if dropdown}}
+        <label for="{{id}}" class="uxph-contact-label">
+          {{label}}
+        </label>
+
+        <select id="{{id}}" name="{{id}}" class="uxph-contact-select" required>
+          {{#each options}}
+          <option value="{{value}}">{{name}}</option>
+          {{/each}}
+        </select>
+        {{/if}}
+
+        {{#if textarea}}
+        <label for="{{id}}" class="uxph-contact-label">
+          {{label}}
+        </label>
+        <textarea id="{{id}}" name="{{id}}" placeholder="{{placeholder}}" class="uxph-contact-textarea" rows="5" wrap="soft" required></textarea>
+        {{/if}}
+
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="uxph-contact-form-container">
+      <div class="uxph-contact-form-flex">
+      </div>
+      <div class="uxph-contact-submit-container">
+        <button class="uxph-button-2" type="submit" id="uxph-contact-submit" >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
