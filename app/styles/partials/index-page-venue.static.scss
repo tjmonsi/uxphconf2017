@@ -1,0 +1,48 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#venue {
+  padding-bottom: 60px;
+  color: $white;
+
+  .uxph-venue-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-venue-text {
+      @include flex-2;
+
+      .uxph-venue-title {
+        margin-top: 0px;
+        margin-bottom: 8px;
+        font-size: 30px;
+        font-weight: 400;
+        color: $white;
+        letter-spacing: 0;
+      }
+
+      .uxph-venue-address {
+        border-left: 1px solid $white;
+        padding-left: 16px;
+        font-size: 18px;
+        color: $white;
+        letter-spacing: 0;
+        line-height: 20px;
+        font-style: normal;
+        margin-bottom: 21px;
+      }
+    }
+
+    .uxph-venue-map {
+      @include flex-5;
+      position: relative;
+      margin-left: 20px;
+
+      .uxph-venue-map-png {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+      }
+    }
+  }
+}

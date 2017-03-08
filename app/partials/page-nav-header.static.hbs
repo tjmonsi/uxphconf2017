@@ -1,0 +1,20 @@
+<header class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <a class="uxph-logo-anchor" href="/">
+    <img class="uxph-logo" src="/images/assets/uxphlogo.png" />
+  </a>
+
+  <nav>
+    {{#each data.nav}}
+    <a href="/#{{id}}" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        {{name}}
+      </div>
+    </a>
+    {{/each}}
+  </nav>
+</header>

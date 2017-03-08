@@ -1,0 +1,97 @@
+<section id="schedule" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-red-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Schedule
+  </h1>
+
+  <div class="uxph-schedule-section">
+
+    {{#each data.schedule}}
+      <div class="uxph-schedule-container">
+        <span class="uxph-schedule-date">{{date}}</span>
+        <h2 class="uxph-schedule-day">{{day}}</h2>
+
+        <div class="uxph-schedule">
+          <h3 class="uxph-schedule-half-day">AM</h3>
+
+          {{#each am}}
+          <div class="uxph-schedule-row">
+            <div class="uxph-schedule-time">{{time}}</div>
+            <div class="uxph-schedule-divider">
+              {{#if @first}}
+              <div class="uxph-schedule-divider-space"></div>
+              {{else}}
+              <div class="uxph-schedule-divider-top-line"></div>
+              {{/if}}
+              <div class="uxph-schedule-bullet"></div>
+              {{#unless @last}}
+              <div class="uxph-schedule-divider-bottom-line"></div>
+              {{/unless}}
+            </div>
+            <div class="uxph-schedule-time-caption">
+              {{name}}
+              {{#if description}}
+              <p>
+                {{description}}
+              </p>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+
+          <div class="uxph-small-divider-2">
+            &nbsp;
+          </div>
+
+          <div class="uxph-schedule-row">
+            <div class="uxph-schedule-time">12:00</div>
+            <div class="uxph-schedule-divider">
+              <div class="uxph-schedule-divider-space"></div>
+              <div class="uxph-schedule-bullet"></div>
+            </div>
+            <div class="uxph-schedule-time-caption">Lunch Break</div>
+          </div>
+
+          <div class="uxph-small-divider-2">
+            &nbsp;
+          </div>
+
+          <h3 class="uxph-schedule-half-day">PM</h3>
+          {{#each pm}}
+          <div class="uxph-schedule-row">
+            <div class="uxph-schedule-time">{{time}}</div>
+            <div class="uxph-schedule-divider">
+              {{#if @first}}
+              <div class="uxph-schedule-divider-space"></div>
+              {{else}}
+              <div class="uxph-schedule-divider-top-line"></div>
+              {{/if}}
+              <div class="uxph-schedule-bullet"></div>
+              {{#unless @last}}
+              <div class="uxph-schedule-divider-bottom-line"></div>
+              {{/unless}}
+            </div>
+            <div class="uxph-schedule-time-caption">
+              {{name}}
+              {{#if description}}
+              <p>
+                {{description}}
+              </p>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+</div>
+
+
+
+

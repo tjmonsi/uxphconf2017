@@ -1,4 +1,7 @@
-exports.version = 2
+exports.version = 2;
+exports.defaultLocale = 'en';
+exports.startUrl = '/?homescreen=1';
+exports.display = 'standalone';
 exports.icons = [
   {
     src: 'images/manifest/android-icon-36x36.png',

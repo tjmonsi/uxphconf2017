@@ -1,0 +1,31 @@
+@import 'app/styles/components/variables.static';
+
+section {
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 72px;
+
+  .uxph-section-divider {
+    margin-top: 35px;
+    margin-bottom: 33px;
+    height: 2px;
+    width: 20px;
+    background-color: $grey-2;
+  }
+
+  .uxph-small-divider {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: $white;
+  }
+
+  .uxph-small-divider-2 {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: $grey-2;
+  }
+}

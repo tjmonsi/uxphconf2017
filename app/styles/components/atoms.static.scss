@@ -1,0 +1,41 @@
+@import 'app/styles/components/variables.static';
+
+// Atoms
+.uxph-section-title {
+  opacity: 0.8;
+  font-weight: 700;
+  font-size: 36px;
+  color: $black;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.uxph-section-title-2 {
+  font-weight: 700;
+  font-size: 36px;
+  color: $white;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.uxph-paragraph-1 {
+  font-size: 14px;
+  color: $grey-4;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.uxph-list-1 {
+  font-size: 16px;
+  color: $black;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.uxph-list-item-1 {
+  margin-left: -20px;
+  padding-left: 20px;
+  margin-bottom: 11px;
+}

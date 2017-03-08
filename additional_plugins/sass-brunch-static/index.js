@@ -26,7 +26,9 @@ SassBrunchStatic = (function() {
     var opts;
     return sass.render({data: data.toString()}, function(err, css) {
       if (err) {
-        callback(err);
+        console.log(err);
+        callback(null, '');
+        // callback(err);
         return;
       }
       return callback(null, css.css.toString());

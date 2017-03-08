@@ -1,0 +1,62 @@
+@import 'app/styles/components/variables.static';
+
+.uxph-white-bg {
+  background-color: $white;
+  position: relative;
+}
+
+.uxph-grey-bg {
+  background-color: $grey-1;
+  position: relative;
+}
+
+.uxph-grey-bg-2 {
+  background-color: $grey-5;
+  position: relative;
+}
+
+.uxph-blue-bg {
+  background-color: $brand-blue-3;
+  position: relative;
+}
+
+.uxph-red-bg {
+  background-color: $brand-red-3;
+  position: relative;
+}
+
+.uxph-small-box {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.uxph-red-box {
+  background-color: $brand-red-1;
+}
+
+.uxph-blue-box {
+  background-color: $brand-blue-4;
+}
+
+.uxph-top-right {
+  top: 0px;
+  right: 0px;
+}
+
+.uxph-top-left {
+  top: 0px;
+  left: 0px;
+}
+
+.uxph-bottom-right {
+  bottom: 0px;
+  right: 0px;
+  float: left;
+}
+
+.uxph-bottom-left {
+  bottom: 0px;
+  left: 0px;
+  float: left;
+}

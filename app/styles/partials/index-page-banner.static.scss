@@ -1,0 +1,83 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+.uxph-banner {
+  @include horizontal-layout;
+  @include center;
+  @include wrap;
+  padding-bottom: 76px;
+
+  .flex {
+    @include flex;
+  }
+
+  .uxph-banner-text {
+    padding-top: 37px;
+
+    .uxph-banner-text-title {
+      font-weight: 700;
+      font-size: 50px;
+      color: $brand-red-2;
+      line-height: 56px;
+      margin-top: 0px;
+      margin-bottom: 19px;
+    }
+
+    .uxph-banner-text-date-location {
+      @include horizontal-layout;
+      @include center;
+
+      .uxph-banner-text-date {
+        width: 150px;
+      }
+
+      .uxph-banner-text-location {
+        width: 180px;
+      }
+
+      .uxph-banner-text-date-location-anchor {
+        color: inherit;
+        text-decoration: none;
+
+        .uxph-banner-text-date-location-container {
+          @include horizontal-layout;
+          @include center;
+          background-color: $white;
+          position: relative;
+          margin-right: 10px;
+          padding: 12px;
+          height: 60px;
+
+          .material-icons {
+            color: $grey-3;
+          }
+          .uxph-banner-text-date-location-text-area {
+            @include flex;
+            text-align: center;
+
+            .uxph-banner-text-date-location-title {
+              font-weight: 600;
+              font-size: 16px;
+              color: $black;
+              line-height: 24px;
+            }
+
+            .uxph-banner-text-date-location-subtitle {
+              // font-weight: 600;
+              font-size: 14px;
+              color: $black;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .uxph-banner-image {
+    margin-left: 30px;
+    img {
+      width: 100%;
+    }
+  }
+}

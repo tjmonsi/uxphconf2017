@@ -1,0 +1,38 @@
+<!-- Gallery -->
+<section id="gallery" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Gallery
+  </h1>
+
+  <div class="uxph-gallery-section">
+    <div class="uxph-gallery uxph-gallery-1">
+      {{#each data.gallery}}
+      <div class="uxph-gallery-image" style="background: url('{{this}}') no-repeat center center/cover">
+      </div>
+      {{/each}}
+    </div>
+    <div class="uxph-gallery uxph-gallery-2">
+      {{#each data.gallery}}
+      <div class="uxph-gallery-image" style="background: url('{{this}}') no-repeat center center/cover">
+      </div>
+      {{/each}}
+    </div>
+    <div class="uxph-gallery uxph-gallery-3">
+      {{#each data.gallery}}
+      <div class="uxph-gallery-image" style="background: url('{{this}}') no-repeat center center/cover">
+      </div>
+      {{/each}}
+    </div>
+    <div class="uxph-gallery uxph-gallery-4">
+      {{#each data.gallery}}
+      <div class="uxph-gallery-image" style="background: url('{{this}}') no-repeat center center/cover">
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

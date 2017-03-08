@@ -2,7 +2,7 @@
 {
   _options: {
     partials: [
-      'app/partials/page-header.static.hbs'
+      'app/partials/page-header-script.static.hbs'
     ]
   }
 }
@@ -55,8 +55,6 @@
 
     <meta name="msapplication-TileColor" content="{{app.themeColor}}" />
     <meta name="msapplication-tap-highlight" content="{{meta.msapplicationTapHighlight}}">
-
-    {{>page-header}}
-
+    {{>page-header-script}}
   {{content}}
 </html>

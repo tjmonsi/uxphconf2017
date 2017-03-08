@@ -40,7 +40,15 @@ exports.plugins = {
         ],
         defaultContext: appConfig[appConfig.builds.beta],
         handlebars: {
-          enableProcessor: true
+          enableProcessor: true,
+          helpers: {
+            wrapper: function(index, wrap, options) {
+              if(!(index%wrap)) {
+                return options.fn(this);
+              }
+              return options.inverse(this);
+            }
+          }
         }
       })
     ]

@@ -1,0 +1,152 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#gallery {
+  padding-bottom: 75px;
+
+  .uxph-gallery-section {
+    width: calc(100% + 84px);
+    height: 400px;
+    margin-left: -42px;
+    margin-right: -42px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+
+    .uxph-gallery {
+      @include horizontal-layout;
+      @include wrap;
+      width: 2400px;
+      animation-duration: 300s;
+      animation-iteration-count: infinite;
+      position: absolute;
+      animation-timing-function: linear;
+
+      .uxph-gallery-image {
+        height: 200px;
+        width: 300px;
+      }
+    }
+
+    .uxph-gallery-1 {
+      animation-name: gallery-movement;
+    }
+
+    .uxph-gallery-2 {
+      animation-name: gallery-movement-2;
+      left: 2400px;
+    }
+
+    .uxph-gallery-3 {
+      animation-name: gallery-movement-3;
+      left: 4800px;
+    }
+
+    .uxph-gallery-4 {
+      animation-name: gallery-movement-4;
+      left: -2400px;
+    }
+
+  }
+}
+
+@keyframes gallery-movement {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  25% {
+    left: -2400px;
+    opacity: 1;
+  }
+  26% {
+    left: -2400px;
+    opacity: 0;
+  }
+  74% {
+    left: 2400px;
+    opacity: 0;
+  }
+  75% {
+    left: 2400px;
+    opacity: 1;
+  }
+  100% {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes gallery-movement-2 {
+  0% {
+    left: 2400px;
+    opacity: 1;
+  }
+  25% {
+    left: 0px;
+    opacity: 1;
+  }
+  50% {
+    left: -2400px;
+    opacity: 1;
+  }
+  51% {
+    left: -2400px;
+    opacity: 0;
+  }
+  100% {
+    left: 2400px;
+    opacity: 0;
+  }
+}
+
+@keyframes gallery-movement-3 {
+  0% {
+    left: 4800px;
+    opacity: 0;
+  }
+  25% {
+    left: 2400px;
+    opacity: 1;
+  }
+  50% {
+    left: 0px;
+    opacity: 1;
+  }
+  75% {
+    left: -2400px;
+    opacity: 1;
+  }
+  76% {
+    left: -2400px;
+    opacity: 0;
+  }
+  100% {
+    left: 4800px;
+    opacity: 0;
+  }
+}
+
+@keyframes gallery-movement-4 {
+  0% {
+    left: -2400px;
+    opacity: 0;
+  }
+  25% {
+    left: 4800px;
+    opacity: 0;
+  }
+  50% {
+    left: 2400px;
+    opacity: 1;
+  }
+  75% {
+    left: 0px;
+    opacity: 1;
+  }
+  100% {
+    left: -2400px;
+    opacity: 1;
+  }
+
+}

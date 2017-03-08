@@ -1,0 +1,51 @@
+#faqs {
+  padding-bottom: 70px;
+
+  .uxph-faq-divider {
+    height: 1px;
+    background-color: $grey-6;
+  }
+
+  .uxph-faq {
+    @include horizontal-layout;
+    padding-top: 17px;
+    padding-bottom: 19px;
+
+    .uxph-faq-button-container {
+      .uxph-faq-button-anchor {
+        color: $brand-blue-1;
+        text-decoration: none;
+      }
+    }
+
+    .uxph-faq-title-text {
+      @include flex;
+      margin-left: 14px;
+
+      .uxph-faq-title-anchor {
+        color: $black;
+        text-decoration: none;
+
+        .uxph-faq-title {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          color: $black;
+          letter-spacing: 0;
+          line-height: 20px;
+        }
+      }
+
+      .uxph-faq-text {
+        margin-top: 25px;
+
+        .uxph-faq-answer {
+          font-size: 14px;
+          color: $grey-4;
+          letter-spacing: 0;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<section id="speakers" class="uxph-blue-bg">
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-red-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title-2">
+    Speakers
+  </h1>
+
+  <div class="uxph-speaker-section">
+    {{#each data.speakers}}
+    {{#wrapper @index 4}}
+    <div class="uxph-speaker-wrapper">
+    </div>
+    {{/wrapper}}
+    {{#if name}}
+    <div class="uxph-speaker-container">
+      <div class="uxph-speaker-avatar" style="background: url('{{avatar}}') no-repeat center center/cover ">
+      </div>
+      <div class="uxph-speaker-text-container">
+        <div class="uxph-speaker-name">
+          {{name}}
+        </div>
+        <div class="uxph-speaker-divider-container">
+          <div class="uxph-speaker-divider-flex">
+          </div>
+          <div class="uxph-small-divider-2">
+          </div>
+          <div class="uxph-speaker-divider-flex">
+          </div>
+        </div>
+        <div class="uxph-speaker-short-bio">
+          {{shortBio}}
+        </div>
+      </div>
+      <div class="uxph-speaker-full-bio-button">
+        <a href="#">
+          Full bio
+        </a>
+      </div>
+    </div>
+    {{else}}
+    <div class="uxph-speaker-spacer">
+    </div>
+    {{/if}}
+    {{/each}}
+  </div>
+
+</section>

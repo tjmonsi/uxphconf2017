@@ -1,0 +1,118 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#speakers {
+  color: $white;
+  padding-bottom: 84px;
+
+  .uxph-speaker-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-speaker-wrapper {
+      width: 100%;
+    }
+
+    .uxph-speaker-spacer {
+      @include flex;
+      margin-right: 20px;
+      height: 20px;
+    }
+
+    .uxph-speaker-container {
+      @include flex;
+      margin-right: 20px;
+      background-color: $white;
+      height: 375px;
+      margin-bottom: 30px;
+      position: relative;
+
+      // @include large-desktop {
+      //   height: 450px;
+      // }
+
+      .uxph-speaker-avatar {
+        height: 160px;
+        width: 100%;
+      }
+
+      .uxph-speaker-text-container {
+        margin-top: 16px;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .uxph-speaker-name {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 20px;
+          color: $black;
+          letter-spacing: 0;
+        }
+
+        .uxph-speaker-short-bio {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 14px;
+          color: $grey-4;
+          letter-spacing: 0;
+        }
+
+        .uxph-speaker-divider-container {
+          @include horizontal-layout;
+          @include center;
+          .uxph-speaker-divider-flex {
+            @include flex;
+          }
+        }
+      }
+
+      .uxph-speaker-full-bio-button {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid $grey-6;
+        height: 39px;
+        padding-top: 12px;
+
+        a {
+          color: $brand-blue-1;
+          font-size: 12px;
+          letter-spacing: 0;
+          text-decoration: none;
+        }
+      }
+    }
+
+    // .uxph-speaker-container {
+    //   @include horizontal-layout;
+    //   @include flex;
+
+    //   .uxph-speaker-avatar {
+    //     height: 140px;
+    //     margin-right: 20px;
+    //   }
+
+    //   .uxph-speaker-text-container {
+    //     @include flex;
+    //     margin-bottom: 45px;
+
+    //     .uxph-speaker-name {
+    //       font-weight: 400;
+    //       margin: 0px;
+    //       font-size: 24px;
+    //       color: $white;
+    //       letter-spacing: 0;
+    //     }
+
+    //     .uxph-speaker-caption {
+    //       font-size: 14px;
+    //       color: $white;
+    //       letter-spacing: 0;
+    //       line-height: 16px;
+    //     }
+    //   }
+    // }
+  }
+}

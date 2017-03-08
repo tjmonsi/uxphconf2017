@@ -1,0 +1,103 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#schedule {
+  // display: none;
+  color: $black;
+  padding-bottom: 84px;
+
+  .uxph-schedule-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-schedule-container {
+      @include flex;
+
+      .uxph-schedule-date {
+        color: $brand-blue-1;
+        font-size: 16px;
+      }
+
+      .uxph-schedule-day {
+        font-size: 30px;
+        color: $black;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 26px;
+        font-weight: 600;
+      }
+
+      .uxph-schedule {
+        .uxph-schedule-half-day {
+          font-weight: 700;
+          font-size: 16px;
+          color: $brand-red-1;
+          letter-spacing: 0;
+          margin-top: 0px;
+          margin-bottom: 12px;
+        }
+
+        .uxph-schedule-row {
+          @include horizontal-layout;
+
+          .uxph-schedule-time {
+            width: 61px;
+            margin-bottom: 7px;
+            font-size: 16px;
+            color: $black;
+            letter-spacing: 0;
+            line-height: 40px;
+          }
+
+          .uxph-schedule-divider {
+            .uxph-schedule-divider-space {
+              width: 6px;
+              height: 16px;
+            }
+
+            .uxph-schedule-divider-top-line {
+              width: 1px;
+              margin-left: 3px;
+              margin-right:3px;
+              height: 16px;
+              background-color: $brand-blue-1;
+            }
+
+            .uxph-schedule-bullet {
+              border-radius: 50%;
+              height: 6px;
+              width: 6px;
+              border: 1px solid $brand-blue-1;
+            }
+            .uxph-schedule-divider-bottom-line {
+              width: 1px;
+              margin-left: 3px;
+              margin-right:3px;
+              height: calc(100% - 24px);
+              background-color: $brand-blue-1;
+            }
+          }
+
+          .uxph-schedule-time-caption {
+            @include flex;
+            margin-bottom: 7px;
+            margin-left: 41px;
+            font-size: 16px;
+            color: $black;
+            letter-spacing: 0;
+            line-height: 40px;
+
+            p {
+              margin-top: 2px;
+              font-size: 12px;
+              color: $grey-4;
+              letter-spacing: 0;
+              line-height: 14px;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
