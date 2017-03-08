@@ -1,0 +1,46 @@
+<!-- FAQs -->
+<section id="faqs" class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    FAQs
+  </h1>
+
+  {{#each data.faq}}
+
+  <div class="uxph-faq-divider"></div>
+  <div class="uxph-faq">
+    {{!--<div class="uxph-faq-button-container">
+      <label href="#" class="uxph-faq-button-anchor" for="{{id}}">
+
+      </label>
+    </div>--}}
+    <div class="uxph-faq-title-text">
+      <input type="checkbox" id="{{id}}" class="uxph-faq-trigger" />
+      <label class="uxph-faq-title-container" for="{{id}}">
+        <div class="uxph-faq-button-anchor">
+          <i class="material-icons">&#xE313;</i>
+        </div>
+        <div class="uxph-faq-title-container">
+          <h2 class="uxph-faq-title"> {{title}}</h2>
+        </div>
+      </label>
+      <div class="uxph-faq-text">
+        <p class="uxph-faq-answer">
+          {{description}}
+        </p>
+        <a target="_blank" href="#" class="uxph-button-anchor">
+          <button class="uxph-button-2" >
+            Action Button
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+  <div class="uxph-faq-divider"></div>
+</section>

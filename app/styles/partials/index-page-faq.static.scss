@@ -1,5 +1,40 @@
+.uxph-faq-trigger:checked ~ .uxph-faq-text {
+  max-height: 600px;
+  transition: max-height 0.2s;
+}
+
+.uxph-faq-trigger ~ .uxph-faq-text {
+  max-height: 0;
+  transition: max-height 0.2s;
+}
+
+.uxph-faq-trigger:checked + label {
+  margin-bottom: 25px;
+  transition: margin-bottom 0.2s;
+}
+
+.uxph-faq-trigger + label {
+  margin-bottom: 0px;
+  transition: margin-bottom 0.2s;
+}
+
+.uxph-faq-trigger:checked + label .material-icons {
+  transform: rotate(0deg);
+  transition: transform 0.2s;
+}
+
+.uxph-faq-trigger + label .material-icons {
+  transform: rotate(-90deg);
+  transition: transform 0.2s;
+}
+
 #faqs {
   padding-bottom: 70px;
+
+  .uxph-faq-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
 
   .uxph-faq-divider {
     height: 1px;
@@ -7,37 +42,48 @@
   }
 
   .uxph-faq {
-    @include horizontal-layout;
+    // @include horizontal-layout;
     padding-top: 17px;
     padding-bottom: 19px;
 
-    .uxph-faq-button-container {
-      .uxph-faq-button-anchor {
-        color: $brand-blue-1;
-        text-decoration: none;
-      }
-    }
-
     .uxph-faq-title-text {
-      @include flex;
-      margin-left: 14px;
 
-      .uxph-faq-title-anchor {
+      .uxph-faq-title-container {
         color: $black;
         text-decoration: none;
+        cursor: pointer;
+        @include horizontal-layout;
 
-        .uxph-faq-title {
-          margin-top: 0px;
-          margin-bottom: 0px;
-          font-size: 18px;
-          color: $black;
-          letter-spacing: 0;
-          line-height: 20px;
+        .uxph-faq-button-anchor {
+          color: $brand-blue-1;
+          margin-top: -2px;
+        }
+
+        .uxph-faq-title-container {
+          @include flex;
+          margin-left: 14px;
+
+          .uxph-faq-title {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 18px;
+            color: $black;
+            letter-spacing: 0;
+            line-height: 20px;
+          }
+        }
+      }
+
+      .uxph-faq-title-anchor {
+        .material-icons {
+          padding-top: 5px;
+          color: $brand-blue-1;
         }
       }
 
       .uxph-faq-text {
-        margin-top: 25px;
+        overflow: hidden;
+        margin-left: 34px;
 
         .uxph-faq-answer {
           font-size: 14px;
