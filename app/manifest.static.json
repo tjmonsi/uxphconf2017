@@ -1,7 +1,4 @@
 ---
-{
-  _options: {
-    layout: 'app/layouts/manifest.static.json'
-  }
-}
+_options: 
+  layout: app/layouts/manifest.static.json
 ---

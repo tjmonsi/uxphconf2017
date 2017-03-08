@@ -1,25 +1,14 @@
 ---
-{
-  name: 'uxph-venue-map',
-  bower_imports: [
-    {
-      source: 'polymer/polymer.html'
-    },
-    {
-      source: 'google-map/google-map.html'
-    },
-    {
-      source: 'google-map/google-map-marker.html'
-    }
-  ],
-  _options: {
-    layout: 'app/layouts/project-components.static.hbs',
-    partials: [
-      'app/project_components/uxph-venue-map/script.static.js',
-      'app/project_components/uxph-venue-map/style.static.scss',
-    ]
-  }
-}
+name: uxph-venue-map
+bower_imports:
+  - polymer/polymer.html
+  - google-map/google-map.html
+  - google-map/google-map-marker.html
+_options: 
+  layout: app/layouts/project-components.static.hbs
+  partials: 
+    - app/project_components/uxph-venue-map/script.static.js
+    - app/project_components/uxph-venue-map/style.static.scss
 ---
   <template>
     <style is="custom-style" include="{{styleIncludes}}">

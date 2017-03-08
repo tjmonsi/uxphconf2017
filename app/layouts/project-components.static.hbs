@@ -1,13 +1,9 @@
 ---
-{
-  _options: {
-    partials: [
-      'app/partials/link-import-bower.static.hbs',
-      'app/partials/link-import-project-components.static.hbs',
-      'app/partials/link-lazy-import.static.hbs'
-    ]
-  }
-}
+_options: 
+  partials: 
+    - app/partials/link-import-bower.static.hbs
+    - app/partials/link-import-project-components.static.hbs
+    - app/partials/link-lazy-import.static.hbs
 ---
 {{#each bower_imports}}
 {{>link-import-bower}}
