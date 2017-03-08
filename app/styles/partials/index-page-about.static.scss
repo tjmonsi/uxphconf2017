@@ -1,0 +1,30 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#about {
+  color: $black;
+  padding-bottom: 76px;
+
+  .uxph-about-section {
+    @include horizontal-layout;
+    @include wrap;
+    // @include center;
+
+    .uxph-about-title {
+      @include flex-2;
+
+      .uxph-about-caption {
+        font-weight: 300;
+        font-size: 40px;
+        color: $black;
+        letter-spacing: 0;
+        line-height: 50px;
+        margin: 0px;
+      }
+    }
+
+    .uxph-about-description {
+      @include flex-3;
+    }
+  }
+}

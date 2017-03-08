@@ -29,7 +29,7 @@ data:
       name: Contact Us
     -
       id: about
-      name: About
+      name: About Us
     -
       id: sponsors
       name: Sponsors
@@ -185,23 +185,35 @@ data:
   faq:
     -
       id: uxph-faq-1
-      title: The quick brown fox jumps over the lazy dog.
+      title: Do you accept credit card payments?
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     -
       id: uxph-faq-2
-      title: The quick brown fox jumps over the lazy dog.
+      title: I do not hold a User Experience role in the company, can I still join?
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     -
       id: uxph-faq-3
-      title: The quick brown fox jumps over the lazy dog.
+      title: Can I only attend one day of the event?
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     -
       id: uxph-faq-4
-      title: The quick brown fox jumps over the lazy dog.
+      title: Will you allow walk-in ticket purchases?
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     -
       id: uxph-faq-5
-      title: The quick brown fox jumps over the lazy dog.
+      title: Are the tickets transferable and refundable?
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    -
+      id: uxph-faq-6
+      title: How can I get my ticket?
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    -
+      id: uxph-faq-7
+      title: Do we get certificates after participating?
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    -
+      id: uxph-faq-8
+      title: I am from government/academe and would like to get a formal invitation so I can submit to my department, how might I go about getting one?
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   contact:
     action: #
@@ -259,6 +271,7 @@ _options:
     - app/partials/pages/index/pricing.static.hbs
     - app/partials/pages/index/faq.static.hbs
     - app/partials/pages/index/contact.static.hbs
+    - app/partials/pages/index/about.static.hbs
 ---
     <link rel="import" href="/project_components/core-component/core-component.html" async>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300400600700" rel="stylesheet" async>
@@ -284,5 +297,6 @@ _options:
       {{>pricing}}
       {{>faq}}
       {{>contact}}
+      {{>about}}
     </div>
   </body>
