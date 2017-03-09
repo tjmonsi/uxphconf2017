@@ -1,0 +1,31 @@
+<section id="sponsors" class="uxph-grey-bg-4">
+  <div class="uxph-small-box uxph-red-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <h1 class="uxph-section-title">
+    Sponsors
+  </h1>
+
+  <div class="uxph-sponsor-section">
+    {{#each data.sponsors}}
+      {{#each sponsors}}
+        <div class="uxph-sponsor-container">
+          <div class="uxph-sponsor-type">
+            {{sponsorType}}
+          </div>
+          <div class="uxph-sponsor">
+            <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+            <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+            <div class="uxph-sponsor-flex"></div>
+            <a href="#" class="uxph-sponsor-logo-anchor">
+              <img class="uxph-sponsor-logo" alt="{{alt}}" src="{{image}}" />
+            </a>
+            <div class="uxph-sponsor-flex"></div>
+          </div>
+        </div>
+      {{/each}}
+    {{/each}}
+  </div>
+</section>

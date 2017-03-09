@@ -1,0 +1,75 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#updated {
+  color: $white;
+  padding-bottom: 74px;
+
+  .uxph-updated-section {
+    @include horizontal-layout;
+    @include center;
+    @include wrap;
+
+    .uxph-updated-title-container {
+      padding-right: 35px;
+      border-right: 1px solid $white;
+      margin-right: 47px;
+      width: 300px;
+      .uxph-section-title {
+        color: $white;
+        margin-bottom: 8px;
+      }
+
+      .uxph-updated-section-sub {
+        font-size: 20px;
+        color: $white;
+        letter-spacing: 0;
+      }
+    }
+
+    .uxph-updated-form-container {
+      @include flex;
+
+      .uxph-updated-form {
+        @include horizontal-layout;
+        @include wrap;
+        @include center;
+
+        .uxph-updated-form-input-container {
+          @include flex;
+          margin-right: 20px;
+
+          .uxph-updated-label {
+            width: 100%;
+            font-size: 14px;
+            color: $white;
+            letter-spacing: 0;
+            margin-bottom: 7px;
+          }
+
+          .uxph-updated-text-input {
+            font-family: 'Roboto', 'Noto', 'sans-serif';
+            border: 0;
+            background-color: $white;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-top: 11px;
+            padding-bottom: 11px;
+            font-size: 16px;
+            letter-spacing: 0;
+            width: calc(100% - 30px);
+          }
+        }
+
+        .uxph-updated-form-submit-container {
+          margin-top: 20px;
+          width: 140px;
+
+          .uxph-button-3 {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

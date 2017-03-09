@@ -1,0 +1,54 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+#sponsors {
+  padding-bottom: 80px;
+  color: $white;
+
+  .uxph-section-title {
+    margin-bottom: 26px;
+    color: $white;
+  }
+
+  .uxph-sponsor-section {
+    @include horizontal-layout;
+    @include wrap;
+
+    .uxph-sponsor-container {
+      // width: 220px;
+      margin-right: 20px;
+
+      .uxph-sponsor-type {
+        height: 17px;
+        width: 220px;
+        margin-bottom: 16px;
+        font-size: 14px;
+        letter-spacing: 0
+      }
+
+      .uxph-sponsor {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        height: 100px;
+        width: 220px;
+        padding: 20px;
+        position: relative;
+        @include horizontal-layout;
+        @include center;
+
+        .uxph-sponsor-flex {
+          @include flex;
+          height: 100px;
+        }
+
+        .uxph-sponsor-logo-anchor {
+          text-decoration: none;
+          color: inherit;
+
+          .uxph-sponsor-logo {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}

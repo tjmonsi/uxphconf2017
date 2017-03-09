@@ -5,6 +5,22 @@ data:
   map: https://goo.gl/maps/TrDyP2HcSuL2
   banner:
     image: /images/assets/sample_banner.png
+  links:
+    -
+      url: /
+      name: Blog
+    -
+      url: /
+      name: Past Events
+    -
+      url: /
+      name: Press
+    -
+      url: /
+      name: Resources
+    -
+      url: /
+      name: Merchandise
   nav:
     -
       id: speakers
@@ -258,6 +274,19 @@ data:
           id: uxph-contact-message
           label: Message
           placeholder: Type your message here
+  sponsors:
+    -
+      sponsors:
+        -
+          sponsorType: Co-presented by
+          image: /images/assets/globelabs_logo.png
+          alt: Globe Labs
+    -
+      sponsors:
+        -
+          sponsorType: Sponsors
+          image: /images/assets/nuworks_logo.png
+          alt: Nuworks Interactive
 _options:
   layout: app/layouts/page.static.hbs
   partials:
@@ -272,6 +301,9 @@ _options:
     - app/partials/pages/index/faq.static.hbs
     - app/partials/pages/index/contact.static.hbs
     - app/partials/pages/index/about.static.hbs
+    - app/partials/pages/index/sponsor.static.hbs
+    - app/partials/pages/index/update.static.hbs
+    - app/partials/pages/index/footer.static.hbs
 ---
     <link rel="import" href="/project_components/core-component/core-component.html" async>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300400600700" rel="stylesheet" async>
@@ -298,5 +330,12 @@ _options:
       {{>faq}}
       {{>contact}}
       {{>about}}
+      {{>sponsor}}
+      {{>update}}
     </div>
+
+    <div id="footer-container">
+      {{>footer}}
+    </div>
+
   </body>
