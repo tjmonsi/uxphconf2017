@@ -1,0 +1,22 @@
+---
+name: core-app-component
+bower_imports:
+  - polymer/polymer.html
+project_component_imports:
+  - core-toast/core-toast.html
+_options:
+  layout: app/layouts/project-components.static.hbs
+  partials:
+    - app/project_components/core-app-component/script.static.js
+    - app/project_components/core-app-component/style.static.scss
+---
+  <template>
+    <style is="custom-style" include="{{styleIncludes}}">
+      {{>style}}
+    </style>
+
+    <core-toast id="toast"></core-toast>
+  </template>
+  <script>
+    {{>script}}
+  </script>

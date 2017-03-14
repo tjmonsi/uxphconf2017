@@ -1,14 +1,17 @@
 {
   "entrypoint": "index.html",
-  "shell": "project_components/core-component/core-component.html",
+  "shell": "project_components/core-app-component/core-app-component.html",
   "fragments": [
-    "project_components/uxph-venue-map/uxph-venue-map.html"
+    "project_components/uxph-venue-map/uxph-venue-map.html",
+    "project_components/core-toast/core-toast.html"
   ],
   "sources": [
    "images/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+    "app.js",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js",
+    "bower_components/fontfaceobserver/fontfaceobserver.standalone.js"
   ]
 }

@@ -1,0 +1,32 @@
+---
+name: core-toast
+bower_imports:
+  - polymer/polymer.html
+  - paper-toast/paper-toast.html
+_options:
+  layout: app/layouts/project-components.static.hbs
+  partials:
+    - app/project_components/core-toast/script.static.js
+    - app/project_components/core-toast/style.static.scss
+---
+  <template>
+    <style is="custom-style" include="{{styleIncludes}}">
+      {{>style}}
+    </style>
+
+    <paper-toast
+        id="internalToast"
+        class$="\{{_computeClass(_tapHandler)}}"
+        duration="[[duration]]"
+        text="[[text]]"
+        on-tap="_handleTap" layout horizontal justified
+        fit-bottom$="\{{app.isPhoneSize}}"
+    >
+      <span class="toast-action"
+            on-click="_handleAction" hidden$="\{{!action}}">[[action]]</span>
+
+    </paper-toast>
+  </template>
+  <script>
+    {{>script}}
+  </script>

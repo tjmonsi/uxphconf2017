@@ -363,7 +363,6 @@ _options:
     - app/partials/pages/index/update.static.hbs
     - app/partials/pages/index/footer.static.hbs
 ---
-    <link rel="import" href="/project_components/core-component/core-component.html" async>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300400600700" rel="stylesheet" async>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
 
@@ -396,4 +395,10 @@ _options:
       {{>footer}}
     </div>
 
+    <link rel="import" href="/project_components/core-app-component/core-app-component.html" >
+    <core-app-component id="core-component"></core-app-component>
+
+    <script src="app.js">
+    </script>
+    <script>require('scripts/initialize.js');</script>
   </body>

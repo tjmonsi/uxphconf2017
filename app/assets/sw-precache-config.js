@@ -11,7 +11,9 @@ module.exports = {
   staticFileGlobs: [
     '/index.html',
     '/manifest.json',
-    '/bower_components/webcomponentsjs/webcomponents-lite.min.js'
+    '/bower_components/webcomponentsjs/webcomponents-lite.min.js',
+    '/bower_components/fontfaceobserver/fontfaceobserver.standalone.js',
+    'app.js'
   ],
   navigateFallback: '/index.html',
   navigateFallbackWhitelist: [/^(?!\/__)/],
@@ -23,6 +25,14 @@ module.exports = {
     },
     {
       urlPattern: /service-worker.js/,
+      handler: 'networkFirst'
+    },
+    {
+      urlPattern: /^https:\/\/maps.googleapis.com\/.*/,
+      handler: 'networkFirst'
+    },
+    {
+      urlPattern: /^https:\/\/cdn.ravenjs.com\/.*/,
       handler: 'networkFirst'
     }
   ]
