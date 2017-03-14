@@ -75,7 +75,15 @@ exports.overrides = {
             ],
             defaultContext: appConfig[appConfig.builds.production],
             handlebars: {
-              enableProcessor: true
+              enableProcessor: true,
+              helpers: {
+                wrapper: function(index, wrap, options) {
+                  if(!(index%wrap)) {
+                    return options.fn(this);
+                  }
+                  return options.inverse(this);
+                }
+              }
             }
           })
         ]

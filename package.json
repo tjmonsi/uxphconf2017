@@ -7,7 +7,7 @@
   "repository": "",
   "scripts": {
     "start": "export LOGGY_STACKS=true && brunch watch --server",
-    "build": "brunch build --production"
+    "build": "export LOGGY_STACKS=true && brunch build --production && gulp --gulpfile temp_build/gulpfile.js"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,6 +19,13 @@
     "marked-brunch-static": "^1.1.0",
     "node-sass": "^4.5.0",
     "sass-brunch": "^2.10.4",
-    "uglify-js-brunch": "^2"
+    "uglify-js-brunch": "^2",
+    "css-slam": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify": "^2.0.1",
+    "merge-stream": "^1.0.1",
+    "polymer-build": "^0.8.1"
   }
 }

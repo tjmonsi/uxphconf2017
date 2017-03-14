@@ -1,0 +1,14 @@
+{
+  "entrypoint": "index.html",
+  "shell": "project_components/core-component/core-component.html",
+  "fragments": [
+    "project_components/uxph-venue-map/uxph-venue-map.html"
+  ],
+  "sources": [
+   "images/**/*"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}
