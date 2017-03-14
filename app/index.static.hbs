@@ -19,7 +19,7 @@ data:
     -
       url: /
       name: Merchandise
-  nav:
+  oldNav:
     -
       id: speakers
       name: Speakers
@@ -47,6 +47,35 @@ data:
     -
       id: sponsors
       name: Sponsors
+  nav:
+    -
+      id: speakers
+      name: Speakers
+    -
+      id: venue
+      name: Venue
+    -
+      id: pricing
+      name: Pricing
+    -
+      id: about
+      name: About Us
+  oldSpeakers:
+    -
+      name: Sam Cruz
+      shortBio: No bio yet
+      fullBio:
+      avatar: /images/assets/speakers/samcruz.jpg
+    -
+      name: Lorenzo Miguel Villalon
+      shortBio: Consultant for the Grameen Foundation
+      fullBio:
+      avatar: /images/assets/jen_teves.png
+    -
+      name: Micael Andrei B. Diaz de Rivera
+      shortBio: NuWorks
+      fullBio:
+      avatar: /images/assets/jen_teves.png
   speakers:
     -
       name: Paul Sherman, PhD
@@ -93,21 +122,6 @@ data:
       shortBio: Thoughtworks Sydney
       fullBio:
       avatar: /images/assets/speakers/petechemripong.jpg
-    -
-      name: Sam Cruz
-      shortBio: No bio yet
-      fullBio:
-      avatar: /images/assets/speakers/samcruz.jpg
-    -
-      name: Lorenzo Miguel Villalon
-      shortBio: Consultant for the Grameen Foundation
-      fullBio:
-      avatar: /images/assets/jen_teves.png
-    -
-      name: Micael Andrei B. Diaz de Rivera
-      shortBio: NuWorks
-      fullBio:
-      avatar: /images/assets/jen_teves.png
     -
       name: Jordan Aiko Deja
       shortBio: De La Salle University
@@ -294,6 +308,15 @@ data:
           id: uxph-contact-message
           label: Message
           placeholder: Type your message here
+  pricing:
+    -
+      price: 4,100
+      name: UXPH Participant (1 ticket)
+      link: https://www.eventbrite.com/e/design-for-a-better-philippines-uxphilippines-uxph-conference-uxphconf2017-tickets-31579032737
+    -
+      price: 20,500
+      name: Group Discount (5 + 1)
+      link: https://www.eventbrite.com/e/design-for-a-better-philippines-uxphilippines-uxph-conference-uxphconf2017-tickets-31579032737
   sponsors:
     -
       sponsors:
@@ -307,6 +330,21 @@ data:
           sponsorType: Sponsors
           image: /images/assets/nuworks_logo.png
           alt: Nuworks Interactive
+  footer:
+    socials:
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Facebook1.png
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Twitter1.png
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Linkedin.png
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Youtube.png
+
 _options:
   layout: app/layouts/page.static.hbs
   partials:
@@ -343,15 +381,15 @@ _options:
     <div id="page-content">
       {{>banner}}
       {{>speaker}}
-      {{>schedule}}
+      {{!--{{>schedule}}--}}
       {{>venue}}
-      {{>gallery}}
+      {{!--{{>gallery}}--}}
       {{>pricing}}
-      {{>faq}}
-      {{>contact}}
+      {{!--{{>faq}}--}}
+      {{!--{{>contact}}--}}
       {{>about}}
-      {{>sponsor}}
-      {{>update}}
+      {{!--{{>sponsor}}--}}
+      {{!--{{>update}}--}}
     </div>
 
     <div id="footer-container">

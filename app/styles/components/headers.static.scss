@@ -83,5 +83,75 @@
     @include large-desktop {
       display: none;
     }
+
+    .uxph-open-sidebar {
+      display: block;
+    }
+
+    .uxph-close-sidebar {
+      display: none;
+    }
+  }
+
+  #uxph-nav-menu-button {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .sidebar {
+    @include desktop {
+      display: none;
+    }
+
+    @include large-desktop {
+      display: none;
+    }
+
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: $brand-blue-1;
+    z-index: 200;
+    color: $white;
+    left: -100%;
+
+    text-align: left;
+
+    .sidebar-nav {
+      padding-left: 30px;
+      padding-top: 50px;
+    }
+
+    .uxph-nav-link-anchor {
+      color: $white;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 17px;
+
+      .uxph-nav-link {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 30px;
+        font-size: 30px;
+        position: relative;
+      }
+    }
+  }
+
+  #uxph-nav-menu-button:checked ~ .sidebar {
+    left: 0px;
+
+  }
+
+  #uxph-nav-menu-button:checked + .nav-menu-button {
+    z-index: 300;
+    color: $white;
+    .uxph-open-sidebar {
+      display: none;
+    }
+
+    .uxph-close-sidebar {
+      display: block
+    }
   }
 }

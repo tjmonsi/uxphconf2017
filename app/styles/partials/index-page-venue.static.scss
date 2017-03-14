@@ -38,6 +38,10 @@
       position: relative;
       margin-left: 20px;
 
+      @include phone {
+        display: none;
+      }
+
       .uxph-venue-map-png {
         position: absolute;
         left: 0px;

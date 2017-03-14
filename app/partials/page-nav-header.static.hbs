@@ -17,7 +17,25 @@
     </a>
     {{/each}}
   </nav>
-  <label class="nav-menu-button">
-    <i class="material-icons">&#xE5D2;</i>
+  <input type="checkbox" id="uxph-nav-menu-button">
+  <label class="nav-menu-button" for="uxph-nav-menu-button">
+    <i class="material-icons uxph-open-sidebar">&#xE5D2;</i>
+    <i class="material-icons uxph-close-sidebar">&#xE5CD;</i>
   </label>
+
+  {{!--<label class="sidebar-menu" for="uxph-nav-menu-button">--}}
+  <div class="sidebar">
+    <div class="sidebar-nav">
+      {{#each data.nav}}
+      <a href="/#{{id}}" class="uxph-nav-link-anchor" onclick="document.getElementById('uxph-nav-menu-button').checked = false;">
+        <div class="uxph-nav-link">
+          {{name}}
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+  {{!--</div>--}}
 </header>
+
+
