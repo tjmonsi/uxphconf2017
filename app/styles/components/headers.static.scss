@@ -33,6 +33,13 @@
       @include flex;
       @include horizontal-layout;
       @include center;
+      @include phone {
+        display: none;
+      }
+
+      @include tablet {
+        display: none;
+      }
 
       .uxph-nav-link-anchor {
         color: $brand-blue-2;
@@ -58,6 +65,23 @@
           border-bottom: 2px solid $brand-blue-2;
         }
       }
+    }
+  }
+
+  .nav-menu-button {
+    position: absolute;
+    right: 0px;
+    margin-top: 15px;
+    margin-right: 15px;
+    color: $brand-blue-1;
+    cursor: pointer;
+
+    @include desktop {
+      display: none;
+    }
+
+    @include large-desktop {
+      display: none;
     }
   }
 }

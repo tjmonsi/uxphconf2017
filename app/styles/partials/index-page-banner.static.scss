@@ -5,27 +5,51 @@
   @include horizontal-layout;
   @include center;
   @include wrap;
-  padding-bottom: 76px;
+  padding-top: 0px;
+  padding-left: 0px;
+  color: $white;
+  background: url('/images/assets/UXPH_City.png') no-repeat right center/auto 100% $grey-11;
 
   .flex {
     @include flex;
   }
 
   .uxph-banner-text {
-    padding-top: 37px;
+    // padding-top: 37px;
+    padding-left: 42px;
+    padding-top: 109px;
+    padding-bottom: 76px;
+    background: $grey-11;
+    background: linear-gradient(to right, $grey-11, rgba(0,0,0,0));
+
+    @include phone {
+      padding-top: 37px;
+    }
 
     .uxph-banner-text-title {
       font-weight: 700;
       font-size: 50px;
-      color: $brand-red-2;
-      line-height: 56px;
+      color: $white;
+
       margin-top: 0px;
       margin-bottom: 19px;
+
+      @include phone {
+        font-size: 40px;
+        line-height: 46px;
+      }
     }
 
     .uxph-banner-text-date-location {
+
       @include horizontal-layout;
       @include center;
+
+      @include phone {
+        @include wrap;
+      }
+
+
 
       .uxph-banner-text-date {
         width: 150px;
@@ -42,11 +66,14 @@
         .uxph-banner-text-date-location-container {
           @include horizontal-layout;
           @include center;
-          background-color: $white;
+          background-color: rgba(0,0,0,0.5);
+          color: $white;
           position: relative;
           margin-right: 10px;
           padding: 12px;
           height: 60px;
+          width: 205px;
+          margin-top: 10px;
 
           .material-icons {
             color: $grey-3;
@@ -58,14 +85,14 @@
             .uxph-banner-text-date-location-title {
               font-weight: 600;
               font-size: 16px;
-              color: $black;
+              color: $white;
               line-height: 24px;
             }
 
             .uxph-banner-text-date-location-subtitle {
               // font-weight: 600;
               font-size: 14px;
-              color: $black;
+              color: $white;
               line-height: 20px;
             }
           }
@@ -75,7 +102,6 @@
   }
 
   .uxph-banner-image {
-    margin-left: 30px;
     img {
       width: 100%;
     }

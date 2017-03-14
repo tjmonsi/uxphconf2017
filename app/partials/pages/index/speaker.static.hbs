@@ -10,10 +10,10 @@
 
   <div class="uxph-speaker-section">
     {{#each data.speakers}}
-    {{#wrapper @index 4}}
-    <div class="uxph-speaker-wrapper">
+
+    <div class="uxph-speaker-wrapper {{#wrapper @index 2}}uxph-speaker-wrapper-tablet {{#wrapper @index 4}}uxph-speaker-wrapper-desktop{{/wrapper}}{{/wrapper}}">
     </div>
-    {{/wrapper}}
+
     {{#if name}}
     <div class="uxph-speaker-container">
       <div class="uxph-speaker-avatar" style="background: url('{{avatar}}') no-repeat center center/cover ">

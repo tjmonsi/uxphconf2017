@@ -10,6 +10,18 @@
     @include wrap;
 
     .uxph-speaker-wrapper {
+      @include phone {
+        width: 100%;
+      }
+    }
+
+    .uxph-speaker-wrapper.uxph-speaker-wrapper-tablet {
+      @include tablet {
+        width: 100%;
+      }
+    }
+
+    .uxph-speaker-wrapper.uxph-speaker-wrapper-desktop {
       width: 100%;
     }
 
@@ -26,6 +38,10 @@
       height: 335px;
       margin-bottom: 30px;
       position: relative;
+
+      @include phone {
+        height: 350px;
+      }
 
       // @include large-desktop {
       //   height: 450px;
