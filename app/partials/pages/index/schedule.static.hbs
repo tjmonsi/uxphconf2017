@@ -8,8 +8,14 @@
     Schedule
   </h1>
 
-  <div class="uxph-schedule-section">
 
+  <div class="uxph-schedule-section">
+    {{#each data.schedule}}
+    <label class="uxph-schedule-section-day-button">
+      {{dayNormal}}
+    </label>
+    {{/each}}
+    <div class="uxph-schedule-section-wrapper"></div>
     {{#each data.schedule}}
       <div class="uxph-schedule-container">
         <span class="uxph-schedule-date">{{date}}</span>
