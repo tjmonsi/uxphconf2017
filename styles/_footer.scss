@@ -1,0 +1,181 @@
+footer {
+  @include horizontal-layout;
+  @include wrap;
+  background-color: $grey-7;
+  color: $white;
+  padding-top: 68px;
+  padding-bottom: 55px;
+  padding-right: 61px;
+  padding-left: 42px;
+
+
+  .uxph-footer-logo-copyright {
+    @include flex;
+    text-align: center;
+    margin-right: 43px;
+
+    .uxph-footer-logo {
+      height: 30px;
+    }
+
+    .uxph-footer-logo-copyright-divider-area {
+      @include horizontal-layout;
+
+      .uxph-footer-logo-copyright-flex {
+        @include flex;
+      }
+
+      .uxph-footer-logo-copyright-divider {
+        width: 20px;
+        height: 2px;
+        background-color: $grey-8;
+      }
+    }
+
+    .uxph-footer-tagline-container {
+      text-align: center;
+      padding-bottom: 50px;
+      .uxph-footer-tagline {
+        font-weight: 700;
+        font-size: 20px;
+        color: $white;
+        line-height: 22px;
+      }
+    }
+
+    .uxph-footer-copyright {
+      text-align: center;
+      font-size: 10px;
+      color: $grey-2;
+      font-weight: 400;
+    }
+
+  }
+
+  .uxph-footer-links {
+    @include horizontal-layout;
+    @include flex;
+    margin-right: 43px;
+
+    .uxph-footer-link-list-container {
+      @include flex;
+
+      .uxph-footer-link-list {
+        list-style-type: none;
+
+        .uxph-footer-link-item {
+          margin-left: -40px;
+          margin-bottom: 10px;
+
+          .uxph-footer-link-anchor {
+            font-weight: 400;
+            font-size: 14px;
+            color: $brand-blue-1;
+            line-height: 24px;
+            text-decoration: none
+          }
+        }
+      }
+    }
+  }
+
+  .uxph-footer-testimonials {
+    @include flex;
+    position: relative;
+    margin-right: 43px;
+
+    .uxph-footer-testimonials-icon-more-anchor {
+      position: absolute;
+      color: $brand-blue-1;
+      text-decoration: none;
+      top: 7px;
+      right: 0px;
+    }
+
+    .uxph-footer-testimonials-text {
+      border-left: 2px solid $white;
+      padding-left: 16px;
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: $grey-8;
+        line-height: 18px;
+      }
+    }
+
+    .uxph-footer-testimonials-divider {
+      margin-top: 16px;
+      height: 1px;
+      background-color: $grey-9;
+      margin-bottom: 12px;
+      width: 100%
+    }
+
+    .uxph-footer-testimonials-more-container {
+      @include horizontal-layout;
+
+      .uxph-footer-testimonials-flex {
+        @include flex;
+      }
+
+      .uxph-footer-testimonials-more-anchor {
+        color: $brand-blue-1;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        .material-icons {
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+
+  .uxph-footer-connect {
+    @include flex;
+
+    .uxph-footer-connect-icon-row {
+      @include horizontal-layout;
+
+      .uxph-footer-connect-icon-container {
+        margin-right: 12px;
+        margin-bottom: 12px;
+
+        .uxph-footer-connect-icon-anchor {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+
+    .uxph-footer-connect-divider {
+      margin-top: 16px;
+      margin-bottom: 19px;
+      height: 1px;
+      background-color: $grey-9;
+
+    }
+
+    .uxph-footer-contact-number-list {
+      list-style-type: none;
+      .uxph-footer-contact-number-item {
+        margin-left: -40px;
+
+        .uxph-footer-contact-number-anchor {
+          font-size: 16px;
+          font-weight: 400;
+          text-decoration: none;
+          color: $brand-blue-1;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .uxph-footer-title {
+    font-size: 14px;
+    color: $white;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}

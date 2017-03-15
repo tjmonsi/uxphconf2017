@@ -1,0 +1,1237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <!-- TITLE START HERE --><title>UXPH 2017</title><!-- TITLE END HERE -->
+
+    <!-- DESCRIPTION START --><meta name="description" content="This is the UXPH 2017 website" /><!-- DESCRIPTION END -->
+
+    <!-- OG TITLE START HERE --><meta property="og:title" content="UXPH 2017" /><!-- OG TITLE END HERE -->
+
+    <!-- OG TYPE START HERE --><meta property="og:type" content="website" /><!-- OG TYPE END HERE -->
+
+    <!-- OG IMG START HERE --><meta property="og:image" content="http://url.of/image-uxph.jpg" /><!-- OG IMG END HERE -->
+
+    <!-- OG DESC START HERE --><meta property="og:description" content="This is the UXPH 2017 website" /><!-- OG DESC END HERE -->
+
+    <!-- TWITTER CARD START HERE --><meta name="twitter:card" content="summary_large_image" /><!-- TWITTER CARD END HERE -->
+
+    <!-- TWITTER SITE START HERE --><meta name="twitter:site" content="@UXPH" /><!-- TWITTER SITE END HERE -->
+
+    <!-- TWITTER CREATOR START HERE --><meta name="twitter:creator" content="@UXPH" /><!-- TWITTER CREATOR END HERE -->
+
+    <!-- TWITTER TITLE START HERE --><meta property="twitter:title" content="UXPH 2017" /><!-- TWITTER TITLE END HERE -->
+
+    <!-- TWITTER DESC START HERE --><meta name="twitter:description" content="This is the UXPH 2017 website" /><!-- TWITTER DESC END HERE -->
+
+    <!-- TWITTER IMG START HERE --><meta name="twitter:image" content="http://url.of/image-uxph.jpg" /><!-- TWITTER IMG END HERE -->
+
+
+    <link rel="icon" href="/images/favicon.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <!-- THEME COLOR START HERE --><meta name="theme-color" content="#3f51b5" /><!-- THEME COLOR END HERE -->
+
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- CHROME TITLE STARTS --><meta name="application-name" content="UXPH 2017" /><!-- CHROME TITLE ENDS -->
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- IOS TITLE STARTS --><meta name="apple-mobile-web-app-title" content="UXPH 2017" /><!-- IOS TITLE ENDS -->
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+
+    <!-- MSTHEME COLOR START HERE --><meta name="msapplication-TileColor" content="#3f51b5" /><!-- MSTHEME COLOR END HERE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- =========================================================================================== -->
+    <!-- =========================================================================================== -->
+
+    <script>
+      (function(){
+        window.UXPH = window.UXPH || {};
+        window.PREFIX = '/';
+
+        /** VERSION START HERE **/
+        window.UXPH.version = 'beta';
+        /** VERSION END HERE**/
+
+        // window.UXPH.SplashMessagesIndex = 0;
+        window.UXPH.RavenSplashMessages = [];
+
+        /** SPLASH MESSAGES START HERE **/
+
+        /** SPLASH MESSAGES END HERE **/
+
+        // window.UXPH.SplashMessages = [
+        //   'Might be the network...',
+        //   'If you are using Safari 9, you might need to update it to the latest version...',
+        //   'If you are using a lower version of Firefox or Chrome, please update it above version 30...',
+        //   'Nuninuninuninu...',
+        //   'We haven\'t tested this yet on IE 8... so, give us as a holler if you see this (and you are on IE 10 below)...',
+        //   'Please wait...',
+        //   'Why is the network so slow today???'
+        // ];
+
+        // Setup Polymer options
+        // Based on https://youtu.be/Rd0plknSPYU?t=19m58s
+        // Making Chromsestatus.com a Lightning-fast PWA (Polymer Summit 2016)
+        window.Polymer = {
+          dom: 'shadow', // Use native Shadow DOM (if available)
+          lazyRegister: 'max' // Delay Polymer startup work until instance-time,
+        };
+
+        // window.UXPH.SplashMessagesInterval = setInterval(function() {
+        //   if (window.UXPH.SplashText) {
+        //     window.UXPH.SplashText.innerHTML = window.UXPH.SplashMessages[window.UXPH.SplashMessagesIndex];
+        //     window.UXPH.SplashMessagesIndex++;
+        //     if (window.UXPH.SplashMessagesIndex >= window.UXPH.SplashMessages.length) {
+        //       window.UXPH.SplashMessagesIndex = 0;
+        //     }
+        //   }
+        // }, 7000);
+
+        function sendRavenMessages() {
+          if (window.Raven) {
+            while (window.UXPH.RavenSplashMessages.length > 0) {
+              var message = window.RavenLoaderMessages.pop();
+              Raven.captureMessage(message);
+            }
+          }
+        }
+
+        window.loadRaven = function() {
+
+          /** RAVEN CONFIG START HERE **/
+          Raven.config('https://827acc4cd4d04b009157881a6939baac@sentry.io/123192').install();
+          /** RAVEN CONFIG END HERE **/
+
+          setTimeout(sendRavenMessages, 10);
+        }
+
+        window.onerror = function (message, file, lineNumber, columnNumber, error) {
+        // We don't want to trigger any errors inside window.onerror, so wrap in a try/catch.
+          try {
+            // Some browsers don't support error param yet.
+            if (error !== undefined && error !== null) {
+              message = error.stack;
+            }
+            if (window.ga) {
+              ga('send', 'event', 'error', file + ':' + lineNumber, message);
+            }
+
+            if (window.Raven && error) {
+              Raven.captureException(error);
+              if (window.UXPH.version !== 'beta' && window.UXPH.version !== 'alpha') {
+                Raven.showReportDialog();
+              }
+            } else {
+              console.log(message);
+            }
+          } catch (e) {
+            console.error(e);
+            // no-op
+          }
+        };
+
+        window.initFontLoader = function() {
+          if (window.FontFaceObserver) {
+            console.log('font-face-observer loaded');
+            var font = new FontFaceObserver('Open Sans');
+            font.load().then(function() {
+              document.body.className += 'font-loaded';
+            })
+          }
+        }
+
+        // check if Promise is existing
+        if (!window.Promise) {
+          var promiseLink = document.createElement('script');
+          promiseLink.setAttribute('src', "bower_components/promise-polyfill/promise.min.js");
+          document.head.appendChild(promiseLink);
+        }
+      }());
+
+    </script>
+
+    <link rel="import" href="project-core.html" async>
+    <script src="bower_components/fontfaceobserver/fontfaceobserver.standalone.js" async onload="window.initFontLoader()"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
+    <script src="https://cdn.ravenjs.com/3.8.1/raven.min.js" async onload="window.loadRaven()"></script>
+
+    <!-- INDEX STYLE START HERE -->
+<style>
+.uxph-section-title {
+  opacity: 0.8;
+  font-weight: 700;
+  font-size: 36px;
+  color: #000000;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px; }
+
+.uxph-section-title-2 {
+  font-weight: 700;
+  font-size: 36px;
+  color: #ffffff;
+  letter-spacing: 0;
+  margin-top: 0px;
+  margin-bottom: 35px; }
+
+.uxph-paragraph-1 {
+  font-size: 14px;
+  color: #555555;
+  letter-spacing: 0;
+  line-height: 20px; }
+
+.uxph-list-1 {
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 22px; }
+
+.uxph-list-item-1 {
+  margin-left: -20px;
+  padding-left: 20px;
+  margin-bottom: 11px; }
+
+.uxph-white-bg {
+  background-color: #ffffff;
+  position: relative; }
+
+.uxph-grey-bg {
+  background-color: #EFEFEF;
+  position: relative; }
+
+.uxph-grey-bg-2 {
+  background-color: #556E79;
+  position: relative; }
+
+.uxph-blue-bg {
+  background-color: #24B0DB;
+  position: relative; }
+
+.uxph-red-bg {
+  background-color: #EA385A;
+  position: relative; }
+
+.uxph-small-box {
+  position: absolute;
+  width: 10px;
+  height: 10px; }
+
+.uxph-red-box {
+  background-color: #D71635; }
+
+.uxph-blue-box {
+  background-color: #15B0DE; }
+
+.uxph-top-right {
+  top: 0px;
+  right: 0px; }
+
+.uxph-top-left {
+  top: 0px;
+  left: 0px; }
+
+.uxph-bottom-right {
+  bottom: 0px;
+  right: 0px;
+  float: left; }
+
+.uxph-bottom-left {
+  bottom: 0px;
+  left: 0px;
+  float: left; }
+
+.uxph-button-anchor {
+  color: inherit;
+  text-decoration: none; }
+  .uxph-button-anchor .uxph-button-1 {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #ffffff;
+    background-color: #15B0DE;
+    border: none;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+  .uxph-button-anchor .uxph-button-2 {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    color: #15B0DE;
+    background-color: inherit;
+    border: 2px solid #15B0DE;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+  .uxph-button-anchor .uxph-button-3 {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    color: #ffffff;
+    background-color: inherit;
+    border: 2px solid #ffffff;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer; }
+
+.uxph-banner {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-bottom: 76px; }
+  .uxph-banner .flex {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px; }
+  .uxph-banner .uxph-banner-text {
+    padding-top: 37px; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-title {
+      font-weight: 700;
+      font-size: 50px;
+      color: #EC3558;
+      line-height: 56px;
+      margin-top: 0px;
+      margin-bottom: 19px; }
+    .uxph-banner .uxph-banner-text .uxph-banner-text-date-location {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date {
+        width: 150px; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-location {
+        width: 180px; }
+      .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor {
+        color: inherit;
+        text-decoration: none; }
+        .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container {
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          background-color: #ffffff;
+          position: relative;
+          margin-right: 10px;
+          padding: 12px;
+          height: 60px; }
+          .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .material-icons {
+            color: #C4C4C4; }
+          .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area {
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+            text-align: center; }
+            .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area .uxph-banner-text-date-location-title {
+              font-weight: 600;
+              font-size: 16px;
+              color: #000000;
+              line-height: 24px; }
+            .uxph-banner .uxph-banner-text .uxph-banner-text-date-location .uxph-banner-text-date-location-anchor .uxph-banner-text-date-location-container .uxph-banner-text-date-location-text-area .uxph-banner-text-date-location-subtitle {
+              font-size: 14px;
+              color: #000000;
+              line-height: 20px; }
+  .uxph-banner .uxph-banner-image {
+    margin-left: 30px; }
+    .uxph-banner .uxph-banner-image img {
+      width: 100%; }
+
+section {
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 51px; }
+  section .uxph-section-divider {
+    margin-top: 35px;
+    margin-bottom: 33px;
+    height: 2px;
+    width: 20px;
+    background-color: #888888; }
+  section .uxph-small-divider {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: #ffffff; }
+  section .uxph-small-divider-2 {
+    margin-top: 6.5px;
+    margin-bottom: 12.5px;
+    height: 1px;
+    width: 20px;
+    background-color: #888888; }
+
+#about {
+  color: #000000;
+  padding-bottom: 76px; }
+  #about .uxph-about-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #about .uxph-about-section .uxph-about-title {
+      -ms-flex: 2;
+      -webkit-flex: 2;
+      flex: 2; }
+      #about .uxph-about-section .uxph-about-title .uxph-about-caption {
+        font-weight: 300;
+        font-size: 40px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 50px;
+        margin: 0px; }
+    #about .uxph-about-section .uxph-about-description {
+      -ms-flex: 3;
+      -webkit-flex: 3;
+      flex: 3; }
+
+#speakers {
+  color: #ffffff;
+  padding-bottom: 84px; }
+  #speakers .uxph-speaker-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #speakers .uxph-speaker-section .uxph-speaker-container {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px; }
+      #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-avatar {
+        height: 140px;
+        margin-right: 20px; }
+      #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container {
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+        margin-bottom: 45px; }
+        #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container .uxph-speaker-name {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 24px;
+          color: #ffffff;
+          letter-spacing: 0; }
+        #speakers .uxph-speaker-section .uxph-speaker-container .uxph-speaker-text-container .uxph-speaker-caption {
+          font-size: 14px;
+          color: #ffffff;
+          letter-spacing: 0;
+          line-height: 16px; }
+
+#schedule {
+  color: #000000;
+  padding-bottom: 84px; }
+  #schedule .uxph-schedule-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #schedule .uxph-schedule-section .uxph-schedule-container {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule-date {
+        color: #15B0DE;
+        font-size: 16px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule-day {
+        font-size: 30px;
+        color: #000000;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 26px;
+        font-weight: 600; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-half-day {
+        font-weight: 700;
+        font-size: 16px;
+        color: #D71635;
+        letter-spacing: 0;
+        margin-top: 0px;
+        margin-bottom: 12px; }
+      #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-time {
+          width: 61px;
+          margin-bottom: 7px;
+          font-size: 16px;
+          color: #000000;
+          letter-spacing: 0;
+          line-height: 40px; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-space {
+          width: 6px;
+          height: 16px; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-top-line {
+          width: 1px;
+          margin-left: 3px;
+          margin-right: 3px;
+          height: 16px;
+          background-color: #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-bullet {
+          border-radius: 50%;
+          height: 6px;
+          width: 6px;
+          border: 1px solid #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-divider .uxph-schedule-divider-bottom-line {
+          width: 1px;
+          margin-left: 3px;
+          margin-right: 3px;
+          height: 23px;
+          background-color: #15B0DE; }
+        #schedule .uxph-schedule-section .uxph-schedule-container .uxph-schedule .uxph-schedule-row .uxph-schedule-time-caption {
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+          margin-bottom: 7px;
+          margin-left: 41px;
+          font-size: 16px;
+          color: #000000;
+          letter-spacing: 0;
+          line-height: 40px; }
+
+#venue {
+  padding-bottom: 60px;
+  color: #ffffff; }
+  #venue .uxph-venue-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #venue .uxph-venue-section .uxph-venue-text {
+      -ms-flex: 2;
+      -webkit-flex: 2;
+      flex: 2; }
+      #venue .uxph-venue-section .uxph-venue-text .uxph-venue-title {
+        margin-top: 0px;
+        margin-bottom: 8px;
+        font-size: 30px;
+        font-weight: 400;
+        color: #ffffff;
+        letter-spacing: 0; }
+      #venue .uxph-venue-section .uxph-venue-text .uxph-venue-address {
+        border-left: 1px solid #ffffff;
+        padding-left: 16px;
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 0;
+        line-height: 20px;
+        font-style: normal;
+        margin-bottom: 21px; }
+    #venue .uxph-venue-section .uxph-venue-map {
+      -ms-flex: 5;
+      -webkit-flex: 5;
+      flex: 5;
+      position: relative;
+      margin-left: 20px; }
+      #venue .uxph-venue-section .uxph-venue-map .uxph-venue-map-png {
+        position: absolute;
+        left: 0px;
+        width: 100%; }
+
+#gallery {
+  padding-bottom: 75px; }
+  #gallery .gallery-example {
+    width: 100%; }
+
+#pricing {
+  padding-bottom: 82px; }
+  #pricing .uxph-pricing-section {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    #pricing .uxph-pricing-section .uxph-pricing-container {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #ffffff; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-title {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 30px;
+        color: #555555;
+        letter-spacing: 0;
+        line-height: 33px; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-inclusions {
+        margin-bottom: 59px; }
+        #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-inclusions .uxph-pricing-inclusions-anchor {
+          text-decoration: none;
+          color: #15B0DE;
+          font-size: 14px;
+          letter-spacing: 0; }
+      #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-price {
+        color: #000000;
+        font-size: 26px;
+        letter-spacing: 0;
+        margin-bottom: 16px; }
+        #pricing .uxph-pricing-section .uxph-pricing-container .uxph-pricing-price .uxph-pricing-price-decimal {
+          font-size: 20px;
+          letter-spacing: 0;
+          line-height: 32px; }
+
+#faqs {
+  padding-bottom: 70px; }
+  #faqs .uxph-faq-divider {
+    height: 1px;
+    background-color: #EEEEEE; }
+  #faqs .uxph-faq {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding-top: 17px;
+    padding-bottom: 19px; }
+    #faqs .uxph-faq .uxph-faq-button-container .uxph-faq-button-anchor {
+      color: #15B0DE;
+      text-decoration: none; }
+    #faqs .uxph-faq .uxph-faq-title-text {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+      margin-left: 14px; }
+      #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-title-anchor {
+        color: #000000;
+        text-decoration: none; }
+        #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-title-anchor .uxph-faq-title {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          color: #000000;
+          letter-spacing: 0;
+          line-height: 20px; }
+      #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-text {
+        margin-top: 25px; }
+        #faqs .uxph-faq .uxph-faq-title-text .uxph-faq-text .uxph-faq-answer {
+          font-size: 14px;
+          color: #555555;
+          letter-spacing: 0;
+          line-height: 20px; }
+
+#header-container {
+  height: 55px; }
+  #header-container header {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    padding-left: 5px;
+    padding-right: 5px; }
+    #header-container header .uxph-logo-anchor {
+      text-decoration: none;
+      color: inherit; }
+      #header-container header .uxph-logo-anchor .uxph-logo {
+        padding-top: 13px;
+        padding-bottom: 12px;
+        margin-right: 37.5px;
+        margin-left: 37.5px;
+        height: 30px;
+        vertical-align: bottom; }
+    #header-container header nav {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+      #header-container header nav .uxph-nav-link-anchor {
+        color: #3DBBE0;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 17px;
+        text-align: center; }
+        #header-container header nav .uxph-nav-link-anchor .uxph-nav-link {
+          height: 17px;
+          padding-top: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 18px;
+          position: relative; }
+      #header-container header nav .uxph-nav-link-anchor-active {
+        color: #000000; }
+        #header-container header nav .uxph-nav-link-anchor-active .uxph-nav-link {
+          padding-bottom: 16px;
+          border-bottom: 2px solid #3DBBE0; }
+
+footer {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #222222;
+  color: #ffffff;
+  padding-top: 68px;
+  padding-bottom: 55px;
+  padding-right: 61px;
+  padding-left: 42px; }
+  footer .uxph-footer-logo-copyright {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    text-align: center;
+    margin-right: 43px; }
+    footer .uxph-footer-logo-copyright .uxph-footer-logo {
+      height: 30px; }
+    footer .uxph-footer-logo-copyright .uxph-footer-logo-copyright-divider-area {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row; }
+      footer .uxph-footer-logo-copyright .uxph-footer-logo-copyright-divider-area .uxph-footer-logo-copyright-flex {
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px; }
+      footer .uxph-footer-logo-copyright .uxph-footer-logo-copyright-divider-area .uxph-footer-logo-copyright-divider {
+        width: 20px;
+        height: 2px;
+        background-color: #979797; }
+    footer .uxph-footer-logo-copyright .uxph-footer-tagline-container {
+      text-align: center;
+      padding-bottom: 50px; }
+      footer .uxph-footer-logo-copyright .uxph-footer-tagline-container .uxph-footer-tagline {
+        font-weight: 700;
+        font-size: 20px;
+        color: #ffffff;
+        line-height: 22px; }
+    footer .uxph-footer-logo-copyright .uxph-footer-copyright {
+      text-align: center;
+      font-size: 10px;
+      color: #888888;
+      font-weight: 400; }
+  footer .uxph-footer-links {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    margin-right: 43px; }
+    footer .uxph-footer-links .uxph-footer-link-list-container {
+      -ms-flex: 1 1 0.000000001px;
+      -webkit-flex: 1;
+      flex: 1;
+      -webkit-flex-basis: 0.000000001px;
+      flex-basis: 0.000000001px; }
+      footer .uxph-footer-links .uxph-footer-link-list-container .uxph-footer-link-list {
+        list-style-type: none; }
+        footer .uxph-footer-links .uxph-footer-link-list-container .uxph-footer-link-list .uxph-footer-link-item {
+          margin-left: -40px;
+          margin-bottom: 10px; }
+          footer .uxph-footer-links .uxph-footer-link-list-container .uxph-footer-link-list .uxph-footer-link-item .uxph-footer-link-anchor {
+            font-weight: 400;
+            font-size: 14px;
+            color: #15B0DE;
+            line-height: 24px;
+            text-decoration: none; }
+  footer .uxph-footer-testimonials {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+    position: relative;
+    margin-right: 43px; }
+    footer .uxph-footer-testimonials .uxph-footer-testimonials-icon-more-anchor {
+      position: absolute;
+      color: #15B0DE;
+      text-decoration: none;
+      top: 7px;
+      right: 0px; }
+    footer .uxph-footer-testimonials .uxph-footer-testimonials-text {
+      border-left: 2px solid #ffffff;
+      padding-left: 16px; }
+      footer .uxph-footer-testimonials .uxph-footer-testimonials-text p {
+        font-size: 12px;
+        font-weight: 400;
+        color: #979797;
+        line-height: 18px; }
+    footer .uxph-footer-testimonials .uxph-footer-testimonials-divider {
+      margin-top: 16px;
+      height: 1px;
+      background-color: #333333;
+      margin-bottom: 12px;
+      width: 100%; }
+    footer .uxph-footer-testimonials .uxph-footer-testimonials-more-container {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row; }
+      footer .uxph-footer-testimonials .uxph-footer-testimonials-more-container .uxph-footer-testimonials-flex {
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px; }
+      footer .uxph-footer-testimonials .uxph-footer-testimonials-more-container .uxph-footer-testimonials-more-anchor {
+        color: #15B0DE;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px; }
+        footer .uxph-footer-testimonials .uxph-footer-testimonials-more-container .uxph-footer-testimonials-more-anchor .material-icons {
+          vertical-align: bottom; }
+  footer .uxph-footer-connect {
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px; }
+    footer .uxph-footer-connect .uxph-footer-connect-icon-row {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row; }
+      footer .uxph-footer-connect .uxph-footer-connect-icon-row .uxph-footer-connect-icon-container {
+        margin-right: 12px;
+        margin-bottom: 12px; }
+        footer .uxph-footer-connect .uxph-footer-connect-icon-row .uxph-footer-connect-icon-container .uxph-footer-connect-icon-anchor {
+          text-decoration: none;
+          color: inherit; }
+    footer .uxph-footer-connect .uxph-footer-connect-divider {
+      margin-top: 16px;
+      margin-bottom: 19px;
+      height: 1px;
+      background-color: #333333; }
+    footer .uxph-footer-connect .uxph-footer-contact-number-list {
+      list-style-type: none; }
+      footer .uxph-footer-connect .uxph-footer-contact-number-list .uxph-footer-contact-number-item {
+        margin-left: -40px; }
+        footer .uxph-footer-connect .uxph-footer-contact-number-list .uxph-footer-contact-number-item .uxph-footer-contact-number-anchor {
+          font-size: 16px;
+          font-weight: 400;
+          text-decoration: none;
+          color: #15B0DE;
+          line-height: 20px; }
+  footer .uxph-footer-title {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 24px; }
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-width: 100%; }
+  body.font-loaded {
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 400; }
+
+</style>
+<!-- INDEX STYLE END HERE -->
+  </head>
+  <body>
+
+    <div id="header-container">
+      <!-- HEADER START HERE -->
+<!-- Fragment here -->
+<header class="uxph-white-bg">
+  <div class="uxph-small-box uxph-red-box uxph-top-right"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-right"></div>
+  <div class="uxph-small-box uxph-red-box uxph-top-left"></div>
+  <div class="uxph-small-box uxph-blue-box uxph-bottom-left"></div>
+
+  <a class="uxph-logo-anchor" href="/">
+    <img class="uxph-logo" src="/images/assets/uxphlogo.png" />
+  </a>
+
+  <nav>
+    <a href="/#about" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        About
+      </div>
+    </a>
+
+    <a href="/#speakers" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Speakers
+      </div>
+    </a>
+
+    <!--<a href="/#schedule" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Schedule
+      </div>
+    </a>-->
+
+    <a href="/#venue" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Location
+      </div>
+    </a>
+
+    <!--<a href="/#gallery" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Gallery
+      </div>
+    </a>-->
+
+    <a href="/#pricing" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Pricing
+      </div>
+    </a>
+
+    <a href="/#faqs" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        FAQs
+      </div>
+    </a>
+
+    <!--<a href="/#contact-us" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Contact Us
+      </div>
+    </a>-->
+
+    <a href="/#sponsors" class="uxph-nav-link-anchor">
+      <div class="uxph-nav-link">
+        Sponsors
+      </div>
+    </a>
+  </nav>
+</header>
+
+<!-- HEADER END HERE -->
+    </div>
+
+    <div id="page-container">
+    <!-- CONTENT START HERE -->
+<!-- Style -->
+
+
+<!-- CONTENT END HERE -->
+    </div>
+
+    <div id="footer-container">
+      <!-- FOOTER START HERE -->
+<footer>
+  <div class="uxph-footer-logo-copyright">
+    <img class="uxph-footer-logo" src="images/assets/uxphlogo.png">
+    <div class="uxph-footer-logo-copyright-divider-area">
+      <div class="uxph-footer-logo-copyright-flex"></div>
+      <div class="uxph-footer-logo-copyright-divider"></div>
+      <div class="uxph-footer-logo-copyright-flex"></div>
+    </div>
+    <div class="uxph-footer-tagline-container">
+      <h1 class="uxph-footer-tagline">Design Better<br>For The<br/>Philippines</h1>
+    </div>
+    <div class="uxph-footer-copyright">
+      © 2016 - 2017 UXPH<br/>
+      Created by the UXPH Team.<br/>
+      All Rights Reserved<br/>
+    </div>
+  </div>
+  <div class="uxph-footer-links">
+    <div class="uxph-footer-link-list-container">
+      <h1 class="uxph-footer-title">Pages</h1>
+      <ul class="uxph-footer-link-list">
+        <li class="uxph-footer-link-item">
+          <a href="#about" class="uxph-footer-link-anchor">
+            About
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#speakers" class="uxph-footer-link-anchor">
+            Speakers
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#schedule" class="uxph-footer-link-anchor">
+            Schedules
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#venue" class="uxph-footer-link-anchor">
+            Location
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#gallery" class="uxph-footer-link-anchor">
+            Gallery
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#pricing" class="uxph-footer-link-anchor">
+            Buy Tickets
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#faqs" class="uxph-footer-link-anchor">
+            FAQs
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#contact" class="uxph-footer-link-anchor">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="uxph-footer-link-list-container">
+      <h1 class="uxph-footer-title">Other Links</h1>
+      <ul class="uxph-footer-link-list">
+        <li class="uxph-footer-link-item">
+          <a href="#" class="uxph-footer-link-anchor">
+            Blog
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#" class="uxph-footer-link-anchor">
+            Past Event
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#" class="uxph-footer-link-anchor">
+            Press
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#" class="uxph-footer-link-anchor">
+            Resources
+          </a>
+        </li>
+        <li class="uxph-footer-link-item">
+          <a href="#" class="uxph-footer-link-anchor">
+            Merchandise
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="uxph-footer-testimonials">
+    <h1 class="uxph-footer-title">Testimonials</h1>
+    <a href="#" class="uxph-footer-testimonials-icon-more-anchor">
+      <i class="material-icons">&#xE042;</i>
+    </a>
+
+    <div class="uxph-footer-testimonials-text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+    <div class="uxph-footer-testimonials-divider"></div>
+    <div class="uxph-footer-testimonials-more-container">
+      <div class="uxph-footer-testimonials-flex"></div>
+      <div class="uxph-footer-testimonials-more">
+        <a id="uxph-footer-testimonials-more" class="uxph-footer-testimonials-more-anchor" href="#">
+          See all testimonials <i class="material-icons">&#xE315;</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="uxph-footer-connect">
+    <h1 class="uxph-footer-title">Connect with us</h1>
+    <div class="uxph-footer-connect-icon-row">
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Facebook1.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Twitter1.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Linkedin.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Youtube.png">
+        </a>
+      </div>
+    </div>
+    <div class="uxph-footer-connect-icon-row">
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Instagram.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Pinterest.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/Tumblr.png">
+        </a>
+      </div>
+      <div class="uxph-footer-connect-icon-container">
+        <a href="#" class="uxph-footer-connect-icon-anchor">
+          <img class="uxph-footer-connect-icon" src="images/assets/GooglePlus.png">
+        </a>
+      </div>
+    </div>
+
+    <div class="uxph-footer-connect-divider"></div>
+
+    <h1 class="uxph-footer-title">Contact Numbers</h1>
+
+    <ul class="uxph-footer-contact-number-list">
+      <li class="uxph-footer-contact-number-item">
+        <a href="#" class="uxph-footer-contact-number-anchor">
+          (+63)(2) 855 0000
+        </a>
+      </li>
+      <li class="uxph-footer-contact-number-item">
+        <a href="#" class="uxph-footer-contact-number-anchor">
+          (+63)(2) 855 0000
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<!-- FOOTER END HERE -->
+    </div>
+
+    <project-core id="project-core"></project-core>
+    <script src="scripts/header.js"></script>
+
+  </body>
+</html>
