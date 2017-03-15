@@ -35,12 +35,12 @@
       @include flex;
       margin-right: 20px;
       background-color: $white;
-      height: 335px;
+      height: 400px;
       margin-bottom: 30px;
       position: relative;
 
       @include phone {
-        height: 350px;
+        height: 450px;
       }
 
       // @include large-desktop {
@@ -64,6 +64,7 @@
           font-size: 20px;
           color: $black;
           letter-spacing: 0;
+          height: 65px;
         }
 
         .uxph-speaker-short-bio {
@@ -73,13 +74,14 @@
           color: $grey-4;
           letter-spacing: 0;
         }
-png
+
         .uxph-speaker-talk-topic {
           font-weight: 400;
           margin: 0px;
           font-size: 14px;
           color: $grey-4;
           letter-spacing: 0;
+          padding-top: 20px;
         }
 
 
