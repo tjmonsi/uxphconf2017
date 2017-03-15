@@ -1,0 +1,32 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../bower_components/google-map/google-map-marker.html">
+<link rel="import" href="uxph-venue-map-style.html">
+
+<dom-module id="uxph-venue-map">
+  <template>
+    <style is="custom-style" include="uxph-venue-map-style">
+      :host {
+        display: block;
+      }
+    </style>
+
+    <google-map latitude="14.553441" longitude="121.049892" zoom="17" api-key="AIzaSyD9PL6zRsYSG7RkdMOHy3n7kRiUN_fGU84">
+      <google-map-marker latitude="14.553441" longitude="121.049892">
+        <div class="">
+          Basement 1, The Globe Tower <br/>
+          Bonifacio Global City (BGC) <br/>
+          32nd Street cor 7th Avenue <br/>
+          Taguig, Metro Manila <br/>
+          Philippines 1000 <br/>
+        </div>
+      </google-map-marker>
+    </google-map>
+  </template>
+  <script>
+    Polymer({
+      is: 'uxph-venue-map',
+    });
+  </script>
+</dom-module>

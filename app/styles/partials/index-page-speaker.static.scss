@@ -73,6 +73,16 @@
           color: $grey-4;
           letter-spacing: 0;
         }
+png
+        .uxph-speaker-talk-topic {
+          font-weight: 400;
+          margin: 0px;
+          font-size: 14px;
+          color: $grey-4;
+          letter-spacing: 0;
+        }
+
+
 
         .uxph-speaker-divider-container {
           @include horizontal-layout;
