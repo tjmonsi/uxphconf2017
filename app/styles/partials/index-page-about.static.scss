@@ -6,8 +6,19 @@
   padding-bottom: 76px;
 
   .uxph-about-section {
-    @include horizontal-layout;
-    @include wrap;
+    @include tablet {
+      @include horizontal-layout;
+      @include wrap;
+    }
+    @include desktop {
+      @include horizontal-layout;
+      @include wrap;
+    }
+    @include large-desktop {
+      @include horizontal-layout;
+      @include wrap;
+    }
+
     // @include center;
 
     .uxph-about-title {
