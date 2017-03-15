@@ -5,8 +5,18 @@
   padding-bottom: 82px;
 
   .uxph-pricing-section {
-    @include horizontal-layout;
-    @include wrap;
+    @include tablet {
+      @include horizontal-layout;
+      @include wrap;
+    }
+    @include desktop {
+      @include horizontal-layout;
+      @include wrap;
+    }
+    @include large-desktop {
+      @include horizontal-layout;
+      @include wrap;
+    }
 
     .uxph-pricing-container {
       @include flex;
