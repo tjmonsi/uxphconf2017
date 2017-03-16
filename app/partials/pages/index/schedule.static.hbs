@@ -22,7 +22,7 @@
         <h2 class="uxph-schedule-day">{{day}}</h2>
 
         <div class="uxph-schedule">
-          <div class="uxph-schedule-morning">
+          <div class="uxph-schedule-morning uxph-schedule-flex">
             <h3 class="uxph-schedule-half-day">AM</h3>
 
             {{#each am}}
@@ -52,7 +52,10 @@
 
           </div>
 
-          <div class="uxph-small-divider-2">
+          <div class="uxph-schedule-section-time-wrapper">
+          </div>
+
+          {{!--<div class="uxph-small-divider-2">
             &nbsp;
           </div>
 
@@ -63,13 +66,11 @@
               <div class="uxph-schedule-bullet"></div>
             </div>
             <div class="uxph-schedule-time-caption">Lunch Break</div>
-          </div>
+          </div>--}}
 
-          <div class="uxph-small-divider-2">
-            &nbsp;
-          </div>
 
-          <div class="uxph-schedule-afternoon">
+
+          <div class="uxph-schedule-afternoon uxph-schedule-flex">
             <h3 class="uxph-schedule-half-day">PM</h3>
             {{#each pm}}
             <div class="uxph-schedule-row">
@@ -98,9 +99,7 @@
           </div>
         </div>
       </div>
-      <div class="uxph-schedule-spacer">
-      </div>
-      <div class="uxph-schedule-wrapper">
+      <div class="uxph-schedule-section-wrapper">
       </div>
     {{/each}}
 

@@ -7,15 +7,15 @@
   padding-bottom: 84px;
 
   .uxph-schedule-section {
-    @include desktop {
-      @include horizontal-layout;
-      @include wrap;
-    }
+    // @include desktop {
+    //   @include horizontal-layout;
+    //   @include wrap;
+    // }
 
-    @include large-desktop {
-      @include horizontal-layout;
-      @include wrap;
-    }
+    // @include large-desktop {
+    //   @include horizontal-layout;
+    //   @include wrap;
+    // }
 
     .uxph-schedule-section-wrapper {
       width: 100%;
@@ -44,12 +44,14 @@
       }
     }
 
-    .uxph-schedule-spacer {
+    .uxph-schedule-flex {
       @include flex;
     }
 
-    .uxph-schedule-wrapper {
-      width: 100%
+    .uxph-schedule-section-time-wrapper {
+      @include phone {
+        width: 100%;
+      }
     }
 
     .uxph-schedule-container {
@@ -76,6 +78,21 @@
       }
 
       .uxph-schedule {
+        @include tablet {
+          @include horizontal-layout;
+          @include wrap;
+        }
+
+        @include desktop {
+          @include horizontal-layout;
+          @include wrap;
+        }
+
+        @include large-desktop {
+          @include horizontal-layout;
+          @include wrap;
+        }
+
         .uxph-schedule-half-day {
           font-weight: 700;
           font-size: 16px;
