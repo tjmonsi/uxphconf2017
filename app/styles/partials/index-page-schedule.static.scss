@@ -44,6 +44,13 @@
       }
     }
 
+    .uxph-schedule-spacer {
+      @include flex;
+    }
+
+    .uxph-schedule-wrapper {
+      width: 100%
+    }
 
     .uxph-schedule-container {
       @include flex;

@@ -10,12 +10,12 @@
 
 
   <div class="uxph-schedule-section">
-    {{#each data.schedule}}
+    {{!--{{#each data.schedule}}
     <label class="uxph-schedule-section-day-button">
       {{dayNormal}}
     </label>
     {{/each}}
-    <div class="uxph-schedule-section-wrapper"></div>
+    <div class="uxph-schedule-section-wrapper"></div>--}}
     {{#each data.schedule}}
       <div class="uxph-schedule-container">
         <span class="uxph-schedule-date">{{date}}</span>
@@ -97,6 +97,10 @@
             {{/each}}
           </div>
         </div>
+      </div>
+      <div class="uxph-schedule-spacer">
+      </div>
+      <div class="uxph-schedule-wrapper">
       </div>
     {{/each}}
 
