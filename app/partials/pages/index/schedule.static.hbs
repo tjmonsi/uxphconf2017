@@ -22,32 +22,35 @@
         <h2 class="uxph-schedule-day">{{day}}</h2>
 
         <div class="uxph-schedule">
-          <h3 class="uxph-schedule-half-day">AM</h3>
+          <div class="uxph-schedule-morning">
+            <h3 class="uxph-schedule-half-day">AM</h3>
 
-          {{#each am}}
-          <div class="uxph-schedule-row">
-            <div class="uxph-schedule-time">{{time}}</div>
-            <div class="uxph-schedule-divider">
-              {{#if @first}}
-              <div class="uxph-schedule-divider-space"></div>
-              {{else}}
-              <div class="uxph-schedule-divider-top-line"></div>
-              {{/if}}
-              <div class="uxph-schedule-bullet"></div>
-              {{#unless @last}}
-              <div class="uxph-schedule-divider-bottom-line"></div>
-              {{/unless}}
+            {{#each am}}
+            <div class="uxph-schedule-row">
+              <div class="uxph-schedule-time">{{time}}</div>
+              <div class="uxph-schedule-divider">
+                {{#if @first}}
+                <div class="uxph-schedule-divider-space"></div>
+                {{else}}
+                <div class="uxph-schedule-divider-top-line"></div>
+                {{/if}}
+                <div class="uxph-schedule-bullet"></div>
+                {{#unless @last}}
+                <div class="uxph-schedule-divider-bottom-line"></div>
+                {{/unless}}
+              </div>
+              <div class="uxph-schedule-time-caption">
+                {{name}}
+                {{#if description}}
+                <p>
+                  {{description}}
+                </p>
+                {{/if}}
+              </div>
             </div>
-            <div class="uxph-schedule-time-caption">
-              {{name}}
-              {{#if description}}
-              <p>
-                {{description}}
-              </p>
-              {{/if}}
-            </div>
+            {{/each}}
+
           </div>
-          {{/each}}
 
           <div class="uxph-small-divider-2">
             &nbsp;
@@ -66,31 +69,33 @@
             &nbsp;
           </div>
 
-          <h3 class="uxph-schedule-half-day">PM</h3>
-          {{#each pm}}
-          <div class="uxph-schedule-row">
-            <div class="uxph-schedule-time">{{time}}</div>
-            <div class="uxph-schedule-divider">
-              {{#if @first}}
-              <div class="uxph-schedule-divider-space"></div>
-              {{else}}
-              <div class="uxph-schedule-divider-top-line"></div>
-              {{/if}}
-              <div class="uxph-schedule-bullet"></div>
-              {{#unless @last}}
-              <div class="uxph-schedule-divider-bottom-line"></div>
-              {{/unless}}
+          <div class="uxph-schedule-afternoon">
+            <h3 class="uxph-schedule-half-day">PM</h3>
+            {{#each pm}}
+            <div class="uxph-schedule-row">
+              <div class="uxph-schedule-time">{{time}}</div>
+              <div class="uxph-schedule-divider">
+                {{#if @first}}
+                <div class="uxph-schedule-divider-space"></div>
+                {{else}}
+                <div class="uxph-schedule-divider-top-line"></div>
+                {{/if}}
+                <div class="uxph-schedule-bullet"></div>
+                {{#unless @last}}
+                <div class="uxph-schedule-divider-bottom-line"></div>
+                {{/unless}}
+              </div>
+              <div class="uxph-schedule-time-caption">
+                {{name}}
+                {{#if description}}
+                <p>
+                  {{description}}
+                </p>
+                {{/if}}
+              </div>
             </div>
-            <div class="uxph-schedule-time-caption">
-              {{name}}
-              {{#if description}}
-              <p>
-                {{description}}
-              </p>
-              {{/if}}
-            </div>
+            {{/each}}
           </div>
-          {{/each}}
         </div>
       </div>
     {{/each}}
