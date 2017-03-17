@@ -66,7 +66,6 @@ function registerService () {
     }
   };
 
-  console.log(navigator.serviceWorker, navigator.serviceWorker.controller)
   // Check to see if the service worker controlling the page at initial load
   // has become redundant, since this implies there's a new service worker with fresh content.
   if (navigator.serviceWorker && navigator.serviceWorker.controller) {
