@@ -61,8 +61,12 @@ data:
       id: pricing
       name: Pricing
     -
+      id: faqs
+      name: FAQs
+    -
       id: about
       name: About Us
+
   oldSpeakers:
     -
       name: Sam Cruz
@@ -273,35 +277,40 @@ data:
     -
       id: uxph-faq-1
       title: Do you accept credit card payments?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: Yes we do! We process payments through Paypal and Eventbrite.
     -
       id: uxph-faq-2
       title: I do not hold a User Experience role in the company, can I still join?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: You can still join! There are enough UX talks for beginners.
     -
       id: uxph-faq-3
       title: Can I only attend one day of the event?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: You may but you still have to pay for the full event. Not to worry. UXPH is one of the cheapest UX conferences in the region.
     -
       id: uxph-faq-4
       title: Will you allow walk-in ticket purchases?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: Unfotunately, we can not accept walk-in ticket purchases due to limitation on cash transactions at the venue.
     -
       id: uxph-faq-5
       title: Are the tickets transferable and refundable?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: Tickets are transferable but please inform us early on so that we may use the actual names of participants in their registration IDs.
     -
       id: uxph-faq-6
       title: How can I get my ticket?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: Tickets are sent to you via email through the eventbrite ticketing system.  Just print out the tickets (or event just show us the qr-code/barcodes) on your mobile phone.
     -
       id: uxph-faq-7
       title: Do we get certificates after participating?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: We do not offer certificates for participating.
     -
       id: uxph-faq-8
       title: I am from government/academe and would like to get a formal invitation so I can submit to my department, how might I go about getting one?
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      description: Definitely. Just send us a message through our UXPH FB page or through Eventbrite's contact the Organizers link.
+    -
+      id: uxph-faq-9
+      title: Do you accept bank deposit payments?
+      description: We prefer you go through our the Eventbrite ticketing system and pay online. However, if you really need to pay through bank, please get in touch with us through our UXPH FB page or through Eventbrite's contact the Organizers link.
+
   contact:
     action: #
     column:
@@ -423,10 +432,10 @@ _options:
       {{>venue}}
       {{!--{{>gallery}}--}}
       {{>pricing}}
-      {{!--{{>faq}}--}}
+      {{>faq}}
       {{!--{{>contact}}--}}
       {{>about}}
-      {{!--{{>sponsor}}--}}
+      {{>sponsor}}
       {{!--{{>update}}--}}
     </div>
 
