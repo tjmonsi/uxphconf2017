@@ -23,7 +23,11 @@
         width: 220px;
         margin-bottom: 16px;
         font-size: 14px;
-        letter-spacing: 0
+        letter-spacing: 0;
+        
+        @include phone {
+          width: 180px;
+        }
       }
 
       .uxph-sponsor {
@@ -34,6 +38,9 @@
         position: relative;
         @include horizontal-layout;
         @include center;
+        @include phone {
+          width: 180px;
+        }
 
         .uxph-sponsor-flex {
           @include flex;
