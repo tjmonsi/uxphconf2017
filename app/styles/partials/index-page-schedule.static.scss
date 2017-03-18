@@ -115,16 +115,17 @@
           }
 
           .uxph-schedule-divider {
+            overflow-y: hidden;
             .uxph-schedule-divider-space {
               width: 6px;
-              height: 16px;
+              height: 10px;
             }
 
             .uxph-schedule-divider-top-line {
               width: 1px;
               margin-left: 3px;
               margin-right:3px;
-              height: 16px;
+              height: 10px;
               background-color: $brand-blue-1;
             }
 
@@ -138,7 +139,7 @@
               width: 1px;
               margin-left: 3px;
               margin-right:3px;
-              height: calc(100% - 24px);
+              height: calc(100% - 18px);
               background-color: $brand-blue-1;
             }
           }
@@ -150,7 +151,7 @@
             font-size: 16px;
             color: $black;
             letter-spacing: 0;
-            line-height: 40px;
+            // line-height: 40px;
 
             p {
               margin-top: 2px;
