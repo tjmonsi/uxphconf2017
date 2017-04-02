@@ -84,14 +84,33 @@ exports.speakers = [
     name: "Jennifer Teves, PhD",
     shortBio:  "Veritas Technologies",
     talkTopic: "Data Visualization in Healthcare IT",
-    fullBio: "",
-    avatar: "/images/assets/jen_teves.png"
+    fullBio: " In the age of modern technology, any type of data is at our fingertips waiting to be unraveled and understood. The technology that enabled us to get access to this wealth of information has also equipped us with tools that we can use to be more efficient at extracting the meanings and stories behind it. Availability of numerous visualization tools has resulted to the popularity of increasingly graphical representation of data that in turn, populates displays known as information dashboards. Information dashboards are visual tools that are supposed to help users become more accurate and efficient in interpreting information. It is not enough for information dashboards to be colorful and graphical. In order to fulfill its role of being a tool for accuracy and efficiency, it must be designed with the users in mind. This talk will walk you through the research process of identifying what type of visualization is efficient, effective, and preferred by healthcare providers and patients who have unique needs when they interact with information on a health-dashboard display. ",
+    avatar: "/images/assets/jen_teves.png",
+    boxavatar: "/images/assets/sq-jenteves.jpg",
+    shortBioList: [
+      {
+        title: "Level of Experience",
+        body: "Advanced (+5 years)"
+      },
+      {
+        title: "Speaker Background",
+        body: "I am currently a UX professional with academic, professional, or practical training in UX."
+      },
+      {
+        title: "Track",
+        body: "Application of User Experience and Human-Centered Design Concepts in areas such as: Games, Finance and Health"
+      },
+      {
+        title: "Format",
+        body: "Presentation Talk"
+      }
+
   },
   {
     name: "Mikki Phan, PhD",
     shortBio: "Google/Alphabet",
     talkTopic: "Game User Experience Satisfaction Scale (GUESS)",
-    fullBio: "",
+    fullBio: " Playtesting is often conducted in the video game industry to help game developers build better games by providing insight into the players’ attitudes and preferences. However, quality feedback is difficult to obtain from playtesting sessions without a quality gaming assessment tool. This talk will cover in depth about a new instrument called the Game User Experience Satisfaction Scale (GUESS) that was developed and validated based on the assessments of over 450 unique video game titles across many popular genres. The GUESS can be applied across many types of video games in the industry both as a way to assess what aspects of a game contribute to user satisfaction and as a tool to aid in debriefing users on their gaming experience. ",
     avatar: "/images/assets/speakers/mikkiphan.jpg"
   },
   {
