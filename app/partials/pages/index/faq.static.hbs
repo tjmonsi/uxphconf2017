@@ -15,7 +15,7 @@
   <div class="uxph-faq">
     <div class="uxph-faq-title-text">
       <input type="checkbox" id="{{id}}" class="uxph-faq-trigger" />
-      <label class="uxph-faq-title-container" for="{{id}}" onclick="document.getElementById({{id}}).checked = !document.getElementById({{id}}).checked;">
+      <label class="uxph-faq-title-container" for="{{id}}" onclick="document.getElementById('{{id}}').checked = !document.getElementById('{{id}}').checked;">
         <div class="uxph-faq-button-anchor">
           <i class="material-icons">&#xE313;</i>
         </div>
@@ -38,4 +38,14 @@
   {{/each}}
 
   <div class="uxph-faq-divider"></div>
+
+  <script>
+    window.addEventListener('load', function() {
+      var els = document.querySelectorAll('.uxph-faq-title-container');
+      console.log(els)
+      els.forEach(function(item) {
+        item.removeAttribute('for')
+      })
+    })
+  </script>
 </section>

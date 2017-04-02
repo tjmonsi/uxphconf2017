@@ -58,9 +58,9 @@ exports.speakers = [
     name: "Paul Sherman, PhD",
     shortBio: "Kent State University and Sherman UX",
     talkTopic: "User Research At The Speed Of Business: A Field Research Primer And Toolkit",
-    fullBio: "",
+    fullBio: "Field research: to many it's the gold standard of user-centered design. Want to learn more about how your current or prospective customers think, work, live and play? Go observe them. If you're early or even mid-career, organizing, carrying out and analyzing the results of field research can seem daunting and time-consuming. This presentation will provide you with information and resources you can use immediately to start conducting insightful and effective field research. These techniques are especially useful to startup companies who often lack the resources to conduct long, resource-consuming research projects.",
     avatar: "/images/assets/speakers/paulsherman.jpg",
-    boxavatar: "/images/assets/speakers_box/paulsherman.jpg",
+    boxavatar: "/images/assets/speakers/sq-psherman.jpg",
     shortBioList: [
       {
         title: "Level of Experience",

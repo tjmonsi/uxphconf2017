@@ -54,36 +54,43 @@ _options:
     </div>
 
     <div id="page-content">
-      {{>banner}}
       <div class="uxph-speaker-page">
         {{#with data.speakers}}
         <div class="speaker-side">
           <img src="{{0.boxavatar}}">
-
-          <div class="speaker-short-bio">
-          {{#each 0.shortBioList}}
-
-            <span class="speaker-short-bio-title">
-              {{title}}
-            </span><br/>
-            <span class="speaker-short-bio-text">
-              {{body}}
-            </span>
-            {{#unless @last}}
-            <div class="uxph-small-divider">
-            </div>
-            {{/unless}}
-          {{/each}}
-          </div>
         </div>
 
-        <div class="flex speaker-content">
-          <div class="speaker-content-header">
-            <h1>{{0.name}}</h1>
-            <span class="speaker-company">{{0.shortBio}}</span>
-            <div class="uxph-small-divider">
+        <div class="speaker-content">
+          <section class="uxph-blue-bg-5 uxph-speaker-banner speaker-content-header">
+            <div class="flex speaker-content-header-text">
+              <h1>{{0.name}}</h1>
+              <span class="speaker-company">{{0.shortBio}}</span>
+              <div class="uxph-small-divider">
+              </div>
+              <h2>{{0.talkTopic}}</h2>
             </div>
-            <h2>{{0.talkTopic}}</h2>
+            <div class="flex uxph-banner-image" >
+            </div>
+          </section>
+          <div class="speaker-content-body">
+            <div class="speaker-side-2">
+              <div class="speaker-short-bio">
+              {{#each 0.shortBioList}}
+                <span class="speaker-short-bio-title">
+                  {{title}}
+                </span><br/>
+                <span class="speaker-short-bio-text">
+                  {{body}}
+                </span>
+                {{#unless @last}}
+                <div class="uxph-small-divider">
+                </div>
+                {{/unless}}
+              {{/each}}
+              </div>
+            </div>
+            <div class="speaker-wrapper"></div>
+            <p>{{0.fullBio}}</p>
           </div>
         </div>
         {{/with}}

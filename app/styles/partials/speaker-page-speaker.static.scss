@@ -2,11 +2,6 @@
 @import 'app/styles/components/mixins.static';
 
 .uxph-speaker-page {
-  @include horizontal-layout;
-  @include wrap;
-  padding-top: 37px;
-  padding-left: 42px;
-  padding-right: 42px;
 
   .flex {
     @include flex;
@@ -14,35 +9,17 @@
 
   .speaker-side {
     width: 220px;
+    position: absolute;
+    left: 42px;
+    top: 92px;
 
     img {
       width: 100%;
       margin-bottom: 20px;
     }
-
-    .speaker-short-bio {
-      background-color: $brand-red-1;
-      padding-top: 20px;
-      padding-left: 15px;
-      padding-bottom: 15px;
-      padding-right: 15px;
-      color: $white;
-      font-weight: 100;
-      line-height: 1;
-      .speaker-short-bio-title {
-        font-size: 9px;
-        text-transform: uppercase;
-        color: $white;
-        letter-spacing: 0;
-      }
-      .speaker-short-bio-text {
-        font-size: 12px;
-      }
-    }
   }
 
   .speaker-content {
-    margin-left: 20px;
 
     h1 {
       margin: 0px;
@@ -65,10 +42,108 @@
       color: $white;
       font-size: 24px;
       line-height: 28px;
+      font-weight: 100;
     }
 
     .speaker-content-header {
-      height: 70px;
+      @include horizontal-layout;
+      @include center;
+      @include wrap;
+      padding-top: 37px;
+      padding-left: 282px;
+      padding-right: 42px;
+      padding-bottom: 20px;
+      color: $white;
+      background: url('/images/assets/UXPH_City.png') no-repeat right center/auto 100% $brand-blue-1;
+      @include phone {
+        padding: 0;
+      }
+
+
+      .flex {
+        @include flex;
+      }
+
+
+      .uxph-banner-image {
+        @include phone {
+          display: none;
+        }
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      .speaker-content-header-text {
+        @include tablet {
+          padding-right: 100px;
+        }
+        @include phone {
+          padding-top: 280px;
+          padding-left: 42px;
+          padding-right: 42px;
+          padding-bottom: 20px;
+          background: linear-gradient(to right, $brand-blue-1,  $brand-blue-1, rgba(0,0,0,0))
+        }
+
+      }
+    }
+
+    .speaker-content-body {
+      @include horizontal-layout;
+      @include wrap;
+
+      .speaker-side-2 {
+        width: 220px;
+        margin-left: 42px;
+        margin-top: 40px;
+        margin-bottom: 42px;
+        @include phone {
+          width: 100%;
+          margin-top: 20px;
+          margin-right: 42px;
+          margin-bottom: 10px;
+        }
+        .speaker-short-bio {
+          background-color: $brand-red-1;
+          padding-top: 20px;
+          padding-left: 15px;
+          padding-bottom: 15px;
+          padding-right: 15px;
+          color: $white;
+          font-weight: 100;
+          line-height: 1;
+          .speaker-short-bio-title {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: $white;
+            letter-spacing: 0;
+          }
+          .speaker-short-bio-text {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .speaker-wrapper {
+        display: none;
+        @include phone {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      p {
+        @include flex;
+        padding-left: 22px;
+        padding-right: 42px;
+        padding-bottom: 42px;
+        font-weight: 100;
+        @include phone {
+          padding-left: 42px;
+        }
+      }
     }
   }
 }
