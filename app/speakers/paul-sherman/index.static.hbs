@@ -1,0 +1,113 @@
+---
+data:
+  calendar: http://www.google.com/calendar/event?action=TEMPLATE&text=UXPH%20Conference%202017&dates=20170520/20170521&location=Globe%20Telecom%20Bonifacio%20Global%20City%2032nd Street%20Taguig%20NCR
+  eventbrite: https://www.eventbrite.com/e/design-a-better-philippines-ux-philippines-uxph-conference-tickets-31579032737
+  map: https://goo.gl/maps/TrDyP2HcSuL2
+
+  footer:
+    socials1:
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Twitter1.png
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Linkedin.png
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Youtube.png
+    socials:
+      -
+        link: https://www.facebook.com/UXPhilippines/
+        icon: /images/assets/Facebook1.png
+
+
+_options:
+  layout: app/layouts/page.static.hbs
+  partials:
+    - app/styles/pages/speaker-page-style.static.scss
+    - app/partials/page-nav-header.static.hbs
+    - app/partials/pages/speaker/banner.static.hbs
+    - app/partials/pages/index/speaker.static.hbs
+    - app/partials/pages/index/schedule.static.hbs
+    - app/partials/pages/index/venue.static.hbs
+    - app/partials/pages/index/gallery.static.hbs
+    - app/partials/pages/index/pricing.static.hbs
+    - app/partials/pages/index/faq.static.hbs
+    - app/partials/pages/index/contact.static.hbs
+    - app/partials/pages/index/about.static.hbs
+    - app/partials/pages/index/sponsor.static.hbs
+    - app/partials/pages/index/update.static.hbs
+    - app/partials/pages/index/footer.static.hbs
+---
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300400600700" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
+
+    <style>
+      {{>speaker-page-style}}
+    </style>
+
+  </head>
+
+  <body>
+    <div id="header-container">
+      {{>page-nav-header}}
+    </div>
+
+    <div id="page-content">
+      {{>banner}}
+      <div class="uxph-speaker-page">
+        {{#with data.speakers}}
+        <div class="speaker-side">
+          <img src="{{0.boxavatar}}">
+
+          <div class="speaker-short-bio">
+          {{#each 0.shortBioList}}
+
+            <span class="speaker-short-bio-title">
+              {{title}}
+            </span><br/>
+            <span class="speaker-short-bio-text">
+              {{body}}
+            </span>
+            {{#unless @last}}
+            <div class="uxph-small-divider">
+            </div>
+            {{/unless}}
+          {{/each}}
+          </div>
+        </div>
+
+        <div class="flex speaker-content">
+          <div class="speaker-content-header">
+            <h1>{{0.name}}</h1>
+            <span class="speaker-company">{{0.shortBio}}</span>
+            <div class="uxph-small-divider">
+            </div>
+            <h2>{{0.talkTopic}}</h2>
+          </div>
+        </div>
+        {{/with}}
+      </div>
+      {{!--{{{>speaker}}
+      {{>schedule}}
+      {{>venue}}
+      {{>gallery}}
+      {{>pricing}}
+      {{>faq}}--}}
+      {{!--{{>contact}}--}}
+      {{!--{{>about}}
+      {{>sponsor}}--}}
+      {{!--{{>update}}--}}
+    </div>
+
+    <div id="footer-container">
+      {{>footer}}
+    </div>
+
+    <link rel="import" href="/project_components/core-app-component/core-app-component.html" >
+    <core-app-component id="core-component"></core-app-component>
+
+    <script src="/app.js">
+    </script>
+    <script>require('scripts/initialize.js');</script>
+  </body>

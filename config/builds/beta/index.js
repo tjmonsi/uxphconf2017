@@ -10,4 +10,5 @@ exports.app = {
 }
 exports.manifest = require('./manifest');
 exports.meta = require('./meta');
+exports.data = require('./data')
 

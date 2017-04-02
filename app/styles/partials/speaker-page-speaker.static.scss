@@ -1,0 +1,74 @@
+@import 'app/styles/components/variables.static';
+@import 'app/styles/components/mixins.static';
+
+.uxph-speaker-page {
+  @include horizontal-layout;
+  @include wrap;
+  padding-top: 37px;
+  padding-left: 42px;
+  padding-right: 42px;
+
+  .flex {
+    @include flex;
+  }
+
+  .speaker-side {
+    width: 220px;
+
+    img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .speaker-short-bio {
+      background-color: $brand-red-1;
+      padding-top: 20px;
+      padding-left: 15px;
+      padding-bottom: 15px;
+      padding-right: 15px;
+      color: $white;
+      font-weight: 100;
+      line-height: 1;
+      .speaker-short-bio-title {
+        font-size: 9px;
+        text-transform: uppercase;
+        color: $white;
+        letter-spacing: 0;
+      }
+      .speaker-short-bio-text {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .speaker-content {
+    margin-left: 20px;
+
+    h1 {
+      margin: 0px;
+      color: $white;
+      font-size: 40px;
+    }
+
+    .speaker-company {
+      font-size: 18px;
+      color: $white;
+      line-height: 28px;
+    }
+
+    .uxph-small-divider {
+      width: 35px;
+    }
+
+    h2 {
+      margin: 0px;
+      color: $white;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .speaker-content-header {
+      height: 70px;
+    }
+  }
+}
