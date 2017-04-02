@@ -105,6 +105,64 @@
       @include horizontal-layout;
       @include wrap;
 
+      .mica-speaker {
+        width: 220px;
+        margin-left: 42px;
+        margin-top: 20px;
+        margin-bottom: 42px;
+        @include phone {
+          width: 100%;
+          margin-top: 20px;
+          margin-right: 42px;
+          margin-bottom: 10px;
+        }
+
+        @include tablet {
+          margin-top: 20px;
+          margin-right: 20px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .jordan-speaker, .lorenzo-speaker, .pete-speaker, .yian-speaker, .paul-speaker, .sam-cruz-speaker {
+        width: 220px;
+        margin-left: 42px;
+        margin-top: 50px;
+        margin-bottom: 42px;
+        @include phone {
+          width: 100%;
+          margin-top: 20px;
+          margin-right: 42px;
+          margin-bottom: 10px;
+        }
+
+        @include tablet {
+          margin-top: 20px;
+          margin-right: 20px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .speaker-short-bio {
+        background-color: $brand-red-1;
+        padding-top: 20px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+        padding-right: 15px;
+        color: $white;
+        font-weight: 100;
+        line-height: 1;
+        .speaker-short-bio-title {
+          font-size: 9px;
+          text-transform: uppercase;
+          color: $white;
+          letter-spacing: 0;
+        }
+        .speaker-short-bio-text {
+          font-size: 12px;
+        }
+      }
+
       .speaker-side-2 {
         width: 220px;
         margin-left: 42px;
@@ -122,25 +180,7 @@
           margin-right: 20px;
           margin-bottom: 10px;
         }
-        .speaker-short-bio {
-          background-color: $brand-red-1;
-          padding-top: 20px;
-          padding-left: 15px;
-          padding-bottom: 15px;
-          padding-right: 15px;
-          color: $white;
-          font-weight: 100;
-          line-height: 1;
-          .speaker-short-bio-title {
-            font-size: 9px;
-            text-transform: uppercase;
-            color: $white;
-            letter-spacing: 0;
-          }
-          .speaker-short-bio-text {
-            font-size: 12px;
-          }
-        }
+
       }
 
       .speaker-wrapper {
