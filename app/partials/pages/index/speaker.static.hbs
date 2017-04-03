@@ -16,13 +16,17 @@
 
     {{#if name}}
     <div class="uxph-speaker-container">
-      <div class="uxph-speaker-avatar" style="background: url('{{avatar}}') no-repeat center center/cover ">
+      <a href="/speakers/{{link}}/" style="color: inherit; text-decoration: none">
+      <div class="uxph-speaker-avatar" style="background: url('{{avatar}}') no-repeat center center/cover" >
       </div>
+      </a>
       <div class="uxph-speaker-text-container">
 
         <div class="uxph-speaker-name-short-bio">
           <div class="uxph-speaker-name">
+            <a href="/speakers/{{link}}/" style="color: inherit; text-decoration: none">
             {{name}}
+            </a>
           </div>
 
           <div class="uxph-speaker-short-bio">
