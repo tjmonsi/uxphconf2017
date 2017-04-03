@@ -3,10 +3,24 @@
   "shell": "project_components/core-app-component/core-app-component.html",
   "fragments": [
     "project_components/uxph-venue-map/uxph-venue-map.html",
-    "project_components/core-toast/core-toast.html"
+    "project_components/core-toast/core-toast.html",
+    "speakers/alex-collado/index.html",
+    "speakers/ben-kim/index.html",
+    "speakers/carolyn-wiener/index.html",
+    "speakers/jen-teves/index.html",
+    "speakers/jordan-deja/index.html",
+    "speakers/lorenzo-villalon/index.html",
+    "speakers/micael-diaz-de-rivera/index.html",
+    "speakers/mikki-phan/index.html",
+    "speakers/paul-sherman/index.html",
+    "speakers/pete-chemsripong/index.html",
+    "speakers/sam-cruz/index.html",
+    "speakers/sam-yuen/index.html",
+    "speakers/yian-ling-cheong/index.html"
   ],
   "sources": [
-   "images/**/*"
+   "images/**/*",
+   "speakers/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
