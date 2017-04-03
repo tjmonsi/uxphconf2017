@@ -25,7 +25,7 @@ exports.nav = [
   },
   {
     id: "about",
-    name: "About This Conference and UXPH"
+    name: "About UXPH"
   },
   {
     id: "sponsors",
