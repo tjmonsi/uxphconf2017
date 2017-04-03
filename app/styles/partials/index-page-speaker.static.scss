@@ -36,12 +36,12 @@
 
       margin-right: 20px;
       background-color: $white;
-      height: 400px;
+      height: 450px;
       margin-bottom: 30px;
       position: relative;
 
       @include phone {
-        height: 450px;
+        height: 500px;
       }
 
       // @include large-desktop {
