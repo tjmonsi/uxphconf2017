@@ -4,7 +4,7 @@ exports.app = {
   shortName: 'UXPH',
   description: "Learn about User Experience Design with people from all over the world. Mark your calendars. Pledge your support. Attend. Present.",
   build: 'beta',
-  ravenConfig: 'https://827acc4cd4d04b009157881a6939baac@sentry.io/123192',
+  ravenConfig: 'https://9f5d8e1abe974d799eefe34c0cba46af@sentry.io/119409',
   themeColor: '#FF422E',
   backgroundColor: '#FF422E'
 }
