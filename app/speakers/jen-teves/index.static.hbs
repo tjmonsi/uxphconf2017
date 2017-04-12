@@ -9,7 +9,7 @@ data:
     socials1:
       -
         link: https://www.facebook.com/UXPhilippines/
-        icon: /images/assets/Twitter1.png
+        icon: /images/assets/Twitter2.png
       -
         link: https://www.facebook.com/UXPhilippines/
         icon: /images/assets/Linkedin.png
@@ -19,7 +19,7 @@ data:
     socials:
       -
         link: https://www.facebook.com/UXPhilippines/
-        icon: /images/assets/Facebook1.png
+        icon: /images/assets/Facebook2.png
 
 
 _options:
@@ -58,17 +58,17 @@ _options:
       <div class="uxph-speaker-page">
         {{#with data.speakers}}
         <div class="speaker-side">
-          <img src="{{1.boxavatar}}">
+          <img src="{{2.boxavatar}}">
         </div>
 
         <div class="speaker-content">
           <section class="uxph-blue-bg-5 uxph-speaker-banner speaker-content-header">
             <div class="flex speaker-content-header-text">
-              <h1>{{1.name}}</h1>
-              <span class="speaker-company">{{1.shortBio}}</span>
+              <h1>{{2.name}}</h1>
+              <span class="speaker-company">{{2.shortBio}}</span>
               <div class="uxph-small-divider">
               </div>
-              <h2>{{1.talkTopic}}</h2>
+              <h2>{{2.talkTopic}}</h2>
             </div>
             <div class="flex uxph-banner-image" >
             </div>
@@ -76,7 +76,7 @@ _options:
           <div class="speaker-content-body">
             <div class="speaker-side-2">
               <div class="speaker-short-bio">
-              {{#each 1.shortBioList}}
+              {{#each 2.shortBioList}}
                 <span class="speaker-short-bio-title">
                   {{title}}
                 </span><br/>
@@ -91,7 +91,7 @@ _options:
               </div>
             </div>
             <div class="speaker-wrapper"></div>
-            <p>{{1.fullBio}}</p>
+            <p>{{2.fullBio}}</p>
           </div>
         </div>
         {{/with}}

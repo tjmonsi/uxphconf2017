@@ -57,17 +57,17 @@ _options:
       <div class="uxph-speaker-page">
         {{#with data.speakers}}
         <div class="speaker-side">
-          <img src="{{2.boxavatar}}">
+          <img src="{{3.boxavatar}}">
         </div>
 
         <div class="speaker-content">
           <section class="uxph-blue-bg-5 uxph-speaker-banner speaker-content-header">
             <div class="flex speaker-content-header-text">
-              <h1>{{2.name}}</h1>
-              <span class="speaker-company">{{2.shortBio}}</span>
+              <h1>{{3.name}}</h1>
+              <span class="speaker-company">{{3.shortBio}}</span>
               <div class="uxph-small-divider">
               </div>
-              <h2>{{2.talkTopic}}</h2>
+              <h2>{{3.talkTopic}}</h2>
             </div>
             <div class="flex uxph-banner-image" >
             </div>
@@ -75,7 +75,7 @@ _options:
           <div class="speaker-content-body">
             <div class="speaker-side-2">
               <div class="speaker-short-bio">
-              {{#each 2.shortBioList}}
+              {{#each 3.shortBioList}}
                 <span class="speaker-short-bio-title">
                   {{title}}
                 </span><br/>
@@ -90,7 +90,7 @@ _options:
               </div>
             </div>
             <div class="speaker-wrapper"></div>
-            <p>{{{2.fullBio}}}</p>
+            <p>{{{3.fullBio}}}</p>
           </div>
         </div>
         {{/with}}

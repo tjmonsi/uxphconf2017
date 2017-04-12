@@ -55,6 +55,33 @@ exports.links = [
 ]
 exports.speakers = [
   {
+    name: "Department Secretary",
+    shortBio: "Philippine Government",
+    talkTopic: "Keynote",
+    fullBio: "Full bio here",
+    avatar: "/images/assets/speakers/paulsherman.jpg",
+    boxavatar: "/images/assets/speakers/sq-psherman.jpg",
+    link: "paul-sherman",
+    shortBioList: [
+      {
+        title: "Level of Experience",
+        body: "Advanced (+5 years)"
+      },
+      {
+        title: "Speaker Background",
+        body: "I am currently a UX professional with academic, professional, or practical training in UX."
+      },
+      {
+        title: "Track",
+        body: "Product Design for Start-ups"
+      },
+      {
+        title: "Format",
+        body: "Presentation Talk"
+      }
+    ]
+  },
+  {
     name: "Paul Sherman, PhD",
     shortBio: "Kent State University and Sherman UX",
     talkTopic: "User Research At The Speed Of Business: A Field Research Primer And Toolkit",
