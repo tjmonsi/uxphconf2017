@@ -16,7 +16,7 @@ module.exports = {
     'app.js'
   ],
   navigateFallback: '/index.html',
-  navigateFallbackWhitelist: [/^(?!\/__)/],
+  navigateFallbackWhitelist: [/^(?!(\/__)|(\/service-worker\.js))/],
   runtimeCaching: [
     {
       // cache Google user profile pics
@@ -25,7 +25,7 @@ module.exports = {
     },
     {
       urlPattern: /service-worker.js/,
-      handler: 'networkFirst'
+      handler: 'networkOnly'
     },
     {
       urlPattern: /^https:\/\/maps.googleapis.com\/.*/,
