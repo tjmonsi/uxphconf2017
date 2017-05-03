@@ -55,6 +55,33 @@ exports.links = [
 ]
 exports.speakers = [
   {
+    name: "Sec. Judy M. Taguiwalo",
+    shortBio: "Department of Social Welfare and Development",
+    talkTopic: "Keynote",
+    fullBio: "UXPH is proud to announce our most distinguished keynote speaker for this year’s conference who is no other than the DSWD Secretary “Manay Judy” Taguiwalo. She will be posing a challenge for UXPH2017 attendees to contribute to changing the Philippines and the world for the better using design thinking. <br><br> Dr. Judy M. Taguiwalo is currently the Secretary for the Department of Social Welfare and Development (DSWD). For 23 years, she was a professor in Women and Development Studies at the University of the Philippines - Diliman Campus’ College of Social Work and Community Development. Before her retirement in 2015, Dr. Taguiwalo was a UP Faculty Regent from 2009 to 2010. Some of Dr. Taguiwalo awards include: Makabayang Guro by Alliance of Concerned Teachers (2012); UP Diliman Centennial Professorial Chair (2012); and UP Alumni Association Distinguished Alumni Award in Gender Equality/Women Empowerment (2009).",
+    avatar: "/images/assets/speakers/secjudy.jpg",
+    boxavatar: "/images/assets/speakers/sq-secjudy.jpg",
+    link: "judy-taguiwalo",
+    shortBioList: [
+      {
+        title: "Level of Experience",
+        body: "Advanced (+20 years)"
+      },
+      {
+        title: "Speaker Background",
+        body: "Social Welfare and Development"
+      },
+      {
+        title: "Track",
+        body: "Application of Design in Government"
+      },
+      {
+        title: "Format",
+        body: "Keynote Speech"
+      }
+    ]
+  },
+  {
     name: "Paul Sherman, PhD",
     shortBio: "Kent State University and Sherman UX",
     talkTopic: "User Research At The Speed Of Business: A Field Research Primer And Toolkit",

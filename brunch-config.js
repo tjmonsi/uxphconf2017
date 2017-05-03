@@ -53,6 +53,12 @@ exports.plugins = {
                 return options.fn(this);
               }
               return options.inverse(this)
+            },
+            lessThan: function(index, wrap, options) {
+              if (index < wrap) {
+                return options.fn(this);
+              }
+              return options.inverse(this)
             }
           }
         }
@@ -83,19 +89,24 @@ exports.overrides = {
             handlebars: {
               enableProcessor: true,
               helpers: {
-                wrapper: function(index, wrap, options) {
-                  if(!(index%wrap)) {
+                wrapper: function(index, wrap, offset, options) {
+                  if(!((index + offset)%wrap)) {
                     return options.fn(this);
                   }
                   return options.inverse(this);
                 },
                 mainSpeakerEnd: function(index, wrap, options) {
-                  if (!index === wrap) {
+                  if (index === wrap) {
+                    return options.fn(this);
+                  }
+                  return options.inverse(this)
+                },
+                lessThan: function(index, wrap, options) {
+                  if (index < wrap) {
                     return options.fn(this);
                   }
                   return options.inverse(this)
                 }
-
               }
             }
           })

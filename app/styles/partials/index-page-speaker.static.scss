@@ -109,6 +109,8 @@
         }
       }
 
+
+
       .uxph-speaker-full-bio-button {
         position: absolute;
         bottom: 0px;
@@ -158,3 +160,11 @@
     // }
   }
 }
+
+.uxph-speaker-container-main {
+    height: 600px !important;
+
+    .uxph-speaker-avatar {
+      height: 300px !important;
+    }
+  }

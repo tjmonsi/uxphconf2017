@@ -1,4 +1,4 @@
-exports.image = 'https://ux-ph-conf-2017.firebaseapp.com/images/assets/UXPHConf_Facebook_Cover.png';
+exports.image = 'https://ux-ph-conf-2017.firebaseapp.com/images/assets/bground.jpg';
 exports.ogType = 'website';
 exports.twitterCard = 'summary_large_image';
 exports.twitterHandle = 'UXPHL';

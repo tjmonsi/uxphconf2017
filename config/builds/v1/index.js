@@ -8,6 +8,7 @@ exports.app = {
   themeColor: '#FF422E',
   backgroundColor: '#FF422E'
 }
-exports.manifest = require('./manifest')
+exports.manifest = require('./manifest');
 exports.meta = require('./meta');
-exports.data = require('./data');
+exports.data = require('./data')
+
